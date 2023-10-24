@@ -1,7 +1,12 @@
 @font-face {
   font-family: 'Montserrat-SemiBold'; /* Имя шрифта, которое вы будете использовать в вашем CSS */
-  src: url('/static/font/Montserrat/Montserrat-SemiBold.ttf') format('truetype'), /* Путь к .woff2 файлу */
-      url('/static/font/Montserrat/Montserrat-Regular.ttf') format('truetype');
+  src: url('/static/font/Montserrat/Montserrat-SemiBold.ttf') format('truetype'); /* Путь к .woff2 файлу */
+  /* Другие параметры шрифта (размер, начертание и т. д.) могут быть указаны здесь */
+}
+
+@font-face {
+  font-family: 'Montserrat-ExtraBold'; /* Имя шрифта, которое вы будете использовать в вашем CSS */
+  src: url('/static/font/Montserrat/Montserrat-ExtraBold.ttf') format('truetype'); /* Путь к .woff2 файлу */
   /* Другие параметры шрифта (размер, начертание и т. д.) могут быть указаны здесь */
 }
 
@@ -24,12 +29,32 @@ body{
 
 
 .navbar-brand {
-  width: 16%;
-  min-width: 180px;
-  height: auto;
+  display: flex; /* Используйте flexbox для управления расположением дочерних элементов */
+  align-items: center; /* Выравнивание по вертикали по центру */
+  justify-content: center; /* Выравнивание по горизонтали по центру */
+  width: auto;
+  height: 90%;
   margin-left: 6.9%;
+  border-radius: 50em;
+  background-color: #D5E6F2;
+  padding: 0 ;
 }
 
+.new_logo{
+  height: 100%;
+  margin-right: 4%;
+}
+
+.name{
+  display: flex; /* Используйте flexbox для управления расположением дочерних элементов */
+  align-items: center; /* Выравнивание по вертикали по центру */
+  justify-content: center;
+  height: 100%;
+  margin-right: 20px;
+  font-size: 2.3rem;
+  font-family: 'Montserrat-ExtraBold';
+  color: #353535;
+}
 
 #box{
   position: relative;
@@ -85,33 +110,38 @@ button {
 #copy_text_img{
   width: auto;
   height: 100%;
-
+  margin-right: 5px;
 }
 
 #copy_text_btn{
+  display: flex; /* Используйте flexbox для управления расположением дочерних элементов */
+  align-items: center; /* Выравнивание по вертикали по центру */
+  justify-content: center;
   height: 100%;
   width: auto;
-  padding: 0px;
+  padding: 4px 14px;
   margin: 0 20px 0 0;
   outline: none;
-}
-
-#copy_text_img:hover{
-  opacity: 0;
+  border-radius: 0.9rem;
+  border: 1px solid #4C4C4C;
+  background-color: #FFFFFF;
+  font-size: 1.4em;
+  font-family: 'Montserrat-SemiBold';
+  color: #4C4C4C;
 }
 
 #copy_text_btn:hover{
-  background-image:url('/static/images/copy_text_2.png');
-  background-size: 100%;
-}
-
-#copy_text_img:active{
-  opacity: 0;
+  background-color: #D5E6F2;
 }
 
 #copy_text_btn:active{
-  background-image:url('/static/images/copy_text_3.png');
-  background-size: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #1E50A5;
+  color: #1E50A5;
+}
+
+#copy_text_btn:active #copy_text_img{
+  content: url('/static/images/new_copy2.png');
 }
 
 
@@ -138,22 +168,12 @@ button {
   height: 100%;
 }
 
-#error_img:hover{
-  opacity: 0;
+#error_btn:hover #error_img{
+  content:url('/static/images/previous2.png');
 }
 
-#error_btn:hover{
-  background-image:url('/static/images/previous2.png');
-  background-size: 100%;
-}
-
-#error_img:active{
-  opacity: 0;
-}
-
-#error_btn:active{
-  background-image:url('/static/images/previous3.png');
-  background-size: 100%;
+#error_btn:active #error_img{
+  content:url('/static/images/previous3.png');
 }
 
 #error_btn2{
@@ -169,28 +189,16 @@ button {
   height: 100%;
 }
 
-#error_img2:hover{
-  opacity: 0;
+#error_btn2:hover #error_img2{
+  content:url('/static/images/next2.png');
 }
 
-#error_btn2:hover{
-  background-image:url('/static/images/next2.png');
-  background-size: 100%;
-}
-
-#error_img2:active{
-  opacity: 0;
-}
-
-#error_btn2:active{
-  background-image:url('/static/images/next3.png');
-  background-size: 100%;
+#error_btn2:active #error_img2{
+  content:url('/static/images/next3.png');
 }
 
 
 #clean_text{
-
-
   height: 4.5%;
   min-height: 24px;
   width: 1.75%;
@@ -287,32 +295,32 @@ display: inline-block;
 
 
 #ignor{
+  position: relative;
   margin: 0 5% 10px 5%;
   width: 90%;
   min-width: 260px;
   padding: 0;
   outline: none;
+  display: flex; /* Используйте flexbox для управления расположением дочерних элементов */
+  align-items: center; /* Выравнивание по вертикали по центру */
+  justify-content: center;
+}
+
+#t_ig{
+  position: absolute;
+  z-index: 2;
 
 }
 
 #ignor_img{
   width: 100%;
+  z-index: 0;
 }
 
-#ignor_img:hover{
-  opacity: 0;
+#ignor:hover #ignor_img{
+  content:url('/static/images/new_ignor2.png');
 }
 
-#ignor:hover{
-  background-image:url('/static/images/ignor2.png');
-  background-size: 100%;
-}
-
-#ignor_img:active{
-  opacity: 0;
-}
-
-#ignor:active{
-  background-image:url('/static/images/ignor3.png');
-  background-size: 100%;
+#ignor:active #ignor_img{
+    content:url('/static/images/new_ignor3.png');
 }
