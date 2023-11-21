@@ -2,7 +2,12 @@ var DICT={};
 var timer, count_symbol=0, count_word=0, count_error=0; // Таймер
 var spans=0;
 let currentIndex = -1; // Индекс текущего выделенного слова
-
+let atribut = 'onclick';
+let atr = 'click';
+if ('ontouchstart' in window) {
+    atribut = 'ontouchend';
+    atr = 'touchend';
+}
 
 //Сохранение положения курсора
 function saveSelection(containerEl) {
@@ -64,6 +69,7 @@ function stripStyles(e) {
     for (let i = 0; i < paragraphs.length; i++) {
         formattedText += `${paragraphs[i]}<br> `;
     }
+    formattedText = formattedText.replace(/[\r\n]/g, '');
     document.execCommand('insertHTML', false, formattedText);
 }
 
@@ -109,13 +115,15 @@ function add_word(){
     if (containers) {
         text_content.removeChild(containers);
     }
+    let text=text_content.innerHTML;
 
-    text=text_content.innerHTML;
     if(text.includes('<div>')){
-        const newText = text.replace(/<div>/g, "<br> ");
+        let newText = text.replace(/<div>/g, "<br> ");
+        newText = newText.replace(/<\/div>/g, "");
         let savedSelection = saveSelection(text_content);
         text_content.innerHTML=newText;
         restoreSelection(text_content, savedSelection);
+        text=text_content.innerHTML;
     }
 
 
@@ -127,7 +135,7 @@ function add_word(){
 
 
     for(i=0; i < words.length; i++){
-        if (!(words[i].includes('<span>') || words[i].includes('<span class="dropdown-trigger" onclick="toggleListDisplayblock(event)">')) && words[i] !== '<br>') {
+        if (!(words[i].includes('<span>') || words[i].includes('<span class="dropdown-trigger" '+ atribut +'="toggleListDisplayblock(event)">')) && words[i] !== '<br>') {
             words[i] = '<span>' + words[i] + '</span>';
         }
     }
@@ -143,7 +151,7 @@ function add_word(){
     count_word=array_word.length;
     divCountWord.textContent=count_word;
 
-    for (var i = 0; i < array_word.length; i++) {
+    for (let i = 0; i < array_word.length; i++) {
         // Проверяем, есть ли слово уже в объекте
         if (!DICT.hasOwnProperty(array_word[i])) {
             // Если слова нет, то добавляем его в объект
@@ -158,13 +166,13 @@ function add_word(){
 function WordToSpan(words){
     for (let i=0; i < words.length; i++){
         let word = words[i].replace(/<\/?span[^>]*>/g, '');
-        if (word.trim()!=="" && word.split(/(&nbsp;|\s)/).length > 1){
-            word = word.split(/(&nbsp;|\s)/);
+        if (word.trim()!=="" && word.split(/(&nbsp;|\s)/).filter(Boolean).length > 1){
+            word = word.split(/(&nbsp;|\s)/).filter(Boolean);
             word = word.filter(function(word1) {
                 return word1 !== "";
             });
 
-            for(j=0; j < word.length; j++){
+            for(let j=0; j < word.length; j++){
                 if (!word[j].includes('<span>') && word[j] !== '<br>') {
                     if (word[j].includes("<br>")){
                         word[j] = word[j].replace(/<\/?[^>]+(>|$)/g, "");
@@ -190,7 +198,7 @@ function WordToSpan(words){
 //разделение текста на слова
 function splitTextIntoWords(text) {
     // Удаляем знаки препинания
-    const cleanText = text.replace(/[.,!?;:()"“”'–−«»]/g, '');
+    const cleanText = text.replace(/[.,!?;:()"“”'–−—«»]/g, '');
 
     // Разделяем текст на слова
     const words = cleanText.split(/\s+/);
@@ -212,7 +220,7 @@ function sendOnBackend(){
             if (DICT.hasOwnProperty(key) && DICT[key] === null) {
                 k++;
                 null_array.push(key);
-                if(null_array.length===10){
+                if(null_array.length===100){
                     request_server(null_array);
                     null_array=[];
                 }
@@ -295,11 +303,11 @@ function correctDivContentText(){
 
             if (DICT.hasOwnProperty(cleanWord) && DICT[cleanWord] !== null && DICT[cleanWord].length > 0) {
                 spanElements[i].classList.add("dropdown-trigger");
-                spanElements[i].setAttribute("onclick", "toggleListDisplayblock(event)");
+                spanElements[i].setAttribute(atribut, "toggleListDisplayblock(event)");
             }
         }else if(spanElements[i].classList.contains("dropdown-trigger") && DICT[cleanWord].length === 0){
             spanElements[i].removeAttribute("class");
-            spanElements[i].removeAttribute("onclick");
+            spanElements[i].removeAttribute(atribut);
         }
     }
  }
@@ -313,12 +321,12 @@ DivCorrect.innerHTML=`<div id="lineOne"><img src="/static/images/!.png" alt=""> 
 
 const list_v = document.createElement("ul");
 list_v.id="dropdownlist";
-list_v.setAttribute("onclick", "handleOptionClick(event)");
+list_v.setAttribute(atribut, "handleOptionClick(event)");
 DivCorrect.appendChild(list_v);
 
 var ignorButton = document.createElement('button');
 ignorButton.id = 'ignor';
-ignorButton.setAttribute('onclick', 'ignorError(event)');
+ignorButton.setAttribute(atribut, 'ignorError(event)');
 
 var img = document.createElement('img');
 img.id = 'ignor_img';
@@ -350,13 +358,13 @@ function toggleListDisplayblock(event) {
 
     event.target.insertAdjacentElement('afterend', DivCorrect);
 
-    rect1 = text_content.getBoundingClientRect();
+    let rect1 = text_content.getBoundingClientRect();
     var spanRect = event.target.getBoundingClientRect();
     // Позиционируем rightWordDiv под span
     DivCorrect.style.left = spanRect.left - rect1.left + 'px';
 
-    rect2 = DivCorrect.getBoundingClientRect();
-    overlapRight = rect2.right - rect1.right;
+    let rect2 = DivCorrect.getBoundingClientRect();
+    let overlapRight = rect2.right - rect1.right;
 
     if (overlapRight > 0) {
         DivCorrect.style.right='0px';
@@ -369,7 +377,7 @@ function handleOptionClick(event) {
     if(currentIndex>-1){
         currentIndex--;
     }
-    span_teg=event.currentTarget.parentElement.previousElementSibling;
+    let span_teg=event.currentTarget.parentElement.previousElementSibling;
     if (event.target.tagName === "LI") {
         const selectedOption = event.target.textContent;
 
@@ -377,8 +385,8 @@ function handleOptionClick(event) {
         span_teg.textContent = span_teg.textContent.replace(new RegExp(old_text, 'g'), selectedOption);
 
         span_teg.removeAttribute("class");
-        span_teg.removeAttribute("onclick");
-        cleanWord = selectedOption.replace(/[.,!?;:()"“”'–−«»]/g, "");
+        span_teg.removeAttribute(atribut);
+        let cleanWord = selectedOption.replace(/[.,!?;:()"“”'–−«»]/g, "");
         DICT[cleanWord]=[];
         add_word();
     }
@@ -399,12 +407,12 @@ function ignorError(event){
     if(currentIndex>-1){
         currentIndex--;
     }
-    span_teg=event.currentTarget.parentElement.previousElementSibling;
-    ignorWord=event.currentTarget.parentElement.previousElementSibling.textContent;
-    cleanWord = ignorWord.replace(/[.,!?;:()"“”'–−«»]/g, "");
+    let span_teg=event.currentTarget.parentElement.previousElementSibling;
+    let ignorWord=event.currentTarget.parentElement.previousElementSibling.textContent;
+    let cleanWord = ignorWord.replace(/[.,!?;:()"“”'–−«»]/g, "");
     span_teg.textContent=`${ignorWord}`;
     span_teg.removeAttribute("class");
-    span_teg.removeAttribute("onclick");
+    span_teg.removeAttribute(atribut);
     DICT[cleanWord]=[];
 
     count_error=countTags();
@@ -422,7 +430,7 @@ function ignorError(event){
 
 var dbl_btn=document.getElementById('dbl_btn');
 
-document.addEventListener('click', function (event) {
+document.addEventListener(atr, function (event) {
     var containers = document.getElementById('rightWordDiv');
 
     if (containers && containers !== event.target && event.target !== containers.previousElementSibling && dbl_btn!==event.target && !dbl_btn.contains(event.target)) {
@@ -463,14 +471,24 @@ function countTags() {
 }
 
 
+let back_btn=document.getElementById('error_btn');
+let next_btn=document.getElementById('error_btn2');
+let copy_btn=document.getElementById('copy_text_btn');
+let clean_btn=document.getElementById('clean_text');
+next_btn.setAttribute(atribut, "nextWord()");
+back_btn.setAttribute(atribut, "backWord()");
+copy_btn.setAttribute(atribut, "CopyText()");
+clean_btn.setAttribute(atribut, "cleanTextContainer()");
+
+
 function cleanTextContainer(){
     text_content.innerHTML='';
     DICT={};
     placeholder.style.display = 'block';
     inform.style.display='none';
-    divCountSymbol.textContent=0;
-    divCountWord.textContent=0;
-    divCountError.textContent=0;
+    divCountSymbol.textContent='0';
+    divCountWord.textContent='0';
+    divCountError.textContent='0';
     btn1.style.display='none';
     btn2.style.display='none';
     currentIndex = -1;
@@ -485,12 +503,6 @@ function CopyText(){
 }
 
 
-var back_btn=document.getElementById('error_btn');
-var next_btn=document.getElementById('error_btn2');
-next_btn.setAttribute("onclick", "nextWord()");
-back_btn.setAttribute("onclick", "backWord()");
-
-
 function next_back(event) {
     var cleanWord = event.textContent.replace(/[.,!?;:()"“”'–−«»]/g, "");
 
@@ -503,13 +515,13 @@ function next_back(event) {
 
     event.insertAdjacentElement('afterend', DivCorrect);
 
-    rect1 = text_content.getBoundingClientRect();
+    let rect1 = text_content.getBoundingClientRect();
     var spanRect = event.getBoundingClientRect();
     // Позиционируем rightWordDiv под span
     DivCorrect.style.left = spanRect.left - rect1.left + 'px';
 
-    rect2 = DivCorrect.getBoundingClientRect();
-    overlapRight = rect2.right - rect1.right;
+    let rect2 = DivCorrect.getBoundingClientRect();
+    let overlapRight = rect2.right - rect1.right;
 
     if (overlapRight > 0) {
         DivCorrect.style.right='0px';
@@ -525,7 +537,7 @@ function nextWord() {
             currentIndex++;
             next_back(spans[currentIndex]);
         }else{
-            list=spans[currentIndex].nextElementSibling;
+            let list=spans[currentIndex].nextElementSibling;
             if (list.tagName === 'DIV'){
                 text_content.removeChild(list);
             }
@@ -538,7 +550,7 @@ function nextWord() {
   // Функция для выделения предыдущего слова
 function backWord() {
     if (currentIndex > 0) {
-        list=spans[currentIndex].nextElementSibling;
+        let list=spans[currentIndex].nextElementSibling;
         if (list.tagName === 'DIV'){
             text_content.removeChild(list);
         }
