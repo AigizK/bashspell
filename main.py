@@ -65,7 +65,7 @@ def spellChecker_notHunspell(unverified_words):
 
 def save_to_sqlite_db(data, version):
     # Подключение к базе данных (если базы данных нет, она будет создана)
-    conn = sqlite3.connect('stat.db')
+    conn = sqlite3.connect('text.db')
     cursor = conn.cursor()
 
     # Создание таблицы, если она еще не существует
