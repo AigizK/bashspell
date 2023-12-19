@@ -9,12 +9,12 @@
           crossorigin="anonymous">
     <title>Тикшереү</title>
     <link type="Image/x-icon" href="/static/images/Group 23.ico" rel="icon">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css?version=5.0">
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img class="navbar-brand" src="/static/images/logo.png" alt="Тикшереү">
+    <div class="navbar-brand"><img class="new_logo" src="/static/images/new_logo.svg" alt="Тикшереү"><h1 class="name">Тикшереү</h1></div>
 </nav>
 <div id="box">
     <div id="head_container">
@@ -27,21 +27,15 @@
                     id="error_img2" alt="киләһе хата"></button>
         </div>
         <div class="dbl_btn2">
-            <button id="copy_text_btn" onclick="CopyText()"><img
-                    src="/static/images/copy_text.png"
-                    id="copy_text_img" alt="тексты тейәргә"></button>
-            <button id="clean_text" onclick="cleanTextContainer()"></button>
+            <button id="copy_text_btn"><img src="/static/images/new_copy1.png" id="copy_text_img" alt="тексты тейәргә">Тейәргә</button>
+            <button id="clean_text"></button>
         </div>
     </div>
     <div id="text_content" contenteditable="true" spellcheck="false"
          onpaste="stripStyles(event)"></div>
     <div id="placeholder">Яҙа башлағыҙ...</div>
-    <div id="inform"><span style="display: inline-block;"
-                           style=" font-family:'Montserrat-Medium';"><div
-            id="count_symbol" style="display: inline-block;"></div> символ, <div
-            id="count_word" style="display: inline-block;"></div> һүҙ |</span>
-        <div id="count_error" style="display: inline-block;"></div>
-        төҙәтмә
+    <div id="inform"><span class="inform22" style="display: inline-block; font-family:'Montserrat-Medium';">
+        <div id="count_symbol" style="display: inline-block;"></div> символ, <div id="count_word" style="display: inline-block;"></div> һүҙ | &nbsp;</span><div id="count_error" style="display: inline-block;"></div>төҙәтмә
     </div>
 </div>
 
@@ -52,6 +46,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="/static/js/index.js"></script>
+<script src="/static/js/index.js?version=7.0"></script>
 </body>
 </html>

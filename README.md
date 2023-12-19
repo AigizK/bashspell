@@ -5,4 +5,5 @@
 
 Чтоб установить Hunspell в Ubuntu, надо поставить эти библиотеки сперва:
 1. sudo apt-get install python3.10-dev
-2. sudo apt-get install hunspell
+2. sudo apt-get install libhunspell-dev
+3. sudo apt-get install hunspell
