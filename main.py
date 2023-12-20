@@ -8,7 +8,7 @@ from pydantic import BaseModel
 from starlette.requests import Request
 from starlette.responses import FileResponse
 
-ACTUAL_BASH_HUNSPELL_VERSION = "15.12.2023"
+ACTUAL_BASH_HUNSPELL_VERSION = "20.12.2023"
 
 app = FastAPI()
 
