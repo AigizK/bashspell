@@ -260,7 +260,7 @@ function request_server(check_candidates){
         body: JSON.stringify(dataToSend),
     };
 
-    fetch('/data_processing/', requestOptions)
+    fetch('/data_processing', requestOptions)
     .then(response => response.json())
     .then(data => {
         // Обрабатываем ответ от сервера
