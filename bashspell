@@ -16,6 +16,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterable, Sequence
 
+from bashspell_text import extract_words as extract_text_words
+from bashspell_text import should_ignore_word
+
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DICTIONARIES_ROOT = PROJECT_ROOT / "static" / "hunspell"
@@ -32,7 +35,6 @@ COMMANDS = {
     "version",
     "repl",
 }
-WORD_RE = re.compile(r"[^\W\d_]+(?:[-'’][^\W\d_]+)*", re.UNICODE)
 LATIN_LETTER_RE = re.compile(r"[A-Za-z]")
 GENITIVE_QUESTION_INDEFINITE_RE = re.compile(
     r"[дтнҙ](?:ыңмылыр|еңмелер|оңмолор|өңмөлөр)$"
@@ -234,14 +236,26 @@ def check_words(
 ) -> list[CheckResult]:
     if not words:
         return []
-    # A leading caret makes pipe-mode treat every line as text, not as a command.
-    payload = "".join(f"^{word}\n" for word in words)
-    completed = run_hunspell(binary, dictionary_stem, ["-a"], payload)
-    return parse_pipe_response(words, completed.stdout)
+    checked_words = [word for word in words if not should_ignore_word(word)]
+    checked_results: list[CheckResult] = []
+    if checked_words:
+        # A leading caret makes pipe-mode treat every line as text, not as a command.
+        payload = "".join(f"^{word}\n" for word in checked_words)
+        completed = run_hunspell(binary, dictionary_stem, ["-a"], payload)
+        checked_results = parse_pipe_response(checked_words, completed.stdout)
+
+    checked_iter = iter(checked_results)
+    results: list[CheckResult] = []
+    for word in words:
+        if should_ignore_word(word):
+            results.append(CheckResult(word, True, [], "@"))
+        else:
+            results.append(next(checked_iter))
+    return results
 
 
 def extract_words(text: str) -> list[str]:
-    return WORD_RE.findall(text)
+    return extract_text_words(text)
 
 
 def format_check_results(

@@ -49,6 +49,29 @@ class BashspellCliTests(unittest.TestCase):
             {"checked": 3, "correct": 1, "incorrect": 2},
         )
 
+    def test_corpus_tokenization_and_abbreviation_whitelist(self) -> None:
+        completed = run_cli(
+            "--json",
+            "text",
+            "1941-ҙән 20-нән «Даная»ның респ. БР М. тарихы башкорд",
+        )
+        self.assertEqual(completed.returncode, 1)
+        payload = json.loads(completed.stdout)
+        by_word = {item["word"]: item for item in payload["results"]}
+
+        self.assertEqual(
+            payload["summary"],
+            {"checked": 5, "correct": 4, "incorrect": 1},
+        )
+        self.assertIn("Данаяның", by_word)
+        self.assertNotIn("ҙән", by_word)
+        self.assertNotIn("нән", by_word)
+        self.assertNotIn("ның", by_word)
+        self.assertNotIn("М", by_word)
+        self.assertEqual(by_word["респ"]["marker"], "@")
+        self.assertEqual(by_word["БР"]["marker"], "@")
+        self.assertFalse(by_word["башкорд"]["correct"])
+
     def test_rule_expectations(self) -> None:
         completed = run_cli(
             "test",
@@ -116,7 +139,7 @@ class BashspellCliTests(unittest.TestCase):
     def test_latest_dictionary_matches_grammar_regressions(self) -> None:
         completed = run_cli("test", "--file", str(GRAMMAR_REGRESSIONS))
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
-        self.assertIn("Итого: 125; провалено: 0", completed.stdout)
+        self.assertIn("Итого: 285; провалено: 0", completed.stdout)
 
     def test_latest_dictionary_matches_apertium_regressions(self) -> None:
         completed = run_cli("test", "--file", str(APERTIUM_REGRESSIONS))
@@ -139,6 +162,32 @@ class BashspellCliTests(unittest.TestCase):
                 self.assertIn(f"st:{noun} [Noun] +Pl", correct.stdout)
 
     def test_latest_dictionary_morphology_regressions(self) -> None:
+        for form, stem, nominal_flag in (
+            ("тороуы", "тороу", "99"),
+            ("төшөүе", "төшөү", "100"),
+        ):
+            with self.subTest(form=form):
+                analysis = run_cli("analyze", form)
+                self.assertEqual(analysis.returncode, 0, analysis.stderr)
+                self.assertIn(f"st:{stem} [Verb] fl:{nominal_flag} +PxSg3", analysis.stdout)
+
+        homograph = run_cli("analyze", "һуҡа")
+        self.assertEqual(homograph.returncode, 0, homograph.stderr)
+        self.assertIn("st:һуҡа [Noun]", homograph.stdout)
+        self.assertNotIn("st:һуҡ [Verb]", homograph.stdout)
+
+        for form, expected in (
+            ("күҙаллана", "st:күҙалла [Verb] +Pass +Pres+PxSg3"),
+            ("фаразлана", "st:фараз [Noun] +Der/ла+Pass +Pres+PxSg3"),
+            ("керҙәшлектәр", "st:керҙәш [Noun] +Der/лыҡ +Pl"),
+            ("икәүһенең", "st:икәү [Num] fl:332 +PxSg3+Gen"),
+            ("көньяҡтараҡ", "st:көньяҡ [Noun] +Loc+Comp"),
+        ):
+            with self.subTest(form=form):
+                analysis = run_cli("analyze", form)
+                self.assertEqual(analysis.returncode, 0, analysis.stderr)
+                self.assertIn(expected, analysis.stdout)
+
         plural = run_cli("analyze", "малымдар")
         self.assertEqual(plural.returncode, 0, plural.stderr)
         self.assertIn("+PxSg1+Pl", plural.stdout)

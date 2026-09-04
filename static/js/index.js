@@ -4,6 +4,18 @@ var spans=0;
 let currentIndex = -1; // Индекс текущего выделенного слова
 let atribut = 'onclick';
 let atr = 'click';
+const SPELLCHECK_ABBREVIATIONS = new Set([
+    'авг', 'акад', 'басс', 'биол', 'гәз', 'геол', 'гр', 'ғин',
+    'губерн', 'диам', 'див', 'дир', 'етәкс', 'иҡт', 'каф', 'кг',
+    'км', 'ком', 'лаб', 'м', 'мәҫ', 'мед', 'млн', 'млрд', 'мм',
+    'муз', 'нач', 'нефтехим', 'окт', 'өлк', 'орд', 'респ', 'реж',
+    'сент', 'см', 'соц', 'станц', 'т', 'терр', 'февр', 'проф', 'ҡсб'
+]);
+const SPELLCHECK_ACRONYMS = new Set([
+    'ААЙ', 'АССР', 'БАССР', 'БДУ', 'БР', 'БССР', 'ВИЧ', 'ҒПП',
+    'КПСС', 'ПОЛИЭФ', 'РСФСР', 'РФ', 'СДПА', 'СССР', 'ФДУП',
+    'ЭЭМ', 'ЮНЕСКО', 'ӨДАТУ'
+]);
 if ('ontouchstart' in window) {
     atribut = 'ontouchend';
     atr = 'touchend';
@@ -197,14 +209,37 @@ function WordToSpan(words){
 
 //разделение текста на слова
 function splitTextIntoWords(text) {
-    // Удаляем знаки препинания
-    const cleanText = text.replace(/[.,!?;:()"“”'–−—«»]/g, '');
+    let normalized = text.normalize('NFC');
 
-    // Разделяем текст на слова
-    const words = cleanText.split(/\s+/);
+    // Case suffixes outside quotation marks belong to the quoted word:
+    // «Даная»ның -> Данаяның.  Numeric forms are not spelling candidates,
+    // so 1941-ҙән and 1018кДж-ға must not manufacture standalone endings.
+    normalized = normalized.replace(
+        /[«“„"](\p{L}+(?:[-'’]\p{L}+)*)[»”"](\p{L}+)/gu,
+        '$1$2'
+    );
+    normalized = normalized.replace(
+        /(^|[^\p{L}])\p{L}\.(?=$|[^\p{L}])/gu,
+        '$1 '
+    );
+    normalized = normalized.replace(/\S*\d\S*/gu, ' ');
 
-    // Удаляем возможные пустые строки после удаления знаков препинания
-    return words.filter(word => word.length > 0);
+    const words = normalized.match(/\p{L}+(?:[-'’]\p{L}+)*/gu) || [];
+    return words.filter(word => !shouldIgnoreFrontendWord(word));
+}
+
+
+function shouldIgnoreFrontendWord(word) {
+    if (/\d/u.test(word)) {
+        return true;
+    }
+    if (SPELLCHECK_ABBREVIATIONS.has(word.toLowerCase())) {
+        return true;
+    }
+    if (SPELLCHECK_ACRONYMS.has(word)) {
+        return true;
+    }
+    return false;
 }
 
 

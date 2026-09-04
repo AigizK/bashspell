@@ -8,6 +8,8 @@ from pydantic import BaseModel
 from starlette.requests import Request
 from starlette.responses import FileResponse
 
+from bashspell_text import should_ignore_word
+
 ACTUAL_BASH_HUNSPELL_VERSION = "28.01.2024"
 
 app = FastAPI()
@@ -43,7 +45,9 @@ def spellChecker(unverified_words):
     for i in range(len(unverified_words)):
         word = unverified_words[i]
         word = cleanup(word)
-        if not hobj.spell(word):
+        if should_ignore_word(word):
+            correct.append({'word': unverified_words[i], 'variants': []})
+        elif not hobj.spell(word):
             correct.append({'word': unverified_words[i],
                             'variants': hobj.suggest(word)})
         else:
@@ -54,7 +58,9 @@ def spellChecker(unverified_words):
 def spellChecker_notHunspell(unverified_words):
     correct = []
     for i in range(len(unverified_words)):
-        if len(unverified_words[i]) <= 3:
+        if should_ignore_word(cleanup(unverified_words[i])):
+            correct.append({'word': unverified_words[i], 'variants': []})
+        elif len(unverified_words[i]) <= 3:
             correct.append({'word': unverified_words[i],
                             'variants': [unverified_words[i], 'вариант1',
                                          'вариант2', 'вариант3']})
