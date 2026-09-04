@@ -13,6 +13,9 @@ CLI = PROJECT_ROOT / "bashspell"
 GRAMMAR_REGRESSIONS = (
     PROJECT_ROOT / "tests" / "data" / "grammar-regressions-28.01.2024.txt"
 )
+APERTIUM_REGRESSIONS = (
+    PROJECT_ROOT / "tests" / "data" / "apertium-pr-4-5-regressions.txt"
+)
 HAS_HUNSPELL = shutil.which("hunspell") is not None
 
 
@@ -114,6 +117,26 @@ class BashspellCliTests(unittest.TestCase):
         completed = run_cli("test", "--file", str(GRAMMAR_REGRESSIONS))
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
         self.assertIn("Итого: 125; провалено: 0", completed.stdout)
+
+    def test_latest_dictionary_matches_apertium_regressions(self) -> None:
+        completed = run_cli("test", "--file", str(APERTIUM_REGRESSIONS))
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+        self.assertIn("Итого: 42; провалено: 0", completed.stdout)
+
+    def test_apertium_homographs_are_not_noun_plural_analyses(self) -> None:
+        for wrong_plural, correct_plural, noun, verb in (
+            ("заказлар", "заказдар", "заказ", "заказла"),
+            ("йыһазлар", "йыһаздар", "йыһаз", "йыһазла"),
+        ):
+            with self.subTest(word=wrong_plural):
+                wrong = run_cli("analyze", wrong_plural)
+                self.assertEqual(wrong.returncode, 0, wrong.stderr)
+                self.assertIn(f"st:{verb} [Verb]", wrong.stdout)
+                self.assertNotIn(f"st:{noun} [Noun] +Pl", wrong.stdout)
+
+                correct = run_cli("analyze", correct_plural)
+                self.assertEqual(correct.returncode, 0, correct.stderr)
+                self.assertIn(f"st:{noun} [Noun] +Pl", correct.stdout)
 
     def test_latest_dictionary_morphology_regressions(self) -> None:
         plural = run_cli("analyze", "малымдар")

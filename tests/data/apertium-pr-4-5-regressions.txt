@@ -1,0 +1,53 @@
+# Compatibility cases from apertium/apertium-bak PRs #4 and #5:
+# https://github.com/apertium/apertium-bak/pull/4
+# https://github.com/apertium/apertium-bak/pull/5
+
+# PR #4: word-final з takes the voiced -д- allomorph.
++ заказдар
++ заказда
++ заказдан
++ заказдың
+- заказның
+
++ колхоздар
++ колхозда
++ колхоздан
+- колхознан
+- колхозлар
+- колхозла
+
++ француздар
+- французлар
++ йыһаздар
++ ауаздар
+- ауазлар
++ профсоюздар
+- профсоюзлар
++ приздар
+- призлар
+
+# Regression cases for the other consonant classes from PR #4.
++ ҡаҙҙар
++ көҙҙәр
++ китаптар
++ аттар
++ илдәр
++ көндәр
++ ерҙәр
++ балалар
+
+# PR #5: word-final в is devoiced and takes the voiceless allomorph.
++ коллективтар
+- коллективҙар
++ коллективта
+- коллективҙа
++ архивтар
+- архивҙар
++ архивта
+- архивҙа
++ архивтан
+- архивҙан
++ составта
+- составҙа
++ мотивтың
+- мотивҙың

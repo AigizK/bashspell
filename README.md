@@ -57,6 +57,14 @@ cat article.txt | ./bashspell text
   --file tests/data/grammar-regressions-28.01.2024.txt
 ```
 
+Отдельный набор фиксирует совместимость с исправлениями морфофонологии из
+`apertium-bak` PR [#4](https://github.com/apertium/apertium-bak/pull/4) и
+[#5](https://github.com/apertium/apertium-bak/pull/5):
+
+```bash
+./bashspell test --file tests/data/apertium-pr-4-5-regressions.txt
+```
+
 У всех проверок exit code равен `0`, если ошибок или несовпадений нет, `1` —
 если они есть, `2` — при ошибке запуска. Для автоматизации доступен `--json`:
 
