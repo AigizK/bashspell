@@ -139,7 +139,7 @@ class BashspellCliTests(unittest.TestCase):
     def test_latest_dictionary_matches_grammar_regressions(self) -> None:
         completed = run_cli("test", "--file", str(GRAMMAR_REGRESSIONS))
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
-        self.assertIn("Итого: 285; провалено: 0", completed.stdout)
+        self.assertIn("Итого: 426; провалено: 0", completed.stdout)
 
     def test_latest_dictionary_matches_apertium_regressions(self) -> None:
         completed = run_cli("test", "--file", str(APERTIUM_REGRESSIONS))

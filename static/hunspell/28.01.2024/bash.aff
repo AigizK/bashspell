@@ -527,6 +527,58 @@ SFX 7 0 ораҡлы/147 . +Comp+Der/лы
 SFX 7 0 ораҡһыҙ/151 . +Comp+Abe
 SFX 7 0 ораҡҡаса/155 . +Comp+Der/ҡаса
 
+SFX 334 Y 50 # A35: rounded hard adjective with unrounded comparative
+SFX 334 0 ҙар/115 . +Pl
+SFX 334 0 ҙоң/119 . +Gen
+SFX 334 0 ға/121 . +Dat
+SFX 334 0 ғараҡ . +Dat+Comp
+SFX 334 0 ҙо/123 . +Acc
+SFX 334 0 ҙан/117 . +Abl
+SFX 334 0 ҙа/121 . +Loc
+SFX 334 0 ҙараҡ . +Loc+Comp
+SFX 334 0 мон/128 . +Pred1Sg
+SFX 334 0 һоң/128 . +Pred2Sg
+SFX 334 0 боҙ/132 . +Pred1Pl
+SFX 334 0 һоғоҙ/132 . +Pred2Pl
+SFX 334 0 0/197 .
+SFX 334 0 мо . +Q
+SFX 334 0 молор . +Q+Indf
+SFX 334 0 ҙор . +Indf
+SFX 334 0 со . +Clt/сы
+SFX 334 0 ҙоҡо/137 . +Poss
+SFX 334 0 ҡай/139 . +Dim
+SFX 334 0 ҙай/141 . +Der/дай
+SFX 334 0 са/143 . +Der/са
+SFX 334 0 ҙағы/145 . +Der/дағы
+SFX 334 0 ҙағылар/115 . +Der/дағы+Pl
+SFX 334 0 ло/149 . +Der/лы
+SFX 334 0 һоҙ/153 . +Abe
+SFX 334 0 ғаса/155 . +Der/ҡаса
+SFX 334 0 ыраҡтар/115 . +Comp+Pl
+SFX 334 0 ыраҡтың/117 . +Comp+Gen
+SFX 334 0 ыраҡҡа/121 . +Comp+Dat
+SFX 334 0 ыраҡты/121 . +Comp+Acc
+SFX 334 0 ыраҡтан/117 . +Comp+Abl
+SFX 334 0 ыраҡта/121 . +Comp+Loc
+SFX 334 0 ыраҡмын/126 . +Comp+Pred1Sg
+SFX 334 0 ыраҡһың/126 . +Comp+Pred2Sg
+SFX 334 0 ыраҡбыҙ/130 . +Comp+Pred1Pl
+SFX 334 0 ыраҡһығыҙ/130 . +Comp+Pred2Pl
+SFX 334 0 ыраҡ/205 . +Comp
+SFX 334 0 ыраҡмы . +Comp+Q
+SFX 334 0 ыраҡмылыр . +Comp+Q+Indf
+SFX 334 0 ыраҡтыр . +Comp+Indf
+SFX 334 0 ыраҡсы . +Comp+Clt/сы
+SFX 334 0 ыраҡтыҡы/135 . +Comp+Poss
+SFX 334 0 ыраҡҡай/139 . +Comp+Dim
+SFX 334 0 ыраҡтай/141 . +Comp+Der/дай
+SFX 334 0 ыраҡса/143 . +Comp+Der/са
+SFX 334 0 ыраҡтағы/145 . +Comp+Der/дағы
+SFX 334 0 ыраҡтағылар/115 . +Comp+Der/дағы+Pl
+SFX 334 0 ыраҡлы/147 . +Comp+Der/лы
+SFX 334 0 ыраҡһыҙ/151 . +Comp+Abe
+SFX 334 0 ыраҡҡаса/155 . +Comp+Der/ҡаса
+
 SFX 8 Y 50 # прилагательные A
 SFX 8 0 ҙәр/116 . +Pl
 SFX 8 0 ҙөң/120 . +Gen
@@ -3007,12 +3059,14 @@ SFX 91 0 0 .
 SFX 92 Y 1 # местоимения Pron
 SFX 92 0 0 .
 
-SFX 93 Y 5 # местоимения Pron мин, һин
+SFX 93 Y 7 # местоимения Pron мин, һин
 SFX 93 н нең . +Gen
 SFX 93 н ңә . +Dat
 SFX 93 н не . +Acc
 SFX 93 н нән . +Abl
 SFX 93 н ндә . +Loc
+SFX 93 0 ме . +Q
+SFX 93 н ндәге/10 . +Loc+Der/ге
 
 SFX 94 Y 12 # местоимения Pron ул, был
 SFX 94 л лар/115 . +Pl
