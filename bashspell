@@ -1,0 +1,1040 @@
+#!/usr/bin/env python3
+"""Small command-line harness for the Bashkir Hunspell dictionary."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+from collections import Counter
+from dataclasses import asdict, dataclass
+from datetime import datetime
+from pathlib import Path
+from typing import Iterable, Sequence
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+DICTIONARIES_ROOT = PROJECT_ROOT / "static" / "hunspell"
+COMMANDS = {
+    "check",
+    "text",
+    "file",
+    "test",
+    "analyze",
+    "stem",
+    "entry",
+    "rule",
+    "validate",
+    "version",
+    "repl",
+}
+WORD_RE = re.compile(r"[^\W\d_]+(?:[-'’][^\W\d_]+)*", re.UNICODE)
+LATIN_LETTER_RE = re.compile(r"[A-Za-z]")
+GENITIVE_QUESTION_INDEFINITE_RE = re.compile(
+    r"[дтнҙ](?:ыңмылыр|еңмелер|оңмолор|өңмөлөр)$"
+)
+MORPHOLOGY_ENDINGS = {
+    "+Gen": (
+        "дың", "дең", "тың", "тең", "ның", "нең", "ҙың", "ҙең",
+        "доң", "дөң", "тоң", "төң", "ноң", "нөң", "ҙоң", "ҙөң",
+    ),
+    "+Acc": (
+        "ды", "де", "ты", "те", "ны", "не", "ҙы", "ҙе", "н",
+        "до", "дө", "то", "тө", "но", "нө", "ҙо", "ҙө",
+    ),
+    "+Abl": ("дан", "дән", "тан", "тән", "нан", "нән", "ҙан", "ҙән"),
+    "+Loc": ("да", "дә", "та", "тә", "нда", "ндә", "ҙа", "ҙә", "ла", "лә"),
+    "+Q": ("мы", "ме", "мо", "мө"),
+    "+Indf": ("р",),
+    "+Clt/сы": ("сы", "се", "со", "сө"),
+    "+Der/са": ("са", "сә"),
+}
+
+
+def parse_simple_condition(
+    condition: str,
+) -> tuple[tuple[bool, frozenset[str]], ...] | None:
+    """Parse the literal/dot/character-class subset used by this dictionary."""
+    tokens: list[tuple[bool, frozenset[str]]] = []
+    offset = 0
+    while offset < len(condition):
+        character = condition[offset]
+        if character == ".":
+            tokens.append((True, frozenset()))
+            offset += 1
+            continue
+        if character != "[":
+            tokens.append((False, frozenset({character})))
+            offset += 1
+            continue
+        closing = condition.find("]", offset + 1)
+        if closing < 0:
+            return None
+        content = condition[offset + 1 : closing]
+        negated = content.startswith("^")
+        if negated:
+            content = content[1:]
+        if not content or "-" in content or "\\" in content:
+            return None
+        tokens.append((negated, frozenset(content)))
+        offset = closing + 1
+    return tuple(tokens)
+
+
+def simple_conditions_overlap(first: str, second: str) -> bool:
+    """Return whether two end-anchored simple Hunspell conditions can both match."""
+    first_tokens = parse_simple_condition(first)
+    second_tokens = parse_simple_condition(second)
+    if first_tokens is None or second_tokens is None:
+        return False
+
+    for (first_negated, first_chars), (second_negated, second_chars) in zip(
+        reversed(first_tokens), reversed(second_tokens)
+    ):
+        if not first_negated and not second_negated:
+            intersects = bool(first_chars & second_chars)
+        elif not first_negated and second_negated:
+            intersects = bool(first_chars - second_chars)
+        elif first_negated and not second_negated:
+            intersects = bool(second_chars - first_chars)
+        else:
+            # The Unicode alphabet cannot be exhausted by these two finite sets.
+            intersects = True
+        if not intersects:
+            return False
+    return True
+
+
+class CliError(RuntimeError):
+    """An error that should be shown without a traceback."""
+
+
+@dataclass(frozen=True)
+class CheckResult:
+    word: str
+    correct: bool
+    suggestions: list[str]
+    marker: str
+
+
+def dated_dictionary_key(path: Path) -> tuple[int, float]:
+    try:
+        stamp = datetime.strptime(path.name, "%d.%m.%Y").toordinal()
+    except ValueError:
+        stamp = 0
+    return stamp, path.stat().st_mtime
+
+
+def discover_default_dictionary() -> Path:
+    candidates = [
+        item
+        for item in DICTIONARIES_ROOT.iterdir()
+        if item.is_dir()
+        and (item / "bash.aff").is_file()
+        and (item / "bash.dic").is_file()
+    ] if DICTIONARIES_ROOT.is_dir() else []
+    if not candidates:
+        raise CliError(f"Не найден словарь в {DICTIONARIES_ROOT}")
+    return max(candidates, key=dated_dictionary_key)
+
+
+def resolve_dictionary(value: str | None) -> tuple[Path, Path, Path]:
+    if not value:
+        directory = discover_default_dictionary()
+        stem = directory / "bash"
+    else:
+        candidate = Path(value).expanduser()
+        if not candidate.is_absolute():
+            local_version = DICTIONARIES_ROOT / candidate
+            candidate = local_version if local_version.is_dir() else Path.cwd() / candidate
+        candidate = candidate.resolve()
+        if candidate.is_dir():
+            directory = candidate
+            stem = directory / "bash"
+        else:
+            if candidate.suffix in {".aff", ".dic"}:
+                candidate = candidate.with_suffix("")
+            stem = candidate
+            directory = stem.parent
+
+    aff_path = stem.with_suffix(".aff")
+    dic_path = stem.with_suffix(".dic")
+    missing = [str(path) for path in (aff_path, dic_path) if not path.is_file()]
+    if missing:
+        raise CliError("Не найдены файлы словаря: " + ", ".join(missing))
+    return stem, aff_path, dic_path
+
+
+def find_hunspell(explicit: str | None) -> str:
+    requested = explicit or os.environ.get("HUNSPELL")
+    if requested:
+        resolved = shutil.which(requested) if not Path(requested).is_file() else requested
+        if resolved:
+            return str(Path(resolved).resolve())
+        raise CliError(f"Hunspell не найден: {requested}")
+
+    resolved = shutil.which("hunspell")
+    if resolved:
+        return resolved
+    raise CliError(
+        "Hunspell не установлен. macOS: brew install hunspell; "
+        "Ubuntu/Debian: sudo apt-get install hunspell"
+    )
+
+
+def run_hunspell(
+    binary: str,
+    dictionary_stem: Path,
+    arguments: Sequence[str],
+    input_text: str = "",
+) -> subprocess.CompletedProcess[str]:
+    completed = subprocess.run(
+        [binary, "-d", str(dictionary_stem), *arguments],
+        input=input_text,
+        text=True,
+        encoding="utf-8",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if completed.returncode not in (0, 1):
+        detail = completed.stderr.strip() or completed.stdout.strip()
+        raise CliError(f"Hunspell завершился с кодом {completed.returncode}: {detail}")
+    return completed
+
+
+def parse_pipe_response(words: Sequence[str], output: str) -> list[CheckResult]:
+    lines = output.splitlines()
+    if lines and lines[0].startswith("@(#)"):
+        lines = lines[1:]
+    responses = [line for line in lines if line.strip()]
+    if len(responses) != len(words):
+        raise CliError(
+            f"Неожиданный ответ Hunspell: ответов {len(responses)}, слов {len(words)}"
+        )
+
+    results: list[CheckResult] = []
+    for word, response in zip(words, responses):
+        marker = response[0]
+        correct = marker in {"*", "+", "-"}
+        suggestions: list[str] = []
+        if marker in {"&", "?"} and ":" in response:
+            suggestions = [item.strip() for item in response.split(":", 1)[1].split(",")]
+            suggestions = [item for item in suggestions if item]
+        results.append(CheckResult(word, correct, suggestions, marker))
+    return results
+
+
+def check_words(
+    binary: str, dictionary_stem: Path, words: Sequence[str]
+) -> list[CheckResult]:
+    if not words:
+        return []
+    # A leading caret makes pipe-mode treat every line as text, not as a command.
+    payload = "".join(f"^{word}\n" for word in words)
+    completed = run_hunspell(binary, dictionary_stem, ["-a"], payload)
+    return parse_pipe_response(words, completed.stdout)
+
+
+def extract_words(text: str) -> list[str]:
+    return WORD_RE.findall(text)
+
+
+def format_check_results(
+    results: Sequence[CheckResult], *, counts: Counter[str] | None = None
+) -> None:
+    for result in results:
+        suffix = f" ×{counts[result.word]}" if counts and counts[result.word] > 1 else ""
+        if result.correct:
+            print(f"✓ {result.word}{suffix}")
+        else:
+            suggestions = ", ".join(result.suggestions) or "нет вариантов"
+            print(f"✗ {result.word}{suffix} → {suggestions}")
+
+
+def result_summary(
+    results: Sequence[CheckResult],
+    total: int | None = None,
+    counts: Counter[str] | None = None,
+) -> dict[str, int]:
+    checked = total if total is not None else len(results)
+    incorrect = sum(
+        counts[item.word] if counts else 1
+        for item in results
+        if not item.correct
+    )
+    return {"checked": checked, "correct": checked - incorrect, "incorrect": incorrect}
+
+
+def output_results(
+    results: Sequence[CheckResult],
+    *,
+    json_output: bool,
+    counts: Counter[str] | None = None,
+    total: int | None = None,
+) -> int:
+    summary = result_summary(results, total, counts)
+    if json_output:
+        payload = {
+            "results": [
+                {**asdict(item), **({"occurrences": counts[item.word]} if counts else {})}
+                for item in results
+            ],
+            "summary": summary,
+        }
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+    else:
+        format_check_results(results, counts=counts)
+        print(
+            f"Итого: {summary['checked']}; "
+            f"верно: {summary['correct']}; ошибок: {summary['incorrect']}"
+        )
+    return 1 if summary["incorrect"] else 0
+
+
+def unique_in_order(words: Iterable[str]) -> list[str]:
+    return list(dict.fromkeys(words))
+
+
+def read_stdin() -> str:
+    if sys.stdin.isatty():
+        raise CliError("Передайте текст аргументом или через stdin")
+    return sys.stdin.read()
+
+
+def command_check(args: argparse.Namespace, binary: str, stem: Path) -> int:
+    words = args.words or extract_words(read_stdin())
+    return output_results(check_words(binary, stem, words), json_output=args.json)
+
+
+def check_text(args: argparse.Namespace, binary: str, stem: Path, text: str) -> int:
+    words = extract_words(text)
+    counts = Counter(words)
+    unique_words = unique_in_order(words)
+    results = check_words(binary, stem, unique_words)
+    return output_results(
+        results,
+        json_output=args.json,
+        counts=counts,
+        total=len(words),
+    )
+
+
+def command_text(args: argparse.Namespace, binary: str, stem: Path) -> int:
+    text = " ".join(args.text) if args.text else read_stdin()
+    return check_text(args, binary, stem, text)
+
+
+def command_file(args: argparse.Namespace, binary: str, stem: Path) -> int:
+    chunks: list[str] = []
+    for file_name in args.files:
+        path = Path(file_name).expanduser()
+        try:
+            chunks.append(path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError) as exc:
+            raise CliError(f"Не удалось прочитать {path}: {exc}") from exc
+    return check_text(args, binary, stem, "\n".join(chunks))
+
+
+def read_test_cases(path: Path) -> tuple[list[str], list[str]]:
+    valid: list[str] = []
+    invalid: list[str] = []
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeError) as exc:
+        raise CliError(f"Не удалось прочитать {path}: {exc}") from exc
+
+    for line_number, raw_line in enumerate(lines, 1):
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        marker, separator, word = line.partition(" ")
+        if marker not in {"+", "-"} or not separator or not word.strip():
+            raise CliError(
+                f"{path}:{line_number}: ожидается строка вида '+ слово' или '- слово'"
+            )
+        (valid if marker == "+" else invalid).append(word.strip())
+    return valid, invalid
+
+
+def command_test(args: argparse.Namespace, binary: str, stem: Path) -> int:
+    valid = list(args.valid or [])
+    invalid = list(args.invalid or [])
+    for file_name in args.files or []:
+        file_valid, file_invalid = read_test_cases(Path(file_name).expanduser())
+        valid.extend(file_valid)
+        invalid.extend(file_invalid)
+    if not valid and not invalid:
+        raise CliError("Укажите --valid/--invalid или файл с тест-кейсами")
+
+    cases = [(word, True) for word in valid] + [(word, False) for word in invalid]
+    results = check_words(binary, stem, [word for word, _ in cases])
+    failures = 0
+    records = []
+    for (word, expected), result in zip(cases, results):
+        passed = result.correct == expected
+        failures += not passed
+        records.append(
+            {
+                "word": word,
+                "expected": "valid" if expected else "invalid",
+                "actual": "valid" if result.correct else "invalid",
+                "passed": passed,
+                "suggestions": result.suggestions,
+            }
+        )
+
+    if args.json:
+        print(
+            json.dumps(
+                {"results": records, "summary": {"total": len(cases), "failed": failures}},
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+    else:
+        for record in records:
+            symbol = "✓" if record["passed"] else "✗"
+            print(
+                f"{symbol} {record['word']}: ожидалось {record['expected']}, "
+                f"получено {record['actual']}"
+            )
+        print(f"Итого: {len(cases)}; провалено: {failures}")
+    return 1 if failures else 0
+
+
+def command_raw_words(
+    args: argparse.Namespace, binary: str, stem: Path, hunspell_flag: str
+) -> int:
+    words = args.words or extract_words(read_stdin())
+    completed = run_hunspell(binary, stem, [hunspell_flag], "\n".join(words) + "\n")
+    print(completed.stdout.rstrip())
+    return 0
+
+
+def dictionary_entries(dic_path: Path, requested: set[str]) -> list[tuple[int, str]]:
+    matches: list[tuple[int, str]] = []
+    with dic_path.open(encoding="utf-8") as handle:
+        next(handle, None)
+        for line_number, raw_line in enumerate(handle, 2):
+            line = raw_line.rstrip("\n")
+            head = line.split("\t", 1)[0]
+            lemma = head.split("/", 1)[0]
+            if lemma in requested:
+                matches.append((line_number, line))
+    return matches
+
+
+def load_flag_aliases(aff_path: Path) -> tuple[dict[str, str], dict[str, str]]:
+    alias_path = aff_path.with_name("flag-aliases.tsv")
+    symbolic_to_numeric: dict[str, str] = {}
+    numeric_to_symbolic: dict[str, str] = {}
+    if not alias_path.is_file():
+        return symbolic_to_numeric, numeric_to_symbolic
+    with alias_path.open(encoding="utf-8") as handle:
+        for raw_line in handle:
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            fields = line.split()
+            if len(fields) != 2:
+                raise CliError(f"Некорректная строка в {alias_path}: {line}")
+            symbolic, numeric = fields
+            symbolic_to_numeric[symbolic] = numeric
+            numeric_to_symbolic[numeric] = symbolic
+    return symbolic_to_numeric, numeric_to_symbolic
+
+
+def entry_symbolic_flags(line: str, numeric_to_symbolic: dict[str, str]) -> list[str]:
+    head = line.split("\t", 1)[0]
+    if "/" not in head:
+        return []
+    raw_flags = head.split("/", 1)[1]
+    return [
+        numeric_to_symbolic.get(flag, flag)
+        for flag in raw_flags.split(",")
+        if flag
+    ]
+
+
+def command_entry(args: argparse.Namespace, dic_path: Path, aff_path: Path) -> int:
+    entries = dictionary_entries(dic_path, set(args.words))
+    found = {line.split("\t", 1)[0].split("/", 1)[0] for _, line in entries}
+    _symbolic_to_numeric, numeric_to_symbolic = load_flag_aliases(aff_path)
+    if args.json:
+        print(
+            json.dumps(
+                {
+                    "entries": [
+                        {
+                            "line": line_number,
+                            "entry": line,
+                            "symbolic_flags": entry_symbolic_flags(
+                                line, numeric_to_symbolic
+                            ),
+                        }
+                        for line_number, line in entries
+                    ],
+                    "missing": [word for word in args.words if word not in found],
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+    else:
+        for line_number, line in entries:
+            symbolic_flags = entry_symbolic_flags(line, numeric_to_symbolic)
+            alias_note = f" [флаги: {','.join(symbolic_flags)}]" if symbolic_flags else ""
+            print(f"{dic_path}:{line_number}: {line}{alias_note}")
+        for word in args.words:
+            if word not in found:
+                print(f"Не найдена словарная статья: {word}", file=sys.stderr)
+    return 1 if any(word not in found for word in args.words) else 0
+
+
+def affix_rules(aff_path: Path, flag: str) -> list[tuple[int, str]]:
+    matches: list[tuple[int, str]] = []
+    with aff_path.open(encoding="utf-8") as handle:
+        for line_number, raw_line in enumerate(handle, 1):
+            line = raw_line.rstrip("\n")
+            fields = line.split()
+            if len(fields) >= 2 and fields[0] in {"PFX", "SFX"} and fields[1] == flag:
+                matches.append((line_number, line))
+    return matches
+
+
+def command_rule(args: argparse.Namespace, aff_path: Path) -> int:
+    missing = []
+    records = []
+    symbolic_to_numeric, _numeric_to_symbolic = load_flag_aliases(aff_path)
+    for flag in args.flags:
+        resolved_flag = symbolic_to_numeric.get(flag, flag)
+        rules = affix_rules(aff_path, resolved_flag)
+        if not rules:
+            missing.append(flag)
+        records.append(
+            {
+                "flag": flag,
+                "resolved_flag": resolved_flag,
+                "rules": [{"line": n, "rule": line} for n, line in rules],
+            }
+        )
+    if args.json:
+        print(json.dumps({"flags": records, "missing": missing}, ensure_ascii=False, indent=2))
+    else:
+        for record in records:
+            if record["rules"]:
+                if len(records) > 1 or record["resolved_flag"] != record["flag"]:
+                    heading = record["flag"]
+                    if record["resolved_flag"] != record["flag"]:
+                        heading += f" → {record['resolved_flag']}"
+                    print(f"[{heading}]")
+                for rule in record["rules"]:
+                    print(f"{aff_path}:{rule['line']}: {rule['rule']}")
+            else:
+                print(f"Не найден affix-флаг: {record['flag']}", file=sys.stderr)
+    return 1 if missing else 0
+
+
+def validate_dictionary(aff_path: Path, dic_path: Path) -> list[dict[str, object]]:
+    issues: list[dict[str, object]] = []
+    with dic_path.open(encoding="utf-8") as handle:
+        first_line = handle.readline().strip()
+        try:
+            declared_entries = int(first_line)
+        except ValueError:
+            issues.append({"file": str(dic_path), "line": 1, "message": "первая строка не число"})
+            declared_entries = -1
+        actual_entries = sum(1 for line in handle if line.strip())
+    if declared_entries != actual_entries:
+        issues.append(
+            {
+                "file": str(dic_path),
+                "line": 1,
+                "message": f"объявлено {declared_entries} статей, найдено {actual_entries}",
+            }
+        )
+
+    lines = aff_path.read_text(encoding="utf-8").splitlines()
+    if not any(line.strip().upper() == "SET UTF-8" for line in lines):
+        issues.append({"file": str(aff_path), "line": 1, "message": "не найдено SET UTF-8"})
+
+    headers: dict[str, list[tuple[str, int]]] = {}
+    flag_mode = "default"
+    flag_mode_line = 1
+    affix_operations: dict[
+        tuple[str, str, str, str, str], list[tuple[int, str]]
+    ] = {}
+    allomorph_rules: dict[
+        tuple[str, str, str, str], list[tuple[int, str, str]]
+    ] = {}
+    surface_suffix_issue_lines: set[int] = set()
+    for line_number, line in enumerate(lines, 1):
+        fields = line.split()
+        if len(fields) >= 2 and fields[0] == "FLAG":
+            flag_mode = fields[1]
+            flag_mode_line = line_number
+        if (
+            len(fields) >= 4
+            and fields[0] in {"PFX", "SFX"}
+            and fields[2] in {"Y", "N"}
+            and fields[3].isdigit()
+        ):
+            headers.setdefault(fields[1], []).append((fields[0], line_number))
+
+    malformed_flags: list[str] = []
+    if flag_mode == "long":
+        malformed_flags = sorted(flag for flag in headers if len(flag) != 2)
+        expectation = "ровно 2 символа"
+    elif flag_mode == "num":
+        malformed_flags = sorted(
+            flag
+            for flag in headers
+            if not flag.isdigit() or not 1 <= int(flag) <= 65000
+        )
+        expectation = "целые числа от 1 до 65000"
+    elif flag_mode in {"default", "UTF-8"}:
+        malformed_flags = sorted(flag for flag in headers if len(flag) != 1)
+        expectation = "ровно 1 символ"
+    else:
+        expectation = "известный Hunspell формат"
+        issues.append(
+            {
+                "file": str(aff_path),
+                "line": flag_mode_line,
+                "message": f"неизвестный режим флагов: {flag_mode}",
+            }
+        )
+
+    if malformed_flags:
+        examples = ", ".join(malformed_flags[:8])
+        remainder = len(malformed_flags) - 8
+        if remainder:
+            examples += f" и ещё {remainder}"
+        issues.append(
+            {
+                "file": str(aff_path),
+                "line": flag_mode_line,
+                "message": (
+                    f"FLAG {flag_mode} допускает {expectation}; "
+                    f"не соответствуют {len(malformed_flags)} флагов: {examples}"
+                ),
+            }
+        )
+
+    known_flags = set(headers)
+
+    def split_symbolic_flags(value: str) -> tuple[str, ...] | None:
+        """Split concatenated project-style flags such as E1O01 or W03W44."""
+        if flag_mode == "num":
+            parts = tuple(value.split(","))
+            return parts if parts and all(part in known_flags for part in parts) else None
+
+        cache: dict[int, tuple[str, ...] | None] = {}
+
+        def split_from(offset: int) -> tuple[str, ...] | None:
+            if offset == len(value):
+                return ()
+            if offset in cache:
+                return cache[offset]
+            for flag in sorted(known_flags, key=lambda item: (-len(item), item)):
+                if value.startswith(flag, offset):
+                    rest = split_from(offset + len(flag))
+                    if rest is not None:
+                        cache[offset] = (flag, *rest)
+                        return cache[offset]
+            cache[offset] = None
+            return None
+
+        return split_from(0)
+
+    for line_number, line in enumerate(lines, 1):
+        fields = line.split()
+        if not fields or fields[0] not in {"PFX", "SFX"}:
+            continue
+        is_header = (
+            len(fields) >= 4
+            and fields[2] in {"Y", "N"}
+            and fields[3].isdigit()
+        )
+        if is_header or len(fields) < 5:
+            continue
+
+        flag = fields[1]
+        if flag not in known_flags:
+            issues.append(
+                {
+                    "file": str(aff_path),
+                    "line": line_number,
+                    "message": f"{fields[0]} {flag}: правило без объявления класса",
+                }
+            )
+
+        added, separator, continuation = fields[3].partition("/")
+        if separator and split_symbolic_flags(continuation) is None:
+            issues.append(
+                {
+                    "file": str(aff_path),
+                    "line": line_number,
+                    "message": (
+                        "неизвестная или повреждённая цепочка "
+                        f"флагов продолжения: {continuation}"
+                    ),
+                }
+            )
+
+        condition = fields[4]
+        if condition.startswith(":") or condition.startswith("+"):
+            issues.append(
+                {
+                    "file": str(aff_path),
+                    "line": line_number,
+                    "message": (
+                        "в affix-правиле нет отдельного условия "
+                        "(обычно `.`); вероятно, склеены поля"
+                    ),
+                }
+            )
+            condition = ""
+
+        morphology = "".join(fields[5:])
+        if condition and morphology:
+            operation = (fields[0], flag, fields[2], added, condition)
+            affix_operations.setdefault(operation, []).append(
+                (line_number, morphology)
+            )
+            if condition != ".":
+                allomorph = (fields[0], flag, fields[2], morphology)
+                allomorph_rules.setdefault(allomorph, []).append(
+                    (line_number, added, condition)
+                )
+
+        morphology_fields = (fields[2], added, condition)
+        latin_letters = sorted(set(LATIN_LETTER_RE.findall("".join(morphology_fields))))
+        if latin_letters:
+            issues.append(
+                {
+                    "file": str(aff_path),
+                    "line": line_number,
+                    "message": (
+                        "латинские буквы в морфологическом правиле: "
+                        + ", ".join(latin_letters)
+                    ),
+                }
+            )
+
+        for suffix_tag, expected_endings in MORPHOLOGY_ENDINGS.items():
+            if morphology.endswith(suffix_tag) and not added.endswith(expected_endings):
+                surface_suffix_issue_lines.add(line_number)
+                issues.append(
+                    {
+                        "file": str(aff_path),
+                        "line": line_number,
+                        "message": (
+                            f"{fields[0]} {flag}: форма `{added}` размечена "
+                            f"{suffix_tag}, но не оканчивается его показателем; "
+                            f"вероятно, пропущено окончание {suffix_tag}"
+                        ),
+                    }
+                )
+                break
+
+        if morphology.endswith("+Poss+Acc") and added.endswith(("нан", "нән")):
+            issues.append(
+                {
+                    "file": str(aff_path),
+                    "line": line_number,
+                    "message": (
+                        f"{fields[0]} {flag}: форма `{added}` оканчивается "
+                        "на показатель исходного падежа, но размечена +Acc; "
+                        "вероятно, требуется +Abl"
+                    ),
+                }
+            )
+
+        if (
+            morphology.endswith("+Q+Indf")
+            and "+Gen" not in morphology
+            and GENITIVE_QUESTION_INDEFINITE_RE.search(added)
+        ):
+            issues.append(
+                {
+                    "file": str(aff_path),
+                    "line": line_number,
+                    "message": (
+                        f"{fields[0]} {flag}: форма `{added}` содержит показатель "
+                        "родительного падежа, но в разборе перед +Q+Indf "
+                        "пропущен тег +Gen"
+                    ),
+                }
+            )
+
+    visible_suffix_tags = (
+        "+Gen",
+        "+Dat",
+        "+Acc",
+        "+Abl",
+        "+Loc",
+        "+Q",
+        "+Indf",
+        "+Clt/сы",
+        "+Der/са",
+    )
+    reported_suffix_lines: set[tuple[int, str]] = set()
+    for operation, variants in affix_operations.items():
+        by_morphology = {morphology: line_number for line_number, morphology in variants}
+        for morphology, line_number in by_morphology.items():
+            for suffix_tag in visible_suffix_tags:
+                if not morphology.endswith(suffix_tag):
+                    continue
+                base_morphology = morphology[: -len(suffix_tag)]
+                base_line = by_morphology.get(base_morphology)
+                if (
+                    base_line is None
+                    or line_number in surface_suffix_issue_lines
+                    or (line_number, suffix_tag) in reported_suffix_lines
+                ):
+                    continue
+                reported_suffix_lines.add((line_number, suffix_tag))
+                kind, flag, _stripped, added, _condition = operation
+                issues.append(
+                    {
+                        "file": str(aff_path),
+                        "line": line_number,
+                        "message": (
+                            f"{kind} {flag}: {morphology} создаёт ту же форму "
+                            f"`{added}`, что и {base_morphology} в строке {base_line}; "
+                            f"вероятно, пропущено окончание {suffix_tag}"
+                        ),
+                    }
+                )
+
+    for (kind, flag, _stripped, morphology), variants in allomorph_rules.items():
+        for index, (line_number, added, condition) in enumerate(variants):
+            for other_line, other_added, other_condition in variants[index + 1 :]:
+                if (
+                    added == other_added
+                    or condition == other_condition
+                    or not simple_conditions_overlap(condition, other_condition)
+                ):
+                    continue
+                issues.append(
+                    {
+                        "file": str(aff_path),
+                        "line": other_line,
+                        "message": (
+                            f"{kind} {flag}: условия `{condition}` (строка "
+                            f"{line_number}) и `{other_condition}` пересекаются, "
+                            f"но создают разные формы `{added}` и `{other_added}` "
+                            f"с одинаковым разбором {morphology}"
+                        ),
+                    }
+                )
+
+    for index, line in enumerate(lines):
+        fields = line.split()
+        if not (
+            len(fields) >= 4
+            and fields[0] in {"PFX", "SFX"}
+            and fields[2] in {"Y", "N"}
+            and fields[3].isdigit()
+        ):
+            continue
+        kind, flag, expected = fields[0], fields[1], int(fields[3])
+        actual = 0
+        for following in lines[index + 1 :]:
+            following_fields = following.split()
+            if len(following_fields) >= 2 and following_fields[:2] == [kind, flag]:
+                actual += 1
+            elif following.strip() and not following.lstrip().startswith("#"):
+                break
+        if actual != expected:
+            issues.append(
+                {
+                    "file": str(aff_path),
+                    "line": index + 1,
+                    "message": f"{kind} {flag}: объявлено {expected} правил, найдено {actual}",
+                }
+            )
+    return issues
+
+
+def command_validate(
+    args: argparse.Namespace,
+    binary: str,
+    stem: Path,
+    aff_path: Path,
+    dic_path: Path,
+) -> int:
+    issues = validate_dictionary(aff_path, dic_path)
+    completed = run_hunspell(binary, stem, ["-l"], "")
+    if completed.stderr.strip():
+        issues.append({"file": "hunspell", "line": None, "message": completed.stderr.strip()})
+    if args.json:
+        print(
+            json.dumps(
+                {"valid": not issues, "issues": issues},
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+    elif issues:
+        for issue in issues:
+            location = str(issue["file"])
+            if issue["line"]:
+                location += f":{issue['line']}"
+            print(f"✗ {location}: {issue['message']}")
+    else:
+        print(f"✓ Словарь загружается: {aff_path.parent}")
+        print("✓ Число статей и размеры affix-блоков совпадают")
+    return 1 if issues else 0
+
+
+def command_version(binary: str, stem: Path) -> int:
+    completed = subprocess.run(
+        [binary, "--version"],
+        text=True,
+        encoding="utf-8",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
+    first_line = completed.stdout.splitlines()[0] if completed.stdout else "неизвестно"
+    print(f"Словарь: {stem.parent}")
+    print(f"Hunspell: {first_line}")
+    return 0
+
+
+def command_repl(args: argparse.Namespace, binary: str, stem: Path) -> int:
+    print(f"Башкирский Hunspell — {stem.parent.name}. Пустая строка завершает работу.")
+    while True:
+        try:
+            line = input("bashspell> ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            return 0
+        if not line:
+            return 0
+        words = extract_words(line)
+        output_results(check_words(binary, stem, words), json_output=args.json)
+
+
+def add_words_argument(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("words", nargs="*", metavar="СЛОВО")
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="bashspell",
+        description="Быстрая проверка башкирского словаря Hunspell.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Примеры:\n"
+            "  ./bashspell башҡорт башҡорттар башкорд\n"
+            "  ./bashspell text 'Мин башҡортса яҙам.'\n"
+            "  ./bashspell analyze башҡорттар\n"
+            "  ./bashspell entry башҡорт\n"
+            "  ./bashspell rule N15\n"
+            "  ./bashspell test --valid башҡорт башҡорттар --invalid башкорд"
+        ),
+    )
+    parser.add_argument(
+        "--dict",
+        dest="dictionary",
+        metavar="ПУТЬ|ВЕРСИЯ",
+        help="каталог словаря, stem-файл или версия (по умолчанию самая новая)",
+    )
+    parser.add_argument("--hunspell", metavar="ПУТЬ", help="путь к бинарнику hunspell")
+    parser.add_argument("--json", action="store_true", help="вывести машинно-читаемый JSON")
+
+    subparsers = parser.add_subparsers(dest="command")
+    check = subparsers.add_parser("check", help="проверить отдельные слова")
+    add_words_argument(check)
+
+    text_parser = subparsers.add_parser("text", help="проверить строку или stdin")
+    text_parser.add_argument("text", nargs="*", metavar="ТЕКСТ")
+
+    file_parser = subparsers.add_parser("file", help="проверить UTF-8 текстовые файлы")
+    file_parser.add_argument("files", nargs="+", metavar="ФАЙЛ")
+
+    test_parser = subparsers.add_parser("test", help="проверить ожидаемые формы")
+    test_parser.add_argument("--valid", nargs="+", metavar="СЛОВО", help="должны приниматься")
+    test_parser.add_argument("--invalid", nargs="+", metavar="СЛОВО", help="должны отклоняться")
+    test_parser.add_argument("--file", dest="files", action="append", metavar="ФАЙЛ")
+
+    analyze = subparsers.add_parser("analyze", help="показать морфологический разбор (-m)")
+    add_words_argument(analyze)
+    stem = subparsers.add_parser("stem", help="показать основы слова (-s)")
+    add_words_argument(stem)
+
+    entry = subparsers.add_parser("entry", help="найти точную статью в bash.dic")
+    entry.add_argument("words", nargs="+", metavar="СЛОВО")
+    rule = subparsers.add_parser("rule", help="показать PFX/SFX-правила флага")
+    rule.add_argument("flags", nargs="+", metavar="ФЛАГ")
+    subparsers.add_parser("validate", help="проверить структуру и загрузку словаря")
+    subparsers.add_parser("version", help="показать выбранный словарь и Hunspell")
+    subparsers.add_parser("repl", help="интерактивная проверка")
+    return parser
+
+
+def normalize_argv(argv: Sequence[str]) -> list[str]:
+    normalized = list(argv)
+    if not normalized:
+        return ["repl"] if sys.stdin.isatty() else ["text"]
+
+    # Permit the convenient form `./bashspell WORD...`.
+    index = 0
+    while index < len(normalized):
+        item = normalized[index]
+        if item in {"--dict", "--hunspell"}:
+            index += 2
+            continue
+        if item.startswith(("--dict=", "--hunspell=")):
+            index += 1
+            continue
+        if item == "--json":
+            index += 1
+            continue
+        if item in {"-h", "--help"} or item in COMMANDS:
+            return normalized
+        if item.startswith("-"):
+            return normalized
+        normalized.insert(index, "check")
+        return normalized
+    return normalized
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(normalize_argv(sys.argv[1:] if argv is None else argv))
+    try:
+        stem, aff_path, dic_path = resolve_dictionary(args.dictionary)
+        binary = find_hunspell(args.hunspell)
+        commands = {
+            "check": lambda: command_check(args, binary, stem),
+            "text": lambda: command_text(args, binary, stem),
+            "file": lambda: command_file(args, binary, stem),
+            "test": lambda: command_test(args, binary, stem),
+            "analyze": lambda: command_raw_words(args, binary, stem, "-m"),
+            "stem": lambda: command_raw_words(args, binary, stem, "-s"),
+            "entry": lambda: command_entry(args, dic_path, aff_path),
+            "rule": lambda: command_rule(args, aff_path),
+            "validate": lambda: command_validate(args, binary, stem, aff_path, dic_path),
+            "version": lambda: command_version(binary, stem),
+            "repl": lambda: command_repl(args, binary, stem),
+        }
+        return commands[args.command]()
+    except (CliError, OSError, UnicodeError) as exc:
+        if getattr(args, "json", False):
+            print(json.dumps({"error": str(exc)}, ensure_ascii=False))
+        else:
+            print(f"Ошибка: {exc}", file=sys.stderr)
+        return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

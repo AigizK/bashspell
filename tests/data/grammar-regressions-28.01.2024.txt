@@ -1,0 +1,154 @@
+# Expected forms derived from the downloaded Bashkir grammar reference.
+# Run with:
+#   ./bashspell --dict 28.01.2024 test --file tests/data/grammar-regressions-28.01.2024.txt
+
+# Vowel harmony and final-consonant agreement.
++ балалар
++ баланың
++ балаға
+- балаләр
+- балаҙар
+- баладар
+
++ башҡорттар
++ башҡорттоң
++ башҡортҡа
+- башҡорттәр
+- башҡортлар
+- башҡортдар
+- башҡорттең
+- башҡорткә
+
++ китаптар
++ китаптың
++ китапҡа
+- китаптәр
+- китаплар
+- китапдар
+- китаптең
+- китапкә
+
+# `эш` is currently assigned to hard class N13 instead of soft class N14.
++ эштәр
++ эштең
++ эшкә
+- эштар
+- эштың
+- эшҡа
+
+# Further class assignments contradicted by examples in the grammar corpus.
++ эттәр
+- эттар
++ нефтселәр
+- нефтселар
++ баһадирҙар
+- баһадирҙәр
++ пионерҙәр
+- пионерҙар
++ ғашиҡтар
+- ғашиҡтәр
+
+# Foreign stems in -ст, -зд, -сс lose the final consonant before an affix.
++ артистар
++ артистың
++ артисҡа
++ артисты
++ артистан
++ артиста
++ поездар
++ поездың
++ поезға
++ поезды
++ поездан
++ поезда
++ кластар
++ кластың
++ класҡа
++ класты
++ кластан
++ класта
+- артисттар
+- артисттың
+- артистҡа
+- артистты
+- артисттан
+- артистта
+- поездтар
+- поездтың
+- поездҡа
+- поездты
+- поездтан
+- поездта
+- поездда
+- класстар
+- класстың
+- классҡа
+- классты
+- класстан
+- класста
+
+# Latin look-alikes accidentally embedded in affix strings.
++ боҙоғораҡтыр
+- боҙоғoраҡтыр
++ кешеләренәрәк
+- кешеләренәpәк
++ кешеләрендәрәк
+- кешеләрендәpәк
+
+# Possessive suffixes after consonant-final abbreviations.
++ АвтоВАЗ-ы
+- АвтоВАЗ-е
++ АССР-ы
+- АССР-е
+- АССР-ө
++ КПСС-ы
+- КПСС-е
+- КПСС-ө
++ ВИЧ-ы
+- ВИЧ-е
+- ВИЧ-ө
+
+# Verb harmony and continuation-chain repairs.
++ бейегәйнең
+- бейеғайның
++ ҡотоламы
+- ҡотоләме
++ ҡотолалыр
+- ҡотоләлер
+
+# Comparative degree harmony.
++ ҙурыраҡ
+- ҙурерәк
++ ҙурыраҡтыр
+- ҙурерәктер
+
+# Possessive-plural case endings that were copied without -ҙы/-ҙың.
++ атайымдарҙы
++ ҡолономдарҙы
++ китабымдарҙы
++ ҡунағымдарҙы
++ барасағымдарҙы
++ атайымдайҙарҙың
++ халҡымдайҙарҙың
+
+# Loanword clusters -нг/-нк/-ск/-амп take a connecting ы before
+# consonant-initial nominal suffixes.  The regular and epenthetic affix
+# conditions must be mutually exclusive.
++ митингылар
+- митинглар
++ митингының
+- митингның
++ митингымы
+- митингмы
++ банкылар
+- банклар
++ дискылар
+- дисклар
++ эстампылар
+- эстамплар
+
+# The same cluster split is used by the proper-name class R09.
++ Гонконгылар
+- Гонконглар
++ Гонконгының
+- Гонконгның

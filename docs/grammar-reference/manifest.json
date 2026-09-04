@@ -1,0 +1,3191 @@
+{
+  "downloaded_at": "2026-09-04T11:23:25.151294+00:00",
+  "start_urls": [
+    "http://212.193.134.139/mfbl/res/bashdb/gram/gram.html",
+    "http://212.193.134.139/mfbl/res/bashdb/algram/algram.htm"
+  ],
+  "summary": {
+    "pages": 452,
+    "assets": 0,
+    "files": 452,
+    "unavailable": 2,
+    "failures": 0
+  },
+  "files": [
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/algram/algram.htm",
+      "path": "algram/algram.htm",
+      "content_type": "text/html",
+      "size": 6423,
+      "sha256": "c0852fbbea8676cda7b2dd9179c8760efe1ebf4e58c52ac1e22c2389d748a12b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/algram/glagol.htm",
+      "path": "algram/glagol.htm",
+      "content_type": "text/html",
+      "size": 1001515,
+      "sha256": "c7d79ad97d2ad86e9692186072edb393b0cb5e8be604bdbd789427ac51742448"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/algram/liter.htm",
+      "path": "algram/liter.htm",
+      "content_type": "text/html",
+      "size": 18234,
+      "sha256": "d531edc35dd216ed136aa164ea968cc1bd6c531ed66c000f722f27b3492f12e0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/algram/narech.htm",
+      "path": "algram/narech.htm",
+      "content_type": "text/html",
+      "size": 17442,
+      "sha256": "00b5e733e8d56175787159bbc9613dd28eefdec71a57a60b2da7ac3c272a6c02"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/algram/obchie.htm",
+      "path": "algram/obchie.htm",
+      "content_type": "text/html",
+      "size": 19992,
+      "sha256": "1a6220a69f0b931fe050435302c8c9559f0fac1913b206fd0a33ad50c39be5a7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/algram/pril.htm",
+      "path": "algram/pril.htm",
+      "content_type": "text/html",
+      "size": 19858,
+      "sha256": "175607e3177e77ae8c31a23f648af82e180ddab992479571c503f68553d55f9b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/algram/such.htm",
+      "path": "algram/such.htm",
+      "content_type": "text/html",
+      "size": 414926,
+      "sha256": "e4f571a0b7d8153ef8bad1a815fd5d80447e630cb8c037ddf476276a59b88a22"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/algram/vvedenie.htm",
+      "path": "algram/vvedenie.htm",
+      "content_type": "text/html",
+      "size": 15313,
+      "sha256": "f50196dcd425ec074e34092053f94d9ccde1a48bd86f7f99f6bdc8c30fe5bd4e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/alfavit/alfavit.htm",
+      "path": "gram/alfavit/alfavit.htm",
+      "content_type": "text/html",
+      "size": 3898,
+      "sha256": "99a88b7ab6e7240f5eaa9a03baca72f840e10b1662ef7d0fc90b091a91ff130d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/alfavit/princpisma.htm",
+      "path": "gram/alfavit/princpisma.htm",
+      "content_type": "text/html",
+      "size": 58430,
+      "sha256": "101ee5017c6a59ee9ee143dae7f6682c98c93452cd2e9cfeec6e7e46433d6e5b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/alfavit/princpisma1.htm",
+      "path": "gram/alfavit/princpisma1.htm",
+      "content_type": "text/html",
+      "size": 2712,
+      "sha256": "df6daa6084db6495501bc2f599957d0fa71615932ca20aa97f1005e70e3fae2b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/alfavit/princpisma2.htm",
+      "path": "gram/alfavit/princpisma2.htm",
+      "content_type": "text/html",
+      "size": 3332,
+      "sha256": "d2047109e0c35b7330bf13308f31efd434fd1fad199e83b76412577741cb85bd"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/alfavit/princpisma3.htm",
+      "path": "gram/alfavit/princpisma3.htm",
+      "content_type": "text/html",
+      "size": 2866,
+      "sha256": "74f3656b8d45c9ddec5ca0616ce46e1c7046ff37161f4fc8476228264f1a535b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/alfavit/princpisma4.htm",
+      "path": "gram/alfavit/princpisma4.htm",
+      "content_type": "text/html",
+      "size": 2866,
+      "sha256": "de44a40cbd44935e0f204272c7d60464be4e9e305cc13d25ee49b4a2e7d2c13c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/alfavit/sovbashalf.htm",
+      "path": "gram/alfavit/sovbashalf.htm",
+      "content_type": "text/html",
+      "size": 20378,
+      "sha256": "a26ff2bff3783cdcb3accbb5207764043bc807be662f78725df6b66c8829ca05"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonomorhp.htm",
+      "path": "gram/fonomorph/fonomorhp.htm",
+      "content_type": "text/html",
+      "size": 4868,
+      "sha256": "ea8497c01f34a88cb9a0d72c181288d79363f6e0f5fd5b56390ffc0104253729"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonproc.htm",
+      "path": "gram/fonomorph/fonproc.htm",
+      "content_type": "text/html",
+      "size": 86111,
+      "sha256": "85d0bb882ef1cdbffbc474bd8e2a895577a8ba3ea4d9efcd106d74a48d9af114"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonproc1.htm",
+      "path": "gram/fonomorph/fonproc1.htm",
+      "content_type": "text/html",
+      "size": 2495,
+      "sha256": "4405cc1c9c14188578d9151dd12537cdfaa44b9a19e9a2f208f3099124e7d241"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonproc2.htm",
+      "path": "gram/fonomorph/fonproc2.htm",
+      "content_type": "text/html",
+      "size": 3086,
+      "sha256": "a15e9783a5773cd3105f71d08c0bb52b04692f6621e18b9d8383cbf3f8a01e0d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonproc3.htm",
+      "path": "gram/fonomorph/fonproc3.htm",
+      "content_type": "text/html",
+      "size": 3670,
+      "sha256": "2cff27405cf8ed267b2e280bb2b7cd731a5f1ec604468de54acebfb807e3a354"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonproc4.htm",
+      "path": "gram/fonomorph/fonproc4.htm",
+      "content_type": "text/html",
+      "size": 2921,
+      "sha256": "2b29c458facc4f28a0fbbfa1d41141e7fa93e7bb91ca38fcb122422833bead74"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonproc5.htm",
+      "path": "gram/fonomorph/fonproc5.htm",
+      "content_type": "text/html",
+      "size": 4120,
+      "sha256": "cfa023900d03d24dc6d989bbdc7d514c5bb077efbac17031d0194d12eeb5e88e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonproc6.htm",
+      "path": "gram/fonomorph/fonproc6.htm",
+      "content_type": "text/html",
+      "size": 2977,
+      "sha256": "d1cb54e11cbeef5724702eed27feee887601fa55bac9ffaa098049dacf047c28"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/fonproc7.htm",
+      "path": "gram/fonomorph/fonproc7.htm",
+      "content_type": "text/html",
+      "size": 2527,
+      "sha256": "f367a4e6afa67ecfdb84bb127523eb2de9e9df652f33fb68573c308e4877905c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/svedfonomorhp.htm",
+      "path": "gram/fonomorph/svedfonomorhp.htm",
+      "content_type": "text/html",
+      "size": 7110,
+      "sha256": "444e4bfaf938e8cba029da5015fb132d51098f234b664359b2434055aafba142"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/zvizmprired.htm",
+      "path": "gram/fonomorph/zvizmprired.htm",
+      "content_type": "text/html",
+      "size": 11346,
+      "sha256": "4706aa0fec7fbcf8f69ac49d33f0ce62f2b48d9c61910f5c4fe9ffc5b9a8f0d1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/fonomorph/zvukizm.htm",
+      "path": "gram/fonomorph/zvukizm.htm",
+      "content_type": "text/html",
+      "size": 12467,
+      "sha256": "dd9919db9e0f9649f62461c086a7f0b2a6a545b4e2ece385c789be4528037334"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/gram.html",
+      "path": "gram/gram.html",
+      "content_type": "text/html",
+      "size": 4619,
+      "sha256": "95d648a896b8b177af8420d53b5703390b4ccad725973157622c4e7613624ad0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chastitsa/chastitsa.htm",
+      "path": "gram/morphol/chastitsa/chastitsa.htm",
+      "content_type": "text/html",
+      "size": 23841,
+      "sha256": "86a58ad8e2ef04e64014e0ee6770e8ef38923557e9ac8e86ef9637dbe869262f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chastitsa/chastitsa1.htm",
+      "path": "gram/morphol/chastitsa/chastitsa1.htm",
+      "content_type": "text/html",
+      "size": 2460,
+      "sha256": "5f0f787c7dd64794d6cba092ee27c8ce2775c10e8864463201b95175d79c6096"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/chslitmery.htm",
+      "path": "gram/morphol/chislit/chslitmery.htm",
+      "content_type": "text/html",
+      "size": 12158,
+      "sha256": "dd7780a5a3c298169956accbb0a03c25a56cfae9c9eedd65d79587e1607ca61a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/drobchslit.htm",
+      "path": "gram/morphol/chislit/drobchslit.htm",
+      "content_type": "text/html",
+      "size": 7263,
+      "sha256": "3a039fa18f87da47dbbda55e2de8f345aac381fa17f570f68c87aac053fd37f9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/kolchslit.htm",
+      "path": "gram/morphol/chislit/kolchslit.htm",
+      "content_type": "text/html",
+      "size": 20846,
+      "sha256": "4575c1d0f9c5ee1d062de60df5fc5aea48c0f65b4098aa9189f97c966665fb3b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/obchchar.htm",
+      "path": "gram/morphol/chislit/obchchar.htm",
+      "content_type": "text/html",
+      "size": 8597,
+      "sha256": "ae805c205f309c5fe6de0d22eadac0a16979b7598250f40e507b7e6b3750b8e0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/obchchar1.htm",
+      "path": "gram/morphol/chislit/obchchar1.htm",
+      "content_type": "text/html",
+      "size": 4998,
+      "sha256": "7da8d57912ae290c5a0f27df35270554a61f6cac91b37ca0c572f8218b829f55"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/poryadchslit.htm",
+      "path": "gram/morphol/chislit/poryadchslit.htm",
+      "content_type": "text/html",
+      "size": 9048,
+      "sha256": "089fa41cee69fe8e303260098d25b4a9dc6ecf8a3101001440cb061898561937"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/pribchslit.htm",
+      "path": "gram/morphol/chislit/pribchslit.htm",
+      "content_type": "text/html",
+      "size": 21790,
+      "sha256": "205d042b0d7fdf4d536925ebb0e1790310f4c06efbd577e831473f06eed7d5dc"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/razdelchislit.htm",
+      "path": "gram/morphol/chislit/razdelchislit.htm",
+      "content_type": "text/html",
+      "size": 9384,
+      "sha256": "f10bef1e2d47efa9648baf73c710d5b3b9322f71aee052747bc1ea7845b74671"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/razdelchislit1.htm",
+      "path": "gram/morphol/chislit/razdelchislit1.htm",
+      "content_type": "text/html",
+      "size": 2434,
+      "sha256": "584e8e132abc54447772871dca5ec5945f03b2c86e45380455051f390892e9c0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/chislit/sobirchslit.htm",
+      "path": "gram/morphol/chislit/sobirchslit.htm",
+      "content_type": "text/html",
+      "size": 16515,
+      "sha256": "2b9f3d7113043dabfefa184dd98daaf09628584d5460f1dc87ae134384f3266d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/affiks.htm",
+      "path": "gram/morphol/glagol/affiks.htm",
+      "content_type": "text/html",
+      "size": 99312,
+      "sha256": "11889f9a2aeddeca218e983d6c585bb2696327c6f82737ff04ad7bf5b967b271"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/affiks1.htm",
+      "path": "gram/morphol/glagol/affiks1.htm",
+      "content_type": "text/html",
+      "size": 3377,
+      "sha256": "12769ab0bcfa233fe6819057e5cb418a2749c1edd5c822120e420e09ae02af33"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnaa.htm",
+      "path": "gram/morphol/glagol/deeprnaa.htm",
+      "content_type": "text/html",
+      "size": 14420,
+      "sha256": "39ddc4d59c0c05bbc1b5e471c5a07373144115388851479e8a59416a84f03b6d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnaa1.htm",
+      "path": "gram/morphol/glagol/deeprnaa1.htm",
+      "content_type": "text/html",
+      "size": 2665,
+      "sha256": "b2b518af98dfd014f0e34af83fe02a51b78039a8461828a24bea20ebba5d7033"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnaa2.htm",
+      "path": "gram/morphol/glagol/deeprnaa2.htm",
+      "content_type": "text/html",
+      "size": 2966,
+      "sha256": "a1f710a22d85bc348b854bf57e65d12dfa3653226879159359b1103f6a7fb3fc"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnagansa.htm",
+      "path": "gram/morphol/glagol/deeprnagansa.htm",
+      "content_type": "text/html",
+      "size": 8553,
+      "sha256": "7de1f696b749142c2bcd81fa2e59ebdb4b1d130fe69ba5213c3ee39a20467116"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnagansy.htm",
+      "path": "gram/morphol/glagol/deeprnagansy.htm",
+      "content_type": "text/html",
+      "size": 9245,
+      "sha256": "b2d77e9b3d836291c23ad336537d8a65e82a318648413e76b04cf671aabd9348"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnagas.htm",
+      "path": "gram/morphol/glagol/deeprnagas.htm",
+      "content_type": "text/html",
+      "size": 17455,
+      "sha256": "a647b57e9f9a6b6f6e5d51a50692a348bd1088a0ce65d540fbfe58117a7ec302"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnap.htm",
+      "path": "gram/morphol/glagol/deeprnap.htm",
+      "content_type": "text/html",
+      "size": 74677,
+      "sha256": "16a07f204be0f651c03df2666d634fed7c92da8b7378fd8b9d11f10cb65977f6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnap1.htm",
+      "path": "gram/morphol/glagol/deeprnap1.htm",
+      "content_type": "text/html",
+      "size": 3367,
+      "sha256": "0534f3ad41bb02816411c54d0331ded8029bb31a3c008f5ebbb5847ebc3c5dac"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnap2.htm",
+      "path": "gram/morphol/glagol/deeprnap2.htm",
+      "content_type": "text/html",
+      "size": 7571,
+      "sha256": "2e0819b29e43bcc3ff184dbc2640a51e36f56be68c984f619633e82408928b9a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnap3.htm",
+      "path": "gram/morphol/glagol/deeprnap3.htm",
+      "content_type": "text/html",
+      "size": 2894,
+      "sha256": "1631a6ca8301203df82140acadc17e03b9c9134f414add2dfd43c95333cde0c4"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnap4.htm",
+      "path": "gram/morphol/glagol/deeprnap4.htm",
+      "content_type": "text/html",
+      "size": 4441,
+      "sha256": "641c64a8436147610ab597c234b65becfbf045f7ae72cebbdf412dc4426d65ec"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnap5.htm",
+      "path": "gram/morphol/glagol/deeprnap5.htm",
+      "content_type": "text/html",
+      "size": 4261,
+      "sha256": "fab98384ced5775db4c78e403e78fc3a801916682f2e06bc5ff2983a8c4a9b2b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnap6.htm",
+      "path": "gram/morphol/glagol/deeprnap6.htm",
+      "content_type": "text/html",
+      "size": 2870,
+      "sha256": "0483d98c48fc8ced0fe77cd969bd6b23bd5978f1f338ebc284616b80d29fb97b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprnayshlai.htm",
+      "path": "gram/morphol/glagol/deeprnayshlai.htm",
+      "content_type": "text/html",
+      "size": 4543,
+      "sha256": "9592539f960cbb31a8416e8c4dd54a9c33e563a4e51f4edb7b3a584b3d61610d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprobchchar.htm",
+      "path": "gram/morphol/glagol/deeprobchchar.htm",
+      "content_type": "text/html",
+      "size": 21634,
+      "sha256": "f99ac68fa4cf980167d05c098926c12c27687bba53971b3eca78c82a06ba9d03"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprobchchar1.htm",
+      "path": "gram/morphol/glagol/deeprobchchar1.htm",
+      "content_type": "text/html",
+      "size": 2916,
+      "sha256": "2dfdd8c69332ae0f01f9dfe87e01460ae17264b2a8392c1f7f8a13d11dc71977"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprobchchar2.htm",
+      "path": "gram/morphol/glagol/deeprobchchar2.htm",
+      "content_type": "text/html",
+      "size": 3389,
+      "sha256": "2d9534b190d7cb3351e156b7d5812bac330d652c3dcdf91a15153f1bd9f8698e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/deeprobchchar3.htm",
+      "path": "gram/morphol/glagol/deeprobchchar3.htm",
+      "content_type": "text/html",
+      "size": 3474,
+      "sha256": "15f3fe5354ddab13aea020a981aff1f98c3301df4ae908478b3df1c752e353a6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/imyadeyst.htm",
+      "path": "gram/morphol/glagol/imyadeyst.htm",
+      "content_type": "text/html",
+      "size": 31179,
+      "sha256": "611feceb00a838a3a5771c7697423ef475af6dd8019bae9e1f455516caa12d1e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/imyadeyst1.htm",
+      "path": "gram/morphol/glagol/imyadeyst1.htm",
+      "content_type": "text/html",
+      "size": 3877,
+      "sha256": "0246fe1ddb6f9b9d48a2ca28a3a133cc10c2bdd30defdc6d9fff719027139fd9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/infinformgl.htm",
+      "path": "gram/morphol/glagol/infinformgl.htm",
+      "content_type": "text/html",
+      "size": 37481,
+      "sha256": "cd13a9e0bb4a3151c9a79df1934de550b77f3181e0ddc196150558ec40a4d3b7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/infinformgl1.htm",
+      "path": "gram/morphol/glagol/infinformgl1.htm",
+      "content_type": "text/html",
+      "size": 3579,
+      "sha256": "80f4e5cddc0deb6381f35274e3c5553b057c9b240afac8114ad1f1ff904b0b31"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/katotritc.htm",
+      "path": "gram/morphol/glagol/katotritc.htm",
+      "content_type": "text/html",
+      "size": 40502,
+      "sha256": "4b9b219d2262323e25276bd9090e5a29ead520118a9892a59b62bf104be335d2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/katpereh.htm",
+      "path": "gram/morphol/glagol/katpereh.htm",
+      "content_type": "text/html",
+      "size": 27721,
+      "sha256": "e44cadcec843853280c24e3c524d923dc9bcf82b54d94700a9633fdfdef153da"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/katzalobchchar.htm",
+      "path": "gram/morphol/glagol/katzalobchchar.htm",
+      "content_type": "text/html",
+      "size": 14267,
+      "sha256": "1329f6d099581476b6a8bdb758b012ec72d49725f5af82fe05c6fefb299cca52"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/katzalobchchar1.htm",
+      "path": "gram/morphol/glagol/katzalobchchar1.htm",
+      "content_type": "text/html",
+      "size": 2944,
+      "sha256": "3358c0614a4facbe591b2cdab0a72e9f8fc5482a54bce660c08640293b123521"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/moddolj.htm",
+      "path": "gram/morphol/glagol/moddolj.htm",
+      "content_type": "text/html",
+      "size": 25537,
+      "sha256": "d6802a8d02897b54f5bb2bab9e0283c92d362bd6d43a06ef039596c9f165d275"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/modjelan.htm",
+      "path": "gram/morphol/glagol/modjelan.htm",
+      "content_type": "text/html",
+      "size": 12084,
+      "sha256": "cc5e86349e070affb3c27e9d22baf939ff31d182847e84745a4425247210892d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/modnamer.htm",
+      "path": "gram/morphol/glagol/modnamer.htm",
+      "content_type": "text/html",
+      "size": 7796,
+      "sha256": "3beefcbbed109de7325f7ac22f9c437f9a59714442fd9f5f985cb2b5230469ca"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/modvozm.htm",
+      "path": "gram/morphol/glagol/modvozm.htm",
+      "content_type": "text/html",
+      "size": 19311,
+      "sha256": "82963fc752abc67b609203baf2bf813048735fe0b6c66e20f4dc517b838d2aff"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/naklonizyav.htm",
+      "path": "gram/morphol/glagol/naklonizyav.htm",
+      "content_type": "text/html",
+      "size": 8999,
+      "sha256": "e0393ddb4f8cb20a8c9d2cc8dd5c72843ef27fb20c3d83e9a637d15c5a072f01"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/naklonjelan.htm",
+      "path": "gram/morphol/glagol/naklonjelan.htm",
+      "content_type": "text/html",
+      "size": 18128,
+      "sha256": "5c1a701cdc8c5b381420a0a2a92e025b11b047c02a622f9010dca0c383464c95"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/naklonjelan1.htm",
+      "path": "gram/morphol/glagol/naklonjelan1.htm",
+      "content_type": "text/html",
+      "size": 3127,
+      "sha256": "01985d3873e7f7b0b22decf36d7cb0d45a7be2168acc64432e68d063a0888ba6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/naklonnamer.htm",
+      "path": "gram/morphol/glagol/naklonnamer.htm",
+      "content_type": "text/html",
+      "size": 34248,
+      "sha256": "db940533805fb86f8f67fe1717c717361e5de70b42b310eac312dc92c858dba8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/naklonpovel.htm",
+      "path": "gram/morphol/glagol/naklonpovel.htm",
+      "content_type": "text/html",
+      "size": 42600,
+      "sha256": "0f66b0117c30602c249cfc52da2ed81847ed3f28cdc2174aebe03277753dc4c2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/naklonsoslag.htm",
+      "path": "gram/morphol/glagol/naklonsoslag.htm",
+      "content_type": "text/html",
+      "size": 15630,
+      "sha256": "31113eeca2c458e33283f57bd031bbaf84ae679140e766b9265f781882447048"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/naklonuslov.htm",
+      "path": "gram/morphol/glagol/naklonuslov.htm",
+      "content_type": "text/html",
+      "size": 66394,
+      "sha256": "882f44601c02c8bbc6a324a8daf005420ce7cca040cf0419d6c2beaecf07ff7d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/obchchar.htm",
+      "path": "gram/morphol/glagol/obchchar.htm",
+      "content_type": "text/html",
+      "size": 21759,
+      "sha256": "8fa0998689364b00d74e01608ab3f996f33194134935a89748fbfb848cea75b7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/obchchar1.htm",
+      "path": "gram/morphol/glagol/obchchar1.htm",
+      "content_type": "text/html",
+      "size": 2753,
+      "sha256": "9a84ba002ddb7981e600be9dca8302bcd39d66bb6fe95205e048a282284306d2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/obchchar2.htm",
+      "path": "gram/morphol/glagol/obchchar2.htm",
+      "content_type": "text/html",
+      "size": 2907,
+      "sha256": "408846c30f36d8f3413463603bae8bbbf97bccb2f4ca2d74c2fe4fceac448ddf"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/obchchar3.htm",
+      "path": "gram/morphol/glagol/obchchar3.htm",
+      "content_type": "text/html",
+      "size": 4632,
+      "sha256": "57f4fd2c30c1d3cb5e682bd06b02cd69929a0407fbbcd86df7de7500ce941251"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/obchchar4.htm",
+      "path": "gram/morphol/glagol/obchchar4.htm",
+      "content_type": "text/html",
+      "size": 2960,
+      "sha256": "284c9239480000e2908f3953c28dd8d8f379598717b9aa9db26de6ccdddea001"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/obchchar5.htm",
+      "path": "gram/morphol/glagol/obchchar5.htm",
+      "content_type": "text/html",
+      "size": 3020,
+      "sha256": "bb072a738611f5330f42cb64e59acf24cf5eb1665f672a843adc8716cabe12d0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/obrslojgl.htm",
+      "path": "gram/morphol/glagol/obrslojgl.htm",
+      "content_type": "text/html",
+      "size": 35112,
+      "sha256": "7fd0d82d0cd3607e466b1a97ee26324d9531e708d82446a74179d0654791e876"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/osnzalog.htm",
+      "path": "gram/morphol/glagol/osnzalog.htm",
+      "content_type": "text/html",
+      "size": 9648,
+      "sha256": "db2d1f26d47e3b1ddc2e285f8b2f21fae1e622a5725ceafa74ed913af41a3335"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/ponudzalog.htm",
+      "path": "gram/morphol/glagol/ponudzalog.htm",
+      "content_type": "text/html",
+      "size": 66194,
+      "sha256": "c3b914da95aca60de1075a5c5e737cb432ba6d1b59bc8ae6c433232ee0fa9ed3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/ponudzalog1.htm",
+      "path": "gram/morphol/glagol/ponudzalog1.htm",
+      "content_type": "text/html",
+      "size": 4235,
+      "sha256": "2688a9b7a825ed215ac30d4ac7239db3cc4e0dad9697a45a7d14bce64207153b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/ponudzalog2.htm",
+      "path": "gram/morphol/glagol/ponudzalog2.htm",
+      "content_type": "text/html",
+      "size": 2919,
+      "sha256": "2fc36afec75d601c6f99c85da804c33670fb796fa473a1ca8f13e8cf9da441cb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/ponudzalog3.htm",
+      "path": "gram/morphol/glagol/ponudzalog3.htm",
+      "content_type": "text/html",
+      "size": 3358,
+      "sha256": "b11fcf1dfb19b85db04d9af966838d44a9bc3c2d97af02f74414c86e83d137b9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/ponudzalog4.htm",
+      "path": "gram/morphol/glagol/ponudzalog4.htm",
+      "content_type": "text/html",
+      "size": 3745,
+      "sha256": "63913bb9a5aa998197546ed175cbe4f276777679e8c430659b32327717ee151f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/predmod.htm",
+      "path": "gram/morphol/glagol/predmod.htm",
+      "content_type": "text/html",
+      "size": 10841,
+      "sha256": "924fbfd01bdccd83424f34094fbe1eb71f738750e25ef06288a062972423e5b1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/predmod1.htm",
+      "path": "gram/morphol/glagol/predmod1.htm",
+      "content_type": "text/html",
+      "size": 3463,
+      "sha256": "71a113bcd0c74f21e564b9860352f968a5f9411e48294c08ab1dec647b6749b3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/prichastieobchchar.htm",
+      "path": "gram/morphol/glagol/prichastieobchchar.htm",
+      "content_type": "text/html",
+      "size": 12793,
+      "sha256": "bc85f05daa868c5bb09cc0f451c3dc91fcb906d96912f8e6c1332a20038cc5f1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/prichbudvr.htm",
+      "path": "gram/morphol/glagol/prichbudvr.htm",
+      "content_type": "text/html",
+      "size": 24620,
+      "sha256": "6f534085dc8e0f4bf43b5040072ae57f0d7d4d8834f1889fee54e9997be67355"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/prichnastvr.htm",
+      "path": "gram/morphol/glagol/prichnastvr.htm",
+      "content_type": "text/html",
+      "size": 13121,
+      "sha256": "efb510ba447ab8929e858ee6deb0f21359e42fee1b0c2bb5546ee44d0c156c9f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/prichproshvr.htm",
+      "path": "gram/morphol/glagol/prichproshvr.htm",
+      "content_type": "text/html",
+      "size": 16072,
+      "sha256": "796774fb96d9645d8cc9a532692ebaa16d43359d7a5e92a465d8b2862adfe3e6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/stradzalog.htm",
+      "path": "gram/morphol/glagol/stradzalog.htm",
+      "content_type": "text/html",
+      "size": 43384,
+      "sha256": "b5ff50950304f21a2283ec7f0291485281250136be8887469295128f00bd72a5"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/stradzalog1.htm",
+      "path": "gram/morphol/glagol/stradzalog1.htm",
+      "content_type": "text/html",
+      "size": 6973,
+      "sha256": "fd702aaf1a4678d3419667265e1517667414a0c399d1b7ef03e60f9a723305d2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/stradzalog2.htm",
+      "path": "gram/morphol/glagol/stradzalog2.htm",
+      "content_type": "text/html",
+      "size": 2817,
+      "sha256": "dd37670793bba2cb659a34a4ebd509cc4e90ab787954d18df96e23bc58a6dd17"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vnutriglaol.htm",
+      "path": "gram/morphol/glagol/vnutriglaol.htm",
+      "content_type": "text/html",
+      "size": 137198,
+      "sha256": "45126ab105c1c226383b434f65d3d9055acd3a5768b55f3b40126ceac47b4438"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vnutriglaol1.htm",
+      "path": "gram/morphol/glagol/vnutriglaol1.htm",
+      "content_type": "text/html",
+      "size": 4810,
+      "sha256": "6d8efcb0620519c1f1af7a140eb238364c7a72a7863ebd171f30411e378873be"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vnutriglaol2.htm",
+      "path": "gram/morphol/glagol/vnutriglaol2.htm",
+      "content_type": "text/html",
+      "size": 3602,
+      "sha256": "879d2065e6b42550ebffa2f62c9f4683b80255b799a86236dd6fee931910ffd5"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vnutriglaol3.htm",
+      "path": "gram/morphol/glagol/vnutriglaol3.htm",
+      "content_type": "text/html",
+      "size": 3088,
+      "sha256": "2350f705ef6f3b6b6ddfc407652086bdcae5806a86d2fdf39cb2f2cb9bacb233"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vnutriglaol4.htm",
+      "path": "gram/morphol/glagol/vnutriglaol4.htm",
+      "content_type": "text/html",
+      "size": 5234,
+      "sha256": "e25996f3f04e59fb8b07a7f4d90f4eeaf998fd41adde9789bcf41d61443d8449"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vozvzalog.htm",
+      "path": "gram/morphol/glagol/vozvzalog.htm",
+      "content_type": "text/html",
+      "size": 28352,
+      "sha256": "a3aa5c445b7cd80ba1c328acaef690716f48b202a397a49356a35926bf20f7b1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyabudopr.htm",
+      "path": "gram/morphol/glagol/vremyabudopr.htm",
+      "content_type": "text/html",
+      "size": 11418,
+      "sha256": "ea9e3430aff4cb85481e97a12c09f67351d972b6299fa76974bf2d4bfac55024"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyadavnoproshneopr.htm",
+      "path": "gram/morphol/glagol/vremyadavnoproshneopr.htm",
+      "content_type": "text/html",
+      "size": 6800,
+      "sha256": "7f4a2e6b0ff6b754a7228610aaafa6b071500744533be5e8e63899287e970ebb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyadavnoproshopr.htm",
+      "path": "gram/morphol/glagol/vremyadavnoproshopr.htm",
+      "content_type": "text/html",
+      "size": 19634,
+      "sha256": "67828665a6b0dc124d5e4a5856e6388d8f76e58de8f0e517167b8d896d33c4a6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyanast.htm",
+      "path": "gram/morphol/glagol/vremyanast.htm",
+      "content_type": "text/html",
+      "size": 36018,
+      "sha256": "9ab6db3df736a37af9719e5ba552d9b2d18bf166feb954c1a7f09cea0395a1e6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyanast1.htm",
+      "path": "gram/morphol/glagol/vremyanast1.htm",
+      "content_type": "text/html",
+      "size": 4313,
+      "sha256": "873880ff4560b4cc5deac563fba44e814d90301fbfc0f3128a26335d14cab312"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyapredproshnagainy.htm",
+      "path": "gram/morphol/glagol/vremyapredproshnagainy.htm",
+      "content_type": "text/html",
+      "size": 10353,
+      "sha256": "026a135da9747ad9759100f4de5e4163f7b0bc80b99ec00ff6a9837406b05e56"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyapredproshnaganbulgan.htm",
+      "path": "gram/morphol/glagol/vremyapredproshnaganbulgan.htm",
+      "content_type": "text/html",
+      "size": 9887,
+      "sha256": "45bbc9bccd7a1790154f00615bfb9c63a4416f8e356d2059d7b3b46496d7e894"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyaproshednady.htm",
+      "path": "gram/morphol/glagol/vremyaproshednady.htm",
+      "content_type": "text/html",
+      "size": 11822,
+      "sha256": "a9503f3cb3a9a912cb05b950b080fa5422d8f3b729dd51c5c0e94bd1380144c7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyaproshednagan.htm",
+      "path": "gram/morphol/glagol/vremyaproshednagan.htm",
+      "content_type": "text/html",
+      "size": 19586,
+      "sha256": "f6b220902aa0df161ca5e5461e41d14219d94a83b9ae264fa8e4c44a202db1da"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vremyaproshednezakon.htm",
+      "path": "gram/morphol/glagol/vremyaproshednezakon.htm",
+      "content_type": "text/html",
+      "size": 8616,
+      "sha256": "face2aa6cb8c5934d3ccd538a1d6cc1879b4982c6b498cff1f2f79c407490140"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/glagol/vzaimzalog.htm",
+      "path": "gram/morphol/glagol/vzaimzalog.htm",
+      "content_type": "text/html",
+      "size": 48920,
+      "sha256": "e3fef58da7fb871f13002b508a6ef3b5121db04bc23ca9da3bc484f7f7d2e106"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mejdomet/mejdomet.htm",
+      "path": "gram/morphol/mejdomet/mejdomet.htm",
+      "content_type": "text/html",
+      "size": 109315,
+      "sha256": "aed15921c61b8319f4fbf85d8af8e62f7c7ed290b83c8f6944d276bf95cfb9bc"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mejdomet/mejdomet1.htm",
+      "path": "gram/morphol/mejdomet/mejdomet1.htm",
+      "content_type": "text/html",
+      "size": 4570,
+      "sha256": "5fd602d78a3f667a9a3c7e1a62da608b2e4b5af90eb74c543a85e899b712f7a8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mestoim/lichmestoim.htm",
+      "path": "gram/morphol/mestoim/lichmestoim.htm",
+      "content_type": "text/html",
+      "size": 20175,
+      "sha256": "7cf066f3226d0024d73e3cc06e2c4d5fd34418fa083b1a73440aaf169db1614c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mestoim/neopredmestoim.htm",
+      "path": "gram/morphol/mestoim/neopredmestoim.htm",
+      "content_type": "text/html",
+      "size": 12463,
+      "sha256": "eb621326549c114f58716b84c3107b6fd7c0f6c4eb122de4da7b0ea9a02bfd5a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mestoim/obchchar.htm",
+      "path": "gram/morphol/mestoim/obchchar.htm",
+      "content_type": "text/html",
+      "size": 12906,
+      "sha256": "655013fa95134e66faefdcc163bbfa9f4ba1508c5a3fc0234295dfb3dfcc87f3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mestoim/opredmestoim.htm",
+      "path": "gram/morphol/mestoim/opredmestoim.htm",
+      "content_type": "text/html",
+      "size": 17355,
+      "sha256": "cddb3948da802d935aef56ffb62c3fa0a3919ffe8baa4db127f4f529fc56e0cb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mestoim/otritsmestoim.htm",
+      "path": "gram/morphol/mestoim/otritsmestoim.htm",
+      "content_type": "text/html",
+      "size": 8787,
+      "sha256": "4d0949822b3cd5ff0299acaaed08c075ffd90e60caed7db591d638c6326df511"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mestoim/pritmestoim.htm",
+      "path": "gram/morphol/mestoim/pritmestoim.htm",
+      "content_type": "text/html",
+      "size": 6873,
+      "sha256": "174a7c351202dbb283f7e6e5926dab553cac5397b1d2d905350bc0e9c9b96ace"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mestoim/ukazmestoim.htm",
+      "path": "gram/morphol/mestoim/ukazmestoim.htm",
+      "content_type": "text/html",
+      "size": 29624,
+      "sha256": "21106e6f8f8ca7af6fbaa6711e20beefd0a38e4b89e5434298ddbe58bb33fb1c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/mestoim/voprmestoim.htm",
+      "path": "gram/morphol/mestoim/voprmestoim.htm",
+      "content_type": "text/html",
+      "size": 13091,
+      "sha256": "d1976b94f8f2b6c7518752a4e52eac58148b52e35e614c69185a8ee529fca629"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/modslova/modsldoljneob.htm",
+      "path": "gram/morphol/modslova/modsldoljneob.htm",
+      "content_type": "text/html",
+      "size": 26314,
+      "sha256": "ab2b0074cb381588c516e6abc50d8899c6ed0f7e72e69b905fa1fbeee271760b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/modslova/modslovagipotet.htm",
+      "path": "gram/morphol/modslova/modslovagipotet.htm",
+      "content_type": "text/html",
+      "size": 8688,
+      "sha256": "71780d781dcc691fd58722df029f71df6e38f29baa2dc9b58dde205de3cd38f9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/modslova/modslpobuj.htm",
+      "path": "gram/morphol/modslova/modslpobuj.htm",
+      "content_type": "text/html",
+      "size": 6051,
+      "sha256": "8fb51d48b5b5add76862088c1434d36c0d6faefa43b7acc12aa08a5f51af1e01"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/modslova/modslutvotrits.htm",
+      "path": "gram/morphol/modslova/modslutvotrits.htm",
+      "content_type": "text/html",
+      "size": 31421,
+      "sha256": "9d8fc7cae3f14b98108d145e8b44c502ebc30d19b034467d3feca6aae75b4edd"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/modslova/modslvozmoj.htm",
+      "path": "gram/morphol/modslova/modslvozmoj.htm",
+      "content_type": "text/html",
+      "size": 8392,
+      "sha256": "1eeb6a8c75b416ca8f039e9c33b4830429cd23a8bdda801d6c80aca07c816ff0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/modslova/obchchar.htm",
+      "path": "gram/morphol/modslova/obchchar.htm",
+      "content_type": "text/html",
+      "size": 8879,
+      "sha256": "0c657e39a714952caf7af2b8294a3fb2602473d6727f3eabec2efeca2a625d57"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/morhol1.html",
+      "path": "gram/morphol/morhol1.html",
+      "content_type": "text/html",
+      "size": 42938,
+      "sha256": "2766739924b8f0d0f7320aaefc9a5f7e7c93303177cceb6867cf1bd89f5f3c9e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/adverb.htm",
+      "path": "gram/morphol/narechie/adverb.htm",
+      "content_type": "text/html",
+      "size": 29585,
+      "sha256": "e9b7f26795c5c56a160111e88ffe87b7fac14e8f4fd4c969155c90d8178d1b30"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/affic.htm",
+      "path": "gram/morphol/narechie/affic.htm",
+      "content_type": "text/html",
+      "size": 27800,
+      "sha256": "74558d94ea7f92e8e94198084e86d55037a856ec4dbe0c9ff5475d122e6c79e0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/kornevye.htm",
+      "path": "gram/morphol/narechie/kornevye.htm",
+      "content_type": "text/html",
+      "size": 14734,
+      "sha256": "71b6c503dad09ef01975bcf5348d33106c5d96db8704ab7056d6eb505dadffd3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/lexsostav.htm",
+      "path": "gram/morphol/narechie/lexsostav.htm",
+      "content_type": "text/html",
+      "size": 24067,
+      "sha256": "8fd541e91e2f4afacc7586b8899905e590b3fc031f5b724428079e68986d337f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/obchchar.htm",
+      "path": "gram/morphol/narechie/obchchar.htm",
+      "content_type": "text/html",
+      "size": 9622,
+      "sha256": "fefaab64607dbdcd6db2a2f9d91d8e2ae63513cc14ac4a88b62031354e87196a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/razryady.htm",
+      "path": "gram/morphol/narechie/razryady.htm",
+      "content_type": "text/html",
+      "size": 8711,
+      "sha256": "6e2bfce828ca49237904dcc22e9db28af54f4a4b07f976bb9236d6ddb7c4d419"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/redupl.htm",
+      "path": "gram/morphol/narechie/redupl.htm",
+      "content_type": "text/html",
+      "size": 17697,
+      "sha256": "1f66e187ca1467597782567c5ead381e3f707e95709f975314a7aed8623e2789"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/slovosloj.htm",
+      "path": "gram/morphol/narechie/slovosloj.htm",
+      "content_type": "text/html",
+      "size": 32631,
+      "sha256": "588ee0890013a1079481db64a8c2c73e3e0bd58f42fe5dbd383727fe7545c2f3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/sravnitstepen.htm",
+      "path": "gram/morphol/narechie/sravnitstepen.htm",
+      "content_type": "text/html",
+      "size": 12657,
+      "sha256": "50bec91afb60c0b6cdc83cdd195b7ef5cfe542d19c44594c8cb3ebead5abde09"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/narechie/syntfun.htm",
+      "path": "gram/morphol/narechie/syntfun.htm",
+      "content_type": "text/html",
+      "size": 13740,
+      "sha256": "4bdd2ffcf8c7e8512b40bbf6c00275ca75bc886d0866fd0d31822afde4fb0192"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/podrajslova/obchchar.htm",
+      "path": "gram/morphol/podrajslova/obchchar.htm",
+      "content_type": "text/html",
+      "size": 13392,
+      "sha256": "c9c3b2efaa7a35b04bb8da54f80a37da625109e19086959385d440e1236e6ce4"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/podrajslova/structpodrsl.htm",
+      "path": "gram/morphol/podrajslova/structpodrsl.htm",
+      "content_type": "text/html",
+      "size": 50687,
+      "sha256": "51c99d05f51ae7ee208131d04e7445c298def9c63103fcf0991e0a69b468778a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/podrajslova/structpodrsl1.htm",
+      "path": "gram/morphol/podrajslova/structpodrsl1.htm",
+      "content_type": "text/html",
+      "size": 2726,
+      "sha256": "d1332227c2351e1939d34962a584e31a899595c435888ca89328ace4c4c80089"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/podrajslova/syntfun.htm",
+      "path": "gram/morphol/podrajslova/syntfun.htm",
+      "content_type": "text/html",
+      "size": 20782,
+      "sha256": "d530f40b75eff09b065fe162e3b66066d4d3064bc3292561431ffc91e57e8e16"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/podrajslova/zvatslova.htm",
+      "path": "gram/morphol/podrajslova/zvatslova.htm",
+      "content_type": "text/html",
+      "size": 10753,
+      "sha256": "d5216a7ddbfb63968a327ed50671c7857c6861582a2cf0cc322f9df0a91487ce"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/poslelogi/obchchar.htm",
+      "path": "gram/morphol/poslelogi/obchchar.htm",
+      "content_type": "text/html",
+      "size": 22071,
+      "sha256": "e33ac561832fc8b5d4efdf4abff7c7850af4738c6bf35008e89aa3900c16fae7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/poslelogi/posleloguprdatpad.htm",
+      "path": "gram/morphol/poslelogi/posleloguprdatpad.htm",
+      "content_type": "text/html",
+      "size": 10694,
+      "sha256": "2b926a9b1bb173f1677d158eff642dc5650a305c16912f6c423dbbbc95764d04"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/poslelogi/posleloguprishpad.htm",
+      "path": "gram/morphol/poslelogi/posleloguprishpad.htm",
+      "content_type": "text/html",
+      "size": 13552,
+      "sha256": "7a73e3596138a11ceeb2ba317888bd784201784a59d4e6ef2afca672f04d9c40"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/poslelogi/posleloguprosnpad.htm",
+      "path": "gram/morphol/poslelogi/posleloguprosnpad.htm",
+      "content_type": "text/html",
+      "size": 28914,
+      "sha256": "c57c3d0d7ef61698c23bff19ba46e8bd59f3e10b5cc8f029dfe04102e0976535"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/adekt.htm",
+      "path": "gram/morphol/prilag/adekt.htm",
+      "content_type": "text/html",
+      "size": 19838,
+      "sha256": "a6eee7fa0ebe4fdceb5d8277bde2c1b23049a94d9d713c6468babd3aa39fdc5d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/formyusil.htm",
+      "path": "gram/morphol/prilag/formyusil.htm",
+      "content_type": "text/html",
+      "size": 21438,
+      "sha256": "3df957e97b55c8c84e6763cf74f76c7455e91ecc7cf45d7c789584eaff7f243d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/formyusil1.htm",
+      "path": "gram/morphol/prilag/formyusil1.htm",
+      "content_type": "text/html",
+      "size": 4590,
+      "sha256": "fda91ed302d524821d61e59dd4966b3710b2119d26db9c1d0d8598932cea227f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/formyusil2.htm",
+      "path": "gram/morphol/prilag/formyusil2.htm",
+      "content_type": "text/html",
+      "size": 3218,
+      "sha256": "dd58a2107b91ab2114f06c8360e9a3828fc4c0b49c5f8b7c2e2676ffad95205b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/formyusil3.htm",
+      "path": "gram/morphol/prilag/formyusil3.htm",
+      "content_type": "text/html",
+      "size": 3598,
+      "sha256": "926cc17e1ed49030e78a0b8e222f2a319c7ebd88f6cc9224bb4fa73e2d04fef3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi.htm",
+      "path": "gram/morphol/prilag/maloprodaffi.htm",
+      "content_type": "text/html",
+      "size": 60917,
+      "sha256": "4d2911443deb4ce79885ebaed9da81c7e5acf5c8b4db128a49e75a708475774e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi1.htm",
+      "path": "gram/morphol/prilag/maloprodaffi1.htm",
+      "content_type": "text/html",
+      "size": 2616,
+      "sha256": "c972084d48bb8f962a4c2e8a6ab6ad3cf5610d4379573a47603c5384b4bdc189"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi10.htm",
+      "path": "gram/morphol/prilag/maloprodaffi10.htm",
+      "content_type": "text/html",
+      "size": 2889,
+      "sha256": "f7ca5f84f32296430e3786b9a6ada32fb9e77657fcf795cfbaea3ba84de8d809"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi11.htm",
+      "path": "gram/morphol/prilag/maloprodaffi11.htm",
+      "content_type": "text/html",
+      "size": 2994,
+      "sha256": "11e1025d4ef814bc9b6dfbec4788f14e25b08bb0d06081903bfd99042c0e1e10"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi12.htm",
+      "path": "gram/morphol/prilag/maloprodaffi12.htm",
+      "content_type": "text/html",
+      "size": 2757,
+      "sha256": "f5bfc235a75f9cd9c794ed9289f99a302235f4d68aa9a09c54accc1f96c83698"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi13.htm",
+      "path": "gram/morphol/prilag/maloprodaffi13.htm",
+      "content_type": "text/html",
+      "size": 2893,
+      "sha256": "92a09a6276799eeebb33ab39e8f131f1fad83102e8d5dd0767fe37a0fac855c0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi14.htm",
+      "path": "gram/morphol/prilag/maloprodaffi14.htm",
+      "content_type": "text/html",
+      "size": 2701,
+      "sha256": "1b667c5b317a81606151102e554fe9bf69a55f384c5ae28421842ede3fbc83b0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi15.htm",
+      "path": "gram/morphol/prilag/maloprodaffi15.htm",
+      "content_type": "text/html",
+      "size": 2475,
+      "sha256": "4d32c963640a114d76e6cdde3d66913f0230cdca88668e7fc057eaeb6a4f9b42"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi16.htm",
+      "path": "gram/morphol/prilag/maloprodaffi16.htm",
+      "content_type": "text/html",
+      "size": 2475,
+      "sha256": "180af29a463a2f695223c23052e3cfdd77de0f8f8f4fe795f1a58f25412e0f48"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi17.htm",
+      "path": "gram/morphol/prilag/maloprodaffi17.htm",
+      "content_type": "text/html",
+      "size": 2429,
+      "sha256": "47871f74fd0ee020c5752326677ef8918f8f98e8440ca28d7cb31c20fc0c854e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi18.htm",
+      "path": "gram/morphol/prilag/maloprodaffi18.htm",
+      "content_type": "text/html",
+      "size": 2479,
+      "sha256": "045ece730ccbc59b98fdbf36c0d5a695257323d2f7a75f31df988a2b1df26224"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi19.htm",
+      "path": "gram/morphol/prilag/maloprodaffi19.htm",
+      "content_type": "text/html",
+      "size": 2836,
+      "sha256": "4ddd4428b7ba5912e4133bb90d94a0202d683e2ec8d49f7d68fb64a91ed4afd2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi2.htm",
+      "path": "gram/morphol/prilag/maloprodaffi2.htm",
+      "content_type": "text/html",
+      "size": 3006,
+      "sha256": "2eef414d57a9af32a1175f75053692f3e244b466cffed93e46437cef41717a3c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi20.htm",
+      "path": "gram/morphol/prilag/maloprodaffi20.htm",
+      "content_type": "text/html",
+      "size": 2585,
+      "sha256": "7895983dc7626cd938de1cf046132a766f173606e24db8a92b8c4f68da9f4d4e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi3.htm",
+      "path": "gram/morphol/prilag/maloprodaffi3.htm",
+      "content_type": "text/html",
+      "size": 2521,
+      "sha256": "b1b1697ee4319fc7aeb65bac25d755fa0a3ac1ae72c4c58fd6b3070eba3fed76"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi4.htm",
+      "path": "gram/morphol/prilag/maloprodaffi4.htm",
+      "content_type": "text/html",
+      "size": 2610,
+      "sha256": "0e37964332ee9da0896986beb52311d8679878223943035aade35b4fc0efa209"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi5.htm",
+      "path": "gram/morphol/prilag/maloprodaffi5.htm",
+      "content_type": "text/html",
+      "size": 2657,
+      "sha256": "174ebb292c00281517c3452b6cb99907ddcf43ed3063caf0f51beeeb4573ed3c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi6.htm",
+      "path": "gram/morphol/prilag/maloprodaffi6.htm",
+      "content_type": "text/html",
+      "size": 2538,
+      "sha256": "7f7b0003a8680df58da031423280a4fbc07f12b65c1170caa69a62917f632e14"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi7.htm",
+      "path": "gram/morphol/prilag/maloprodaffi7.htm",
+      "content_type": "text/html",
+      "size": 2327,
+      "sha256": "0b9d3cbba54b7c00213a138e9874fd872adc33b256c5ed37b1f5de7ed97a1611"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi8.htm",
+      "path": "gram/morphol/prilag/maloprodaffi8.htm",
+      "content_type": "text/html",
+      "size": 2284,
+      "sha256": "6ec236d08d5888fcebc775b2e4d64458408e8990cf2125d697df17b341d95b6f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/maloprodaffi9.htm",
+      "path": "gram/morphol/prilag/maloprodaffi9.htm",
+      "content_type": "text/html",
+      "size": 3062,
+      "sha256": "4df8488bf6449a1b25e05bb9e5e4e2726b3c675c25355ba312184948aa088ddb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/neprodaffi.htm",
+      "path": "gram/morphol/prilag/neprodaffi.htm",
+      "content_type": "text/html",
+      "size": 10940,
+      "sha256": "2da6556d7121d8faddfacfa18f47913730fd570b56e2a2fa0c1cec3f38b4b9d1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/neprodaffi1.htm",
+      "path": "gram/morphol/prilag/neprodaffi1.htm",
+      "content_type": "text/html",
+      "size": 3044,
+      "sha256": "164cc9341d5e9eb1c5da15086e7fa5e6717a1f49f2ad59e0e09a1beda6b42b65"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/neprodaffi2.htm",
+      "path": "gram/morphol/prilag/neprodaffi2.htm",
+      "content_type": "text/html",
+      "size": 2586,
+      "sha256": "55851b629ae1d842790b08ed168176b5d95f2c98d53daaa90bc99f276bad4576"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/nulaffi.htm",
+      "path": "gram/morphol/prilag/nulaffi.htm",
+      "content_type": "text/html",
+      "size": 6477,
+      "sha256": "db863dd720399e29c4f1bad4d5bc37276e642cc4d66a2ec4eeba190ff70bfaa2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/obchchar.htm",
+      "path": "gram/morphol/prilag/obchchar.htm",
+      "content_type": "text/html",
+      "size": 30547,
+      "sha256": "f7270b1637b5ea82459573f0a294163b5be202744d97c43030c7a4c290b043e8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/parprilag.htm",
+      "path": "gram/morphol/prilag/parprilag.htm",
+      "content_type": "text/html",
+      "size": 11684,
+      "sha256": "9d02a61f16a26e17423c7caaddb53777ab0f9a742a54a193534f02293eeccaf5"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/parprilag1.htm",
+      "path": "gram/morphol/prilag/parprilag1.htm",
+      "content_type": "text/html",
+      "size": 2649,
+      "sha256": "a2f6f1700a7646c86d7cb70fcdcfcda4670e8caa89e68e09d0f09db684252853"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prilag.htm",
+      "path": "gram/morphol/prilag/prilag.htm",
+      "content_type": "text/html",
+      "size": 3781,
+      "sha256": "23eb29a650e2dbb3a2ef75ab324ab93c525a4defce5340c7623b89d0df996af0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prilagpovtor.htm",
+      "path": "gram/morphol/prilag/prilagpovtor.htm",
+      "content_type": "text/html",
+      "size": 14636,
+      "sha256": "fc0ef628fa9913eb1ce3b9258fbf88c986c97b205a0f1b164abb5bed02292bea"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prilagsra.htm",
+      "path": "gram/morphol/prilag/prilagsra.htm",
+      "content_type": "text/html",
+      "size": 8259,
+      "sha256": "94335139d80c24b1be8c4a54557d9484fc82386e49a9a1d1083778142f7bb088"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi.htm",
+      "path": "gram/morphol/prilag/prodaffi.htm",
+      "content_type": "text/html",
+      "size": 86602,
+      "sha256": "96478a2947040fe38efcb5f93aaeb10ddd3f426b56f1ad0dcc2c351e35e09931"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi1.htm",
+      "path": "gram/morphol/prilag/prodaffi1.htm",
+      "content_type": "text/html",
+      "size": 2494,
+      "sha256": "ef0752c7daa61324f8d40e101c3a4ce8e4fe8ceca50e590e802c2c9cfde7322c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi2.htm",
+      "path": "gram/morphol/prilag/prodaffi2.htm",
+      "content_type": "text/html",
+      "size": 3174,
+      "sha256": "5b17894ed97a0609c4fbf45782b15be862670c0756eb616c597464f8285a281e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi3.htm",
+      "path": "gram/morphol/prilag/prodaffi3.htm",
+      "content_type": "text/html",
+      "size": 3077,
+      "sha256": "bf2280c711e4e867eb03d7d80b51a1037b9d3c4b0a75a4ae9f8917d3b49e3e6b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi4.htm",
+      "path": "gram/morphol/prilag/prodaffi4.htm",
+      "content_type": "text/html",
+      "size": 2498,
+      "sha256": "7002346d580518fda5d21c0fbe84e6318791d989b37b3306049ea8ef438a3436"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi5.htm",
+      "path": "gram/morphol/prilag/prodaffi5.htm",
+      "content_type": "text/html",
+      "size": 4666,
+      "sha256": "d1b22e7dca8521f9e688eade2443a8d8a2b8121de8b9063a7eacba8b176a5640"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi6.htm",
+      "path": "gram/morphol/prilag/prodaffi6.htm",
+      "content_type": "text/html",
+      "size": 2767,
+      "sha256": "be3e1141c5439d687af5ace76bed1b499ae4755ee6b30f3c53da141da7b83023"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi7.htm",
+      "path": "gram/morphol/prilag/prodaffi7.htm",
+      "content_type": "text/html",
+      "size": 2644,
+      "sha256": "53e768adc5fc94f09a99d240b78d996be0587fca921068233697a94170071793"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/prodaffi8.htm",
+      "path": "gram/morphol/prilag/prodaffi8.htm",
+      "content_type": "text/html",
+      "size": 2854,
+      "sha256": "d2bd6e03cf8aa86ab93b8b3faacc7961f24e3be3242d4c56386ba4a4af1aa205"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/slojaffi.htm",
+      "path": "gram/morphol/prilag/slojaffi.htm",
+      "content_type": "text/html",
+      "size": 33724,
+      "sha256": "4322025bae77f25d49345e3b70feb70de8badcdbaa73300d574fb18d5a4d23ad"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/slojaffi1.htm",
+      "path": "gram/morphol/prilag/slojaffi1.htm",
+      "content_type": "text/html",
+      "size": 2500,
+      "sha256": "3363e9b6702cc350b11199f9240bfac31f926d7b1bf302afbf497549dacff76b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/slojaffi2.htm",
+      "path": "gram/morphol/prilag/slojaffi2.htm",
+      "content_type": "text/html",
+      "size": 2688,
+      "sha256": "bde5054daa4b1e54a77b1ab357fd3f846a9afb324235454a28202eeb8f7baf5f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/slojaffi3.htm",
+      "path": "gram/morphol/prilag/slojaffi3.htm",
+      "content_type": "text/html",
+      "size": 2292,
+      "sha256": "ca64cac0f834e93dbabf0d0b4f55a14720b5d22de4903c59a36a34cdad257d88"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/slojprilag.htm",
+      "path": "gram/morphol/prilag/slojprilag.htm",
+      "content_type": "text/html",
+      "size": 3272,
+      "sha256": "595432228673941526803d51d77481f5e36edc50557581717fc6b4f3e636684f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/slovoobr.htm",
+      "path": "gram/morphol/prilag/slovoobr.htm",
+      "content_type": "text/html",
+      "size": 3300,
+      "sha256": "de9ffc7afe490d8204ff9c1407e1c01fa2ef7b3862d43d459c0e2c054e047e32"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/sostavprilag.htm",
+      "path": "gram/morphol/prilag/sostavprilag.htm",
+      "content_type": "text/html",
+      "size": 46049,
+      "sha256": "346db66af3a8783a2d6e2d6d9c27cf2858f9cb21778455656948a5ef6cfe3d73"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/stepenisrav.htm",
+      "path": "gram/morphol/prilag/stepenisrav.htm",
+      "content_type": "text/html",
+      "size": 16358,
+      "sha256": "b4522c73d8e9c24b935d9c50f8346c7deb04fb933e49f009e100034a665c6e89"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/stepenisrav1.htm",
+      "path": "gram/morphol/prilag/stepenisrav1.htm",
+      "content_type": "text/html",
+      "size": 3045,
+      "sha256": "5bae599f4c6206dff1b2738dc59d0ecaf899bd31ec8f89e3f22321a3c866b0dd"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/stepenisrav2.htm",
+      "path": "gram/morphol/prilag/stepenisrav2.htm",
+      "content_type": "text/html",
+      "size": 2896,
+      "sha256": "a95349d2a5ba81c961fb0f82b17d408801e0054f11cb340ffaec266eccbf6eda"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/zaimaffi.htm",
+      "path": "gram/morphol/prilag/zaimaffi.htm",
+      "content_type": "text/html",
+      "size": 13780,
+      "sha256": "cf42b5e9939caa08cef843011f717e00b393271933e3d986978eb90387696fed"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/zaimaffi1.htm",
+      "path": "gram/morphol/prilag/zaimaffi1.htm",
+      "content_type": "text/html",
+      "size": 2686,
+      "sha256": "86a1cb5f380afa88eb594ae4f2877a969f948588b3e0db56b1c4c0a7b95a93a6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/zaimaffi2.htm",
+      "path": "gram/morphol/prilag/zaimaffi2.htm",
+      "content_type": "text/html",
+      "size": 2682,
+      "sha256": "6fd06832eca4f7d0d40cc4e0b2cb38a401d2ffdc4beafc132c3dea17bf269149"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/zaimaffi3.htm",
+      "path": "gram/morphol/prilag/zaimaffi3.htm",
+      "content_type": "text/html",
+      "size": 2618,
+      "sha256": "4c0ec956db81bfb2fa55ddfd2226f04031bb2066df7b2ba4ded5fd95070b4578"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/souzy/obchchar.htm",
+      "path": "gram/morphol/souzy/obchchar.htm",
+      "content_type": "text/html",
+      "size": 8240,
+      "sha256": "20c45af48ca4de3332776f384a83c37eeebc3278b2e4c9426a098fb4e1279343"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/souzy/podchsouz.htm",
+      "path": "gram/morphol/souzy/podchsouz.htm",
+      "content_type": "text/html",
+      "size": 19452,
+      "sha256": "cfc9ccbeb97c039657aa7d8799619e8b2186e72e89b1c4e66a6c4c13333a440a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/souzy/protivsouz.htm",
+      "path": "gram/morphol/souzy/protivsouz.htm",
+      "content_type": "text/html",
+      "size": 21472,
+      "sha256": "df34045720a475d3df7ec37f4f6e2c0f014b61fb6aa5b353fa3e4f2de5b6e4a8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/souzy/razdopred.htm",
+      "path": "gram/morphol/souzy/razdopred.htm",
+      "content_type": "text/html",
+      "size": 9459,
+      "sha256": "7dcf3606394d4912b1358213bbd3ae28c1a1d26d5465b72116b6b5496074327a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/souzy/razdperech.htm",
+      "path": "gram/morphol/souzy/razdperech.htm",
+      "content_type": "text/html",
+      "size": 15563,
+      "sha256": "3d051cdabfe74c40ae54630aae14e42c42b0604b5aa5d9c34b73d968f865b2d4"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/souzy/soedsouz.htm",
+      "path": "gram/morphol/souzy/soedsouz.htm",
+      "content_type": "text/html",
+      "size": 17919,
+      "sha256": "f02756603c4e2b5c25d85eafc995c1a3de071b405f1665683737e3224d32879d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/aff-lyk1.htm",
+      "path": "gram/morphol/suchestv/aff-lyk1.htm",
+      "content_type": "text/html",
+      "size": 2494,
+      "sha256": "f94b365553417ec26e4c9e4376d6f5d8ecc1b0d0c33f4aa2d55fb0a6c8c55a98"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/aff-lyk2.htm",
+      "path": "gram/morphol/suchestv/aff-lyk2.htm",
+      "content_type": "text/html",
+      "size": 2615,
+      "sha256": "98e15100e9b72c444e26f97d6fc978788d559c820cc1d36ab9cfe30a2f40edeb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/aff-lyk3.htm",
+      "path": "gram/morphol/suchestv/aff-lyk3.htm",
+      "content_type": "text/html",
+      "size": 2784,
+      "sha256": "a5e1457c5868f307933e06abd0d36496ea61daa3ef679e45c196edbf74a0f77f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/aff-ma1.htm",
+      "path": "gram/morphol/suchestv/aff-ma1.htm",
+      "content_type": "text/html",
+      "size": 4840,
+      "sha256": "d9957061437e3c22ff57f94ed8d6eeab59dbf98a237241baaec943db53cf1163"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/aff-sy1.htm",
+      "path": "gram/morphol/suchestv/aff-sy1.htm",
+      "content_type": "text/html",
+      "size": 2685,
+      "sha256": "70e85c60b1c82f41338bdd3d0748a152e2d5a10264886954de861824a0d90928"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/aff-sy2.htm",
+      "path": "gram/morphol/suchestv/aff-sy2.htm",
+      "content_type": "text/html",
+      "size": 2738,
+      "sha256": "efdd0c69988a8ea7cf378521b125feda8ba3464fc14c7fac639a1a291604b063"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/affik.htm",
+      "path": "gram/morphol/suchestv/affik.htm",
+      "content_type": "text/html",
+      "size": 95257,
+      "sha256": "df1f8a93e30c91d4be9ae69843f95780f6149db933a05c4f3a71831facc87dd8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/chislo.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/chislo.htm",
+      "content_type": "text/html",
+      "size": 53941,
+      "sha256": "b57c3d8122dae338d9465dd270fda86c3d041ff1f5b321143df4c573317160c9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/chislo1.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/chislo1.htm",
+      "content_type": "text/html",
+      "size": 3322,
+      "sha256": "5d3c16f70f4a50098297abfe446ac5af569c2ce7ad4d6f2e6714838c0f86c63c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/chislo2.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/chislo2.htm",
+      "content_type": "text/html",
+      "size": 3606,
+      "sha256": "05d353d285ad637d38f994041d83aadf685fc6f41fe9cd094145c68940d2f593"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/chislo3.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/chislo3.htm",
+      "content_type": "text/html",
+      "size": 2511,
+      "sha256": "762e106d2cbd61d15949827986ea4dda2e98fb5138c5c2a515d2f9acd345c675"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/chislo4.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/chislo4.htm",
+      "content_type": "text/html",
+      "size": 3548,
+      "sha256": "8e4e4c19f804a03998ad00bdc4bc1d6b8715a9c97bf163bac3af846add8d9a24"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/chislo5.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/chislo5.htm",
+      "content_type": "text/html",
+      "size": 3118,
+      "sha256": "52053b22d8bdaa93bef7a2852ed942465493c5fce1278ff481b026e7a8418c5e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/datpadez.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/datpadez.htm",
+      "content_type": "text/html",
+      "size": 54876,
+      "sha256": "63d403bcad269209bb2fdc3cec922ee1e7de333dae68efba2dd4eebd4e6a2d29"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/datpadez1.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/datpadez1.htm",
+      "content_type": "text/html",
+      "size": 2812,
+      "sha256": "54a4a82b6769b9dd9a9ec4e5905fda36f85b99cb7a01b8eb7a65ee0dfe4855ac"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/datpadez2.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/datpadez2.htm",
+      "content_type": "text/html",
+      "size": 2424,
+      "sha256": "d0952573045a7532b42e4366d8a235da2524750582486450bada42eb241b6a11"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/ishpadez.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/ishpadez.htm",
+      "content_type": "text/html",
+      "size": 43322,
+      "sha256": "28fd1629631d6f44a96d9c23566c2e3054a520be23aab5af4d0be6239b87004e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katopred.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katopred.htm",
+      "content_type": "text/html",
+      "size": 43018,
+      "sha256": "4f6f93b510f7c9d155b6616a1cfbfd9f14b07867e2c8a8a18aa4865af5f090b4"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katopred1.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katopred1.htm",
+      "content_type": "text/html",
+      "size": 3687,
+      "sha256": "1fc58f4c3cfe31f243b311ae93543ffbb48964ffc2f95fdaa7f3100d8f266469"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katopred2.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katopred2.htm",
+      "content_type": "text/html",
+      "size": 4006,
+      "sha256": "b82b3801001b8998f4a7b006210698b052ffea795e279823d0375fa3d808e286"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katopred3.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katopred3.htm",
+      "content_type": "text/html",
+      "size": 2425,
+      "sha256": "341d92d797134a2262488c8bd00349408aba6e0774fd6e7f983ddc9475cb132b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katopred4.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katopred4.htm",
+      "content_type": "text/html",
+      "size": 2427,
+      "sha256": "eafd7e7e9cb6e29de0f7ba77a52e618fc3d75f4d6f2ea5f7ecac55d471620d5c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katprinad.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katprinad.htm",
+      "content_type": "text/html",
+      "size": 47681,
+      "sha256": "afccd86329f325fb7188d938ebc2f04358d26fa0210d19c92007e336f66ff4a9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katprinad1.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katprinad1.htm",
+      "content_type": "text/html",
+      "size": 2758,
+      "sha256": "4dee28de72034caaf68f29427fe6082a58afd5334d6e8411e1734b75736fe6ab"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katprinad2.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katprinad2.htm",
+      "content_type": "text/html",
+      "size": 2771,
+      "sha256": "2d4c76b013a67cf9cb491c0ed62db9b6eeea30ae65d1f5b3f98277044b738781"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katprinad3.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katprinad3.htm",
+      "content_type": "text/html",
+      "size": 2858,
+      "sha256": "1fee0c0f2098ed0e0efc11a1c64ae623ebaf5c5c90fa62add518be9fc3ca241a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katprinad4.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katprinad4.htm",
+      "content_type": "text/html",
+      "size": 4470,
+      "sha256": "9d617f3697732408ec54bf80912237869ee1272ac8979213f0fb36dc5beecefa"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katprinad5.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katprinad5.htm",
+      "content_type": "text/html",
+      "size": 2617,
+      "sha256": "8ca2c31d0220174a1c9e7d153337870a721196c1ae4c4b1ac75464e3f42fa5c2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katprinad6.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katprinad6.htm",
+      "content_type": "text/html",
+      "size": 2501,
+      "sha256": "4dcc87f1186946f0e056a62e35f335e756ea978256f68fa4ab0bcc5420dafd3d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katskaz.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katskaz.htm",
+      "content_type": "text/html",
+      "size": 45599,
+      "sha256": "8d2da882d4e1f657a51827103c3601a4e60e7160f7d3cc3671b248d02fe575ca"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katskaz1.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katskaz1.htm",
+      "content_type": "text/html",
+      "size": 2540,
+      "sha256": "fc2576814388bfbccc956463623d0dc05e7ea003ca2cf95a2e62ffbc7c5b3c3e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katskaz2.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katskaz2.htm",
+      "content_type": "text/html",
+      "size": 2430,
+      "sha256": "fc886e50e95e5836b7e00bf02d2b35512515da38ddb8619a40d3e9987d2d30d7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/katskaz3.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/katskaz3.htm",
+      "content_type": "text/html",
+      "size": 5148,
+      "sha256": "87f21981949d877cc6c79df43a6b419230574a564d7d3f410921d98ad57a1c88"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/mestpadez.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/mestpadez.htm",
+      "content_type": "text/html",
+      "size": 19520,
+      "sha256": "18d7985aba1c393e321b3e32ad92048ff0550537f3a19d9225ee20ca89276682"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/osnpadez.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/osnpadez.htm",
+      "content_type": "text/html",
+      "size": 69905,
+      "sha256": "02ef364a002d0d7dfb4334b28b80e4543b4d4c226e903ec9b055f03b01f5128d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/osnpadez1.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/osnpadez1.htm",
+      "content_type": "text/html",
+      "size": 2336,
+      "sha256": "c37b3329a0c766dfa5a1e0a5c757ef8d4a686c5d2f39188884771ae838d4bf9e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/osnpadez2.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/osnpadez2.htm",
+      "content_type": "text/html",
+      "size": 2606,
+      "sha256": "bd8b59e7493ec15cacb8af1e02467402e58903c1aed8d37795ad527ea2b5f615"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/osnpadez3.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/osnpadez3.htm",
+      "content_type": "text/html",
+      "size": 2754,
+      "sha256": "f9339be2bc47e5395ef16dd4beeda0ff51fd073d963218f79d483d8026a0a5ed"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/padezkat.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/padezkat.htm",
+      "content_type": "text/html",
+      "size": 20630,
+      "sha256": "695a2d966883c54395c5a5023edad73cd3c53684851e41d17fc735562339d12c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/padezkat1.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/padezkat1.htm",
+      "content_type": "text/html",
+      "size": 3530,
+      "sha256": "3427070691f93c76ded920aae596f5f599eac1cf4aedd416ff592125188bfbe7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/rodpadez.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/rodpadez.htm",
+      "content_type": "text/html",
+      "size": 22858,
+      "sha256": "7165a17ed254ba43f2c2aca21ed48b14b23f502539f313204c71c7f7710ab464"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/vinpadez.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/vinpadez.htm",
+      "content_type": "text/html",
+      "size": 13298,
+      "sha256": "d01c327846dd0d09822989d7925511cf9a10a83368f861163278899c5f3670fd"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/grammkatsych/vinpadez1.htm",
+      "path": "gram/morphol/suchestv/grammkatsych/vinpadez1.htm",
+      "content_type": "text/html",
+      "size": 3235,
+      "sha256": "f36d73b6ee3af7ef80f757fa41d47ea87769e980a283fa53a03521acaeb60a26"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/obchar.htm",
+      "path": "gram/morphol/suchestv/obchar.htm",
+      "content_type": "text/html",
+      "size": 16094,
+      "sha256": "ca18221472417600da00e2c0e0555e8e133025162f8c743494ea922edfcbdee5"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/parsych.htm",
+      "path": "gram/morphol/suchestv/parsych.htm",
+      "content_type": "text/html",
+      "size": 71672,
+      "sha256": "2e559f2e76d471504ccd883e7bb4018f6003b9b58b08520b3f6e915330c10079"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/slovoobred.htm",
+      "path": "gram/morphol/suchestv/slovoobred.htm",
+      "content_type": "text/html",
+      "size": 7321,
+      "sha256": "27c6a84a865a0f6acbc65f90e64ca973f6de90958186ee43ea191e1782f91d8b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/suchestv/subst.htm",
+      "path": "gram/morphol/suchestv/subst.htm",
+      "content_type": "text/html",
+      "size": 20424,
+      "sha256": "8050bdf10707867bcec514659af23aeafeb8eaa77a98d1c3317fdd9c5d23b3a3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam.htm",
+      "path": "gram/morphol/vvodzam.htm",
+      "content_type": "text/html",
+      "size": 99090,
+      "sha256": "176b4b3c9f247a451cc58b08d6c5ff400d79e0686220a8d7307f2939a605c09f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam1.htm",
+      "path": "gram/morphol/vvodzam1.htm",
+      "content_type": "text/html",
+      "size": 3079,
+      "sha256": "a083e01ce8836e147a26589b4012075a59572c5d3fbe19290f375adbf791594d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam10.htm",
+      "path": "gram/morphol/vvodzam10.htm",
+      "content_type": "text/html",
+      "size": 2659,
+      "sha256": "6938b849e2441da717ca53fff26f4c781b301befc823f14492a25c40014047f7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam11.htm",
+      "path": "gram/morphol/vvodzam11.htm",
+      "content_type": "text/html",
+      "size": 2535,
+      "sha256": "81eb2b44205633ddb814f4e5332ab8f0f3b441287f7e3d33efb7fd6c7c35ea32"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam2.htm",
+      "path": "gram/morphol/vvodzam2.htm",
+      "content_type": "text/html",
+      "size": 2503,
+      "sha256": "7656947f977c5dfd57e9e398d1a6f6b603b70bcefb7adb0e6c89b0e035f729f2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam3.htm",
+      "path": "gram/morphol/vvodzam3.htm",
+      "content_type": "text/html",
+      "size": 3420,
+      "sha256": "fcf78f1ddcfcdd9bbffa0efcaaf23874560a99d630dc8f1fa2a61f905464c3a6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam4.htm",
+      "path": "gram/morphol/vvodzam4.htm",
+      "content_type": "text/html",
+      "size": 2886,
+      "sha256": "79d106940d92820f8396553ff1dee0f69d9077a2066ad10f6d3c5442aceabd67"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam5.htm",
+      "path": "gram/morphol/vvodzam5.htm",
+      "content_type": "text/html",
+      "size": 3390,
+      "sha256": "b2fde2c3d5fb9b812f946246760f9dd1676cad7c3021f5cd2d4a13c4d2cda8b3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam6.htm",
+      "path": "gram/morphol/vvodzam6.htm",
+      "content_type": "text/html",
+      "size": 2956,
+      "sha256": "f52653c2f787f533bd850217553a3b460c8175bc30936ff37396d32e3d47d97e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam7.htm",
+      "path": "gram/morphol/vvodzam7.htm",
+      "content_type": "text/html",
+      "size": 3855,
+      "sha256": "4ee117350867bd0ee11d1089509bcb132542b0734492d17b10d1fe4d497ef583"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam8.htm",
+      "path": "gram/morphol/vvodzam8.htm",
+      "content_type": "text/html",
+      "size": 3564,
+      "sha256": "1c17b09db356cb72c65a8e4d023b39d589b749767e9389bb20122228f00af5d5"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/vvodzam9.htm",
+      "path": "gram/morphol/vvodzam9.htm",
+      "content_type": "text/html",
+      "size": 2839,
+      "sha256": "b5365697b1556aeb5226389335c661218b9d81fed36ad3f60703c0fd7f1a21b1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/dopolnenie.htm",
+      "path": "gram/syntax/predlojenie/dopolnenie.htm",
+      "content_type": "text/html",
+      "size": 33346,
+      "sha256": "6004478a9bffdd080431553e81ba88a97c867e5a48b6dd73fa97f29d386cf5e5"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/glavchlpred.htm",
+      "path": "gram/syntax/predlojenie/glavchlpred.htm",
+      "content_type": "text/html",
+      "size": 5471,
+      "sha256": "28d2103c11b18aa34ea19be8379840780ef0be5cdca3949ae77a4a3a85985fdb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obchchar.htm",
+      "path": "gram/syntax/predlojenie/obchchar.htm",
+      "content_type": "text/html",
+      "size": 6543,
+      "sha256": "f8caf34b4051131f55943c23c0b481eb9cf48ed5aba8eb12a57e6fbf384942ba"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obobslodnorobchl.htm",
+      "path": "gram/syntax/predlojenie/obobslodnorobchl.htm",
+      "content_type": "text/html",
+      "size": 9081,
+      "sha256": "5b2a4c0fb5228857fbeebca169fee45b82fd8461434f44c1d07b97b4a9a16eb3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obosobvtorchlpred.htm",
+      "path": "gram/syntax/predlojenie/obosobvtorchlpred.htm",
+      "content_type": "text/html",
+      "size": 23036,
+      "sha256": "bea8417dee27bf16ad75b00a1855945d12ea66c9a4169a429cfa1eb4520bc012"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obosobvtorchlpred1.htm",
+      "path": "gram/syntax/predlojenie/obosobvtorchlpred1.htm",
+      "content_type": "text/html",
+      "size": 2667,
+      "sha256": "d1e245d9147061d892f42385336f9da99859176d535a24cd5d99d92f14ba6fee"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obosobvtorchlpred2.htm",
+      "path": "gram/syntax/predlojenie/obosobvtorchlpred2.htm",
+      "content_type": "text/html",
+      "size": 3092,
+      "sha256": "2205a6684b0d7546b0f15f7d49dc096428e211bda20991200f341ff9393de974"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obrachenie.htm",
+      "path": "gram/syntax/predlojenie/obrachenie.htm",
+      "content_type": "text/html",
+      "size": 6682,
+      "sha256": "9110c2929f4c9321c74793eba212a4a6d3a6b86c1968a9e03acf609907ad7716"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyat.htm",
+      "path": "gram/syntax/predlojenie/obstoyat.htm",
+      "content_type": "text/html",
+      "size": 4216,
+      "sha256": "62455fb055656e2a838857b23ad3e285add5407ea2255768567b1f7fadb56d30"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyatmesta.htm",
+      "path": "gram/syntax/predlojenie/obstoyatmesta.htm",
+      "content_type": "text/html",
+      "size": 10737,
+      "sha256": "ed8299ea458c8d475195bc3b06b5c0c290533cb20d1ced026c06a867f8b7517e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyatobrdei.htm",
+      "path": "gram/syntax/predlojenie/obstoyatobrdei.htm",
+      "content_type": "text/html",
+      "size": 16515,
+      "sha256": "696f9bbae15d77bac8c93376cccbdadfac2a30573ecabaee5158fbd3c3d52a47"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyatprich.htm",
+      "path": "gram/syntax/predlojenie/obstoyatprich.htm",
+      "content_type": "text/html",
+      "size": 15154,
+      "sha256": "5d1d3a32bd5197204925b02b991ee4661f396c842810185029cde4221b665c81"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyatsrav.htm",
+      "path": "gram/syntax/predlojenie/obstoyatsrav.htm",
+      "content_type": "text/html",
+      "size": 10711,
+      "sha256": "b428a82c202e1943c4b471dcedb83c14517b5f27e5491073aae37ef9d0d25bfb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyatstepeni.htm",
+      "path": "gram/syntax/predlojenie/obstoyatstepeni.htm",
+      "content_type": "text/html",
+      "size": 16245,
+      "sha256": "7a875cfc268f9341e6c72817d7958f83bb63738f48de954d6857b6c25165a1be"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyattseli.htm",
+      "path": "gram/syntax/predlojenie/obstoyattseli.htm",
+      "content_type": "text/html",
+      "size": 18569,
+      "sha256": "882efee1da495e8c694c4869c37c15c30e22af2f44444676bc57423f5279fc52"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyatustup.htm",
+      "path": "gram/syntax/predlojenie/obstoyatustup.htm",
+      "content_type": "text/html",
+      "size": 5800,
+      "sha256": "a6e8b46aedc17fc0d03e77cbe8e8bce2b22faf68b8c4814ba04328afe5655d3b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/obstoyatvrem.htm",
+      "path": "gram/syntax/predlojenie/obstoyatvrem.htm",
+      "content_type": "text/html",
+      "size": 14629,
+      "sha256": "207d7410e83b996bd995f66965c19cb3d5f00aabfde64c8692c86883e0d142c8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/odnordopol.htm",
+      "path": "gram/syntax/predlojenie/odnordopol.htm",
+      "content_type": "text/html",
+      "size": 8161,
+      "sha256": "54a98f5daed0f5fabd609780b1c58315b84a1a5c1b35086d44fe43f94b862eec"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/odnorobchlpred.htm",
+      "path": "gram/syntax/predlojenie/odnorobchlpred.htm",
+      "content_type": "text/html",
+      "size": 7743,
+      "sha256": "d3527f2c8f413959ab4dcb2b00576f24e9cfdb59b63d379eeef1654bd25cfde7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/odnorobchlpred1.htm",
+      "path": "gram/syntax/predlojenie/odnorobchlpred1.htm",
+      "content_type": "text/html",
+      "size": 2776,
+      "sha256": "e24f88f8bd2f83116240828f7207220b111ec80d703b2335f0079858fa39401c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/odnorobstoyat.htm",
+      "path": "gram/syntax/predlojenie/odnorobstoyat.htm",
+      "content_type": "text/html",
+      "size": 22356,
+      "sha256": "96781a1e696723f7914440dee120c2d78de5e0ee15c8cadff813a06a224b3193"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/odnoropred.htm",
+      "path": "gram/syntax/predlojenie/odnoropred.htm",
+      "content_type": "text/html",
+      "size": 7085,
+      "sha256": "aa5b4c71a9009e191dee7ef5115ab8aaf3370305db18ba221a3364aa2f835bab"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/odnorpodlej.htm",
+      "path": "gram/syntax/predlojenie/odnorpodlej.htm",
+      "content_type": "text/html",
+      "size": 10041,
+      "sha256": "80e54e34c759782ce347eb7bdf6c2b06418772334f1ae478338f483a8630d100"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/odnorskaz.htm",
+      "path": "gram/syntax/predlojenie/odnorskaz.htm",
+      "content_type": "text/html",
+      "size": 18534,
+      "sha256": "e3c93f467f250f76fc1fff8dc05c5c8d39ae9abfb981a7951800d526956bd11f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/odnorskaz1.htm",
+      "path": "gram/syntax/predlojenie/odnorskaz1.htm",
+      "content_type": "text/html",
+      "size": 3048,
+      "sha256": "e8fcaede6fa877939aace2f469e585dfc85c2146c8ab811d4e3c96e81843ad92"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/opredel.htm",
+      "path": "gram/syntax/predlojenie/opredel.htm",
+      "content_type": "text/html",
+      "size": 13824,
+      "sha256": "49f286e1173b1df5b5c8005fe06565d60d1e28444cd28a7eee06609bcdee1022"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/podlej.htm",
+      "path": "gram/syntax/predlojenie/podlej.htm",
+      "content_type": "text/html",
+      "size": 16881,
+      "sha256": "678b6b2d3b618ac6750e2c15b801184df0f1088ddc6713659fe06289b60d28f8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/prilojenie.htm",
+      "path": "gram/syntax/predlojenie/prilojenie.htm",
+      "content_type": "text/html",
+      "size": 15265,
+      "sha256": "6febcf94ba644d08732d086036daca2765296f85b9887ca826fac3214ba618cb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/skazuem.htm",
+      "path": "gram/syntax/predlojenie/skazuem.htm",
+      "content_type": "text/html",
+      "size": 123010,
+      "sha256": "a90be4d063a8aa97af131b4718386212a19d900c98d6cbb53363ef30fc3b02c3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/skazuem1.htm",
+      "path": "gram/syntax/predlojenie/skazuem1.htm",
+      "content_type": "text/html",
+      "size": 4487,
+      "sha256": "179255138fffb906dd7315dd6ec84b3591608e56790216e689d11fcbc41e11d6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/skazuem2.htm",
+      "path": "gram/syntax/predlojenie/skazuem2.htm",
+      "content_type": "text/html",
+      "size": 2895,
+      "sha256": "73ee0d8ae3f2e096d80812fe8136b432ef8b7431df9b27c2f601ac71677865c4"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/svyazodnorobchl.htm",
+      "path": "gram/syntax/predlojenie/svyazodnorobchl.htm",
+      "content_type": "text/html",
+      "size": 9383,
+      "sha256": "6dcaa5c4844e2ed13a4063e0d0e965ea6afaf75dac1c400a2047f5645d33faf1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/beslichpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/beslichpred.htm",
+      "content_type": "text/html",
+      "size": 9405,
+      "sha256": "2bbd39080de1f0400a0a9a2ec739ed8355beff71ff3d2d46da096aee2d0f778b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/dvusostpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/dvusostpred.htm",
+      "content_type": "text/html",
+      "size": 14674,
+      "sha256": "825d793bade1caebfdb59086282af3c79bf3b6a1b07db742ccc074c745bbee2b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/infmodpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/infmodpred.htm",
+      "content_type": "text/html",
+      "size": 9103,
+      "sha256": "63dc209c7da56afa77c497d21dd85055311ee93f876a37eef4e8320e8f1d46f9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/nazyvpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/nazyvpred.htm",
+      "content_type": "text/html",
+      "size": 5216,
+      "sha256": "5b54e61282502303b76b63af1866b4ed19dc79f62aa122255d28fcc49cb7c798"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/neoplichpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/neoplichpred.htm",
+      "content_type": "text/html",
+      "size": 5173,
+      "sha256": "e8d671577f6c1e29a8b5a2df9434ebc79a2a738c4b9ace5b8c270b3c8be90e85"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/oboblichpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/oboblichpred.htm",
+      "content_type": "text/html",
+      "size": 6575,
+      "sha256": "fc1bf27bc9d94cdca2ab36f9c3f1c656a63aad169707d5b2d9e6528878917faf"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/odnosostpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/odnosostpred.htm",
+      "content_type": "text/html",
+      "size": 4918,
+      "sha256": "a84fdf4e1ac5e281a3690237d5b3690ffba12822df78095d162ce37abb905552"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/parsell.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/parsell.htm",
+      "content_type": "text/html",
+      "size": 12173,
+      "sha256": "7e5533bc7214f163e3de30e9b98820dcec4511a6798e14e5d46dff8239e7b3fb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/parsell1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/parsell1.htm",
+      "content_type": "text/html",
+      "size": 2898,
+      "sha256": "32af282d79daa85aa2711ae7656e3ebf384fa447f732b47c359d6bbe46700b49"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/pobudpredl.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/pobudpredl.htm",
+      "content_type": "text/html",
+      "size": 11094,
+      "sha256": "7d8a41ce5a920f859eff3c11410d6c44ddcb5f33401b3034fe3c1913794bf2f4"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/poryadokslov.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/poryadokslov.htm",
+      "content_type": "text/html",
+      "size": 22970,
+      "sha256": "359d8af6b2a6aab8e17ce42ace45d3c53d2750e316ef6557b7a41319302d4596"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/povestpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/povestpred.htm",
+      "content_type": "text/html",
+      "size": 11250,
+      "sha256": "e134fd12b4e7732dae34f234333cfd0bc7577b9bfe370dbb024a8451758bd7b9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/bessouzslojnosochpredl.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/bessouzslojnosochpredl.htm",
+      "content_type": "text/html",
+      "size": 35238,
+      "sha256": "457ab9310ee95ae0b436716e129b38010c41cb533a5cc7fc898dbcf22de4f1c8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/bessouzslojnosochpredl1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/bessouzslojnosochpredl1.htm",
+      "content_type": "text/html",
+      "size": 3117,
+      "sha256": "7445ae819272b9bb92b24f9418802027963c4a7e83bb6859e9996d7a84172fe3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/period.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/period.htm",
+      "content_type": "text/html",
+      "size": 83021,
+      "sha256": "f6ba9a69f33d74a859779fd1154ebf888a0ab9f9efa9f2daca658c390fa43519"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/period1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/period1.htm",
+      "content_type": "text/html",
+      "size": 2331,
+      "sha256": "89da4a82d24f2b9f632297615af469bf8945b0c66400485eea5ec701960e86f8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/period2.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/period2.htm",
+      "content_type": "text/html",
+      "size": 2674,
+      "sha256": "a8c2f0812cdef79353046285d13afa43a8af35499309b72a095478adfca090db"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/pryamkosvrech.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/pryamkosvrech.htm",
+      "content_type": "text/html",
+      "size": 14801,
+      "sha256": "d2ff54c3af2a408ca7616d98ecf035530801cc1e93b621547d636e6af5c42394"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/pryamkosvrech1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/pryamkosvrech1.htm",
+      "content_type": "text/html",
+      "size": 2878,
+      "sha256": "6e1d10ab193280165938e75a5e8ba215c134c172b79a43ca5650748fc4e90dba"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnosochpredl.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnosochpredl.htm",
+      "content_type": "text/html",
+      "size": 7007,
+      "sha256": "ca172976e73b0b06241c5df432a03b7ca14a96f7f3b3ca83a36da440a276e5b9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnosochpredlsouz.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnosochpredlsouz.htm",
+      "content_type": "text/html",
+      "size": 30066,
+      "sha256": "2b53bf6399f1a77301251d0c27962118e22120189b0db69658b08ea8e7d6f10f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatdopol.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatdopol.htm",
+      "content_type": "text/html",
+      "size": 11884,
+      "sha256": "a7dcc1f6f5347f8d95b0cab2285f1ff9f50c36bdc4dca22e13a903b827e0faca"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatmery.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatmery.htm",
+      "content_type": "text/html",
+      "size": 8791,
+      "sha256": "76d02764b990a8cf7eda98d0953578b28b7f3e13fcaafc4b648910ec56070c53"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatmesta.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatmesta.htm",
+      "content_type": "text/html",
+      "size": 9732,
+      "sha256": "b8d479863b630ae69f0a07bec05c59b10c0c8e46d76d35684908d938b12e8546"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatobrdeist.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatobrdeist.htm",
+      "content_type": "text/html",
+      "size": 11621,
+      "sha256": "79d35ddf9062d536f447d735c4ef10c5899dd6505c3c47af612249ba9dc30d7b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatopred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatopred.htm",
+      "content_type": "text/html",
+      "size": 11640,
+      "sha256": "7921a2629d72e6e53b8b52e4361270882a501706f4cff97498bd6c70a3f1505f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatpodlej.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatpodlej.htm",
+      "content_type": "text/html",
+      "size": 10600,
+      "sha256": "3eb4194aae03864374b289a20e69c1983e7a4479ff0745e92f72190e7c8816f9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatpodlej1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatpodlej1.htm",
+      "content_type": "text/html",
+      "size": 2848,
+      "sha256": "f2c38f65a144fcc20058f39878f8ae7d795d4f4db18ae6596fca9b7db98ae930"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatpodlej2.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatpodlej2.htm",
+      "content_type": "text/html",
+      "size": 3197,
+      "sha256": "5c50446c8c41689756df51d7f11b8e17fbc3a830d23a60072b54edb4a4fb67d3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatprich.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatprich.htm",
+      "content_type": "text/html",
+      "size": 13322,
+      "sha256": "72ea19b673b5838929c5db79f246bad1dde9a442a361d499d90b6f40f9d2c8fb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatseli.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatseli.htm",
+      "content_type": "text/html",
+      "size": 10363,
+      "sha256": "6322c9c514544c400783f8a42028595eb117300f37d286c118df17c58508259a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatskaz.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatskaz.htm",
+      "content_type": "text/html",
+      "size": 6953,
+      "sha256": "eb313c6dcb897f5cdaae8e3643d9991073146423adf583575c22776494eab66c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatsled.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatsled.htm",
+      "content_type": "text/html",
+      "size": 12133,
+      "sha256": "3f427f2335438d7016e3a29c6185ce6508042db75668d654e650d9c239cc45f8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatsled1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatsled1.htm",
+      "content_type": "text/html",
+      "size": 2968,
+      "sha256": "6b78bdcea9bf64b0a31571df5561dfe8f3375622ae8b71a94a8d3aba7d072899"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatsrav.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatsrav.htm",
+      "content_type": "text/html",
+      "size": 10250,
+      "sha256": "989c05bd1fe6b108290042f311571f89c7f6ea39f49f3402435488aadffa6efc"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatuslov.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatuslov.htm",
+      "content_type": "text/html",
+      "size": 12654,
+      "sha256": "ef653b3ad846e17809c2697e1df2faee0b7cc91241c7b2faff58bac7ce719270"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatustup.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatustup.htm",
+      "content_type": "text/html",
+      "size": 11653,
+      "sha256": "001486b6903fa1244f540f0bf821ba62ca57a47dae60fc7773bd9e9e94a4d59c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatvrem.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/pridatvrem.htm",
+      "content_type": "text/html",
+      "size": 13692,
+      "sha256": "521c81a4be5740a7d84c1ce90a2cb2ed16a2bc78c4c7e7b0e8435f3fbeb4193b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/slojnpodchpredl.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/slojnpodchpredl.htm",
+      "content_type": "text/html",
+      "size": 17842,
+      "sha256": "7a03dd4a5bd88656cb3039e5dafe8c95f7f0055fa346dafbba93b6982748a129"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/slojnpodchpredl1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpodchpred/slojnpodchpredl1.htm",
+      "content_type": "text/html",
+      "size": 4161,
+      "sha256": "2ab0b4b937b32865391fb44b1b82f51de8776fdbfd079ebf43e1cf6354ed9dbe"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpredl.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpredl.htm",
+      "content_type": "text/html",
+      "size": 8235,
+      "sha256": "36bf8f3e74683bcb3a8f03f652003ae47674569b22d9ad259fea9e077946b299"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpredl1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpredl1.htm",
+      "content_type": "text/html",
+      "size": 2833,
+      "sha256": "8e51834234469f27af60713cd7e12b20731ba6067b599e4d450808351959dab3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpredl2.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/slojnpredl2.htm",
+      "content_type": "text/html",
+      "size": 3637,
+      "sha256": "0cd02796460555e47600027473b3d55af4e7b368dedbc61b31c3955ee70ccf95"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slprdvuchslpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slprdvuchslpred.htm",
+      "content_type": "text/html",
+      "size": 8617,
+      "sha256": "29909072bfab2f9c688b5d7853ddefc84c396be619ce66caffe2a86b00d03497"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slpredodnaglav.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slpredodnaglav.htm",
+      "content_type": "text/html",
+      "size": 23820,
+      "sha256": "ce471595f18dde6639f5b681f1488b178dcf788903802e2b0aa2e09eaa9df711"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slpreds2boleesopodchast.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slpreds2boleesopodchast.htm",
+      "content_type": "text/html",
+      "size": 27181,
+      "sha256": "a90355b687ce1745a9aafc89e49b19bd4132150aadc4005f36bb3228380ec3de"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slpredsdvumyaglchl.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slpredsdvumyaglchl.htm",
+      "content_type": "text/html",
+      "size": 9658,
+      "sha256": "0b7f7dec4f67c279cc8669600960266ae8fe7a1f5b21f1452b63ec91fd437f17"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slprsneodpridpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slprsneodpridpred.htm",
+      "content_type": "text/html",
+      "size": 18140,
+      "sha256": "e78be68a34c8051d9b221f723993a6d4c56eb4cb968f121edf13d1510e14cfb2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slprsneodpridpred1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slprsneodpridpred1.htm",
+      "content_type": "text/html",
+      "size": 3471,
+      "sha256": "d886d9b606d128783bf59e830ff3da8b7b3d9adac6be426f621f2cd8931d5b6b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slprsneodpridpred2.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/slprsneodpridpred2.htm",
+      "content_type": "text/html",
+      "size": 4747,
+      "sha256": "f122572b310e2886d7ad84c4dd45c8996d702cef8dd74342cd6cde42a2c6fb14"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/smeshslpredl.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/smeshslpredl.htm",
+      "content_type": "text/html",
+      "size": 11204,
+      "sha256": "eb719cfc0f2d13bc3feca14d849a837926e66636e18a5b11791bb6ac77d99ed3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/uslojslojnosochpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/uslojslojnosochpred.htm",
+      "content_type": "text/html",
+      "size": 18514,
+      "sha256": "e6323772ba41c62107aaed4be70847dee38d8df79feee70f0b51cc8d6bf58236"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/uslojslojnosochpred1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/uslojslojnosochpred1.htm",
+      "content_type": "text/html",
+      "size": 3773,
+      "sha256": "5c9b0b5f0a7bd31bf736c6991b9540d13f38c249fd0f118649a54acc80fdcbeb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/uslojslojpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/uslojslojpred.htm",
+      "content_type": "text/html",
+      "size": 9213,
+      "sha256": "689b26b85d9bc254bc98f3eb1372f7fc55dc0f566641467c944e9290cfaa4df7"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/uslojslojpred1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/slojnpredl/uslojslojpred/uslojslojpred1.htm",
+      "content_type": "text/html",
+      "size": 3379,
+      "sha256": "d840863e59d4b448984e30135a0bcc50f81d6aa292f662c8993d1c8c0f18235c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/uslojprostpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/uslojprostpred.htm",
+      "content_type": "text/html",
+      "size": 45894,
+      "sha256": "82d7b0e6460ca89bda8684a97148c245fa7d1ce4cb0f18999b48fe5669f4cf11"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/uslojprostpred1.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/uslojprostpred1.htm",
+      "content_type": "text/html",
+      "size": 3068,
+      "sha256": "e70a5a73a0771bd00fee12f1996c68d716a67912a197d5583bb6e575c05ed616"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/uslojprostpred2.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/uslojprostpred2.htm",
+      "content_type": "text/html",
+      "size": 2870,
+      "sha256": "6d7785687438fa274fa7a11eaee997d09dd3b69a81af3302807f86ee5e1e4ea8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/voprospred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/voprospred.htm",
+      "content_type": "text/html",
+      "size": 14287,
+      "sha256": "12c53df0cc1d16ca24a827408e54f746ca0b807bdb4c3c652c47af357f307c08"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/vosklitspred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/vosklitspred.htm",
+      "content_type": "text/html",
+      "size": 12666,
+      "sha256": "f6bc8550f04c771091f7692e17919e04f9d867dcc33e7c9eeeff0c9b339edc21"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tipypredl/vstavpred.htm",
+      "path": "gram/syntax/predlojenie/tipypredl/vstavpred.htm",
+      "content_type": "text/html",
+      "size": 23759,
+      "sha256": "0efc238741b7bb57b2bbab41cbecf71106bdd4b4b49a8c8d78c89325a7078ae6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/tretchlpred.htm",
+      "path": "gram/syntax/predlojenie/tretchlpred.htm",
+      "content_type": "text/html",
+      "size": 4918,
+      "sha256": "54b09a2db38ec922e9c6dfa408a7372867ea205ef662ecdb55254325b26cd6fe"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/vtorchlpred.htm",
+      "path": "gram/syntax/predlojenie/vtorchlpred.htm",
+      "content_type": "text/html",
+      "size": 6743,
+      "sha256": "08fa043a03deecfe6390bec443eca0e88178f83ba1732552196a09bf339aaf8b"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/predlojenie/vvodslovo.htm",
+      "path": "gram/syntax/predlojenie/vvodslovo.htm",
+      "content_type": "text/html",
+      "size": 8918,
+      "sha256": "c244acb13c1dc6139ac256aa72e3c48d6d11cdb96a864400892a812bfd34e359"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/glagslovosoch.htm",
+      "path": "gram/syntax/slovosochet/glagslovosoch.htm",
+      "content_type": "text/html",
+      "size": 4734,
+      "sha256": "dce9d6dc76c86421d6dfce9427233da9a76c56f35fa50db4b3ce491381b4a8bb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/glagslovsprimclenfvy.htm",
+      "path": "gram/syntax/slovosochet/glagslovsprimclenfvy.htm",
+      "content_type": "text/html",
+      "size": 20698,
+      "sha256": "1d2380ea388887764f2c73013ba430fcf61395dfdd18fa69425844d110ecca00"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/imenslovosoch.htm",
+      "path": "gram/syntax/slovosochet/imenslovosoch.htm",
+      "content_type": "text/html",
+      "size": 30252,
+      "sha256": "fb0e839386f5f5cc13fc82ad98ab4ff3e0d31d17517aedd15873348f2ab68cbf"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/imenslovosoch1.htm",
+      "path": "gram/syntax/slovosochet/imenslovosoch1.htm",
+      "content_type": "text/html",
+      "size": 2810,
+      "sha256": "8ad3c10859f6b5e4d6c3970c62a3182e2687f7ef75c9c827e401f1031a992202"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/kombinglagslovosoch.htm",
+      "path": "gram/syntax/slovosochet/kombinglagslovosoch.htm",
+      "content_type": "text/html",
+      "size": 12544,
+      "sha256": "75ffca98e11ea01205905c8d64ba686938d45b1b34f9e0989b1b988ede83c9dd"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/narechslovosoch.htm",
+      "path": "gram/syntax/slovosochet/narechslovosoch.htm",
+      "content_type": "text/html",
+      "size": 10945,
+      "sha256": "742ccc2448989a0e544d2dfce5817f95b590702e6040b538ceb97b504acd5325"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/obchchar.htm",
+      "path": "gram/syntax/slovosochet/obchchar.htm",
+      "content_type": "text/html",
+      "size": 18101,
+      "sha256": "b33a60f746b59b1c7a2f74a36a471ff1d489840d563fbd78312cac1038c50171"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/obchchar1.htm",
+      "path": "gram/syntax/slovosochet/obchchar1.htm",
+      "content_type": "text/html",
+      "size": 2676,
+      "sha256": "d14156fe3b20f4490ccfa80e7e7f94c0ec037b3a526fecf9c42058e95143d527"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/obchchar2.htm",
+      "path": "gram/syntax/slovosochet/obchchar2.htm",
+      "content_type": "text/html",
+      "size": 2676,
+      "sha256": "475719a3cf77bf82dfb34a1e0409b84be25ca99fec1a947e188acdf7703f01d3"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/obchchar3.htm",
+      "path": "gram/syntax/slovosochet/obchchar3.htm",
+      "content_type": "text/html",
+      "size": 3579,
+      "sha256": "d6b41e07bc71c3d1357c2ba92e3a5dfc513b63fdeedf9896cbb44bd13332e3bb"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/obchchar4.htm",
+      "path": "gram/syntax/slovosochet/obchchar4.htm",
+      "content_type": "text/html",
+      "size": 2676,
+      "sha256": "ba45d367f99bbba61c3c83b77ee10d9b64a3c5859063bf4d1690fcfcdd03ed2a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/obchchar5.htm",
+      "path": "gram/syntax/slovosochet/obchchar5.htm",
+      "content_type": "text/html",
+      "size": 2776,
+      "sha256": "bffdc11498c162c19cc6b36a2f9bedfc314e20160486f1e62bb2d202fa50dd99"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/prostglagslovosoch.htm",
+      "path": "gram/syntax/slovosochet/prostglagslovosoch.htm",
+      "content_type": "text/html",
+      "size": 12013,
+      "sha256": "d5c65c340af932943826e05efe842a4cfd45fd8601ae8e42d184a4e8966ae0d6"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/slojglagslovosoch.htm",
+      "path": "gram/syntax/slovosochet/slojglagslovosoch.htm",
+      "content_type": "text/html",
+      "size": 28248,
+      "sha256": "230a6d606352850ca127cb49cb7615d20212b95c5d07f5e679d20db74bd9124f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/slojimenslovosoch.htm",
+      "path": "gram/syntax/slovosochet/slojimenslovosoch.htm",
+      "content_type": "text/html",
+      "size": 36891,
+      "sha256": "4b86650d8f471ead0bd0792a131d87a591e12dbad56d1d3866c3f4bdac7867a5"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/slovosochschislit.htm",
+      "path": "gram/syntax/slovosochet/slovosochschislit.htm",
+      "content_type": "text/html",
+      "size": 6686,
+      "sha256": "46e1dd309f15aa1c74f21760c10d50ec2e99eee643c526913b28237b9961df5a"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/slovosochsuprprilag.htm",
+      "path": "gram/syntax/slovosochet/slovosochsuprprilag.htm",
+      "content_type": "text/html",
+      "size": 13821,
+      "sha256": "246c81cda988798590c1a3a00718f0ad82a0b2842aab38520884c0ed38a6a8ca"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/slovosochet/slovsglagolopred.htm",
+      "path": "gram/syntax/slovosochet/slovsglagolopred.htm",
+      "content_type": "text/html",
+      "size": 8982,
+      "sha256": "d0e0c06b335ed72a3aefc8de56501012843b7612e7d3bebc452a4e4e2667393f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/glagupravlenie.htm",
+      "path": "gram/syntax/svyazislov/glagupravlenie.htm",
+      "content_type": "text/html",
+      "size": 31370,
+      "sha256": "73970992b9a9cca36ed59eb9a83f0692ea1f4e8ecd1ffe4c4b577892bdfc47c2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/podchinsvyaz.htm",
+      "path": "gram/syntax/svyazislov/podchinsvyaz.htm",
+      "content_type": "text/html",
+      "size": 7020,
+      "sha256": "8475ec49e5c1cfe8400f848d004f8656b33b2effee8b1bb7b065594be9db0eaf"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/primyk.htm",
+      "path": "gram/syntax/svyazislov/primyk.htm",
+      "content_type": "text/html",
+      "size": 4988,
+      "sha256": "8e8cd09467284b1bc2e810c98d0962792fc3bb8c0363e75838510cbe833ff40f"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/primykglagol.htm",
+      "path": "gram/syntax/svyazislov/primykglagol.htm",
+      "content_type": "text/html",
+      "size": 8676,
+      "sha256": "d1489117807db6f5ac1bb5da413651d0b8d77adec8e1793d26d8adccc640f34d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/primykglagol1.htm",
+      "path": "gram/syntax/svyazislov/primykglagol1.htm",
+      "content_type": "text/html",
+      "size": 4037,
+      "sha256": "a0e0c63c6c5ad131a7faa889aa4b37cf3da49531680df66da401888d6f352445"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/primykglagol2.htm",
+      "path": "gram/syntax/svyazislov/primykglagol2.htm",
+      "content_type": "text/html",
+      "size": 2994,
+      "sha256": "22766458fba7ac72bcc08f06f770d5f60f11e41e72c11679a6e691967310f651"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/primykimenn.htm",
+      "path": "gram/syntax/svyazislov/primykimenn.htm",
+      "content_type": "text/html",
+      "size": 16696,
+      "sha256": "b6e933c9ec3b124ca4598f369f2291e7a5942b21217055ceab0fc986b0ee4cb0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/primyknarech.htm",
+      "path": "gram/syntax/svyazislov/primyknarech.htm",
+      "content_type": "text/html",
+      "size": 10590,
+      "sha256": "83e55abbaf3c6ab25e265b270e1ee9b55d8c6dd8df08a2742577c8dc631ff561"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/sochinsvyaz.htm",
+      "path": "gram/syntax/svyazislov/sochinsvyaz.htm",
+      "content_type": "text/html",
+      "size": 18668,
+      "sha256": "dcf640c7424c93b1b151b0221941c74dbd43962758e2e52be71442a8403bb025"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/soglasovanie.htm",
+      "path": "gram/syntax/svyazislov/soglasovanie.htm",
+      "content_type": "text/html",
+      "size": 6705,
+      "sha256": "d913e191a28fcb4a660b6e8572be8a0f501a5cfa5fab11024cdb2027434e8f93"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/upravchislit.htm",
+      "path": "gram/syntax/svyazislov/upravchislit.htm",
+      "content_type": "text/html",
+      "size": 7399,
+      "sha256": "3df58e2ef7397a75f07e0f47eeba455b96b895f4dbdf3fff3d457429005da4e1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/upravlenie.htm",
+      "path": "gram/syntax/svyazislov/upravlenie.htm",
+      "content_type": "text/html",
+      "size": 4593,
+      "sha256": "f2d275406eb2c9adc323828b9d9d805ec0e60840dd3ccfa3d691b84cc018ec09"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/upravmodsl.htm",
+      "path": "gram/syntax/svyazislov/upravmodsl.htm",
+      "content_type": "text/html",
+      "size": 7357,
+      "sha256": "381f9c563f24b6b502517246c79bb55c8b522e6e0c2c0be3d974656e659d7f3d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/upravnarech.htm",
+      "path": "gram/syntax/svyazislov/upravnarech.htm",
+      "content_type": "text/html",
+      "size": 7257,
+      "sha256": "eee8126d6d0ee6873b1bca24d17a461eeed43c82ba0dded1db1446aedf0e0859"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/upravprilag.htm",
+      "path": "gram/syntax/svyazislov/upravprilag.htm",
+      "content_type": "text/html",
+      "size": 8995,
+      "sha256": "c1c508e4f4c6e7816bd7ee5c45b43312350b274eee4580890c0143de98e9c209"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/upravsuchest.htm",
+      "path": "gram/syntax/svyazislov/upravsuchest.htm",
+      "content_type": "text/html",
+      "size": 40310,
+      "sha256": "f69a31ceec3b1dd98ac84b37a77a8e31d976c08a74fbd8b7449597898856ef20"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/upravsuchest1.htm",
+      "path": "gram/syntax/svyazislov/upravsuchest1.htm",
+      "content_type": "text/html",
+      "size": 2927,
+      "sha256": "23fe37485d74def3675a10ec19f45ea20c833260546ff430bb3b950b3d1730d8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/svyazislov/upravsuchest2.htm",
+      "path": "gram/syntax/svyazislov/upravsuchest2.htm",
+      "content_type": "text/html",
+      "size": 3137,
+      "sha256": "04d19bd8264d53148f2adea2545ef1d0aa2dd7b594fe7e2593f164ef2a9b36f8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/syntax.htm",
+      "path": "gram/syntax/syntax.htm",
+      "content_type": "text/html",
+      "size": 32873,
+      "sha256": "0e5f64ef3d3c2d515451f1287933d5452df69821ae8f8986180ed9026461c486"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/vvodzam.htm",
+      "path": "gram/syntax/vvodzam.htm",
+      "content_type": "text/html",
+      "size": 43449,
+      "sha256": "ac7061614e31a2bb1037a8bf3d49ee92056c5252082c3b23b99179e5551148cf"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/vvodzam1.htm",
+      "path": "gram/syntax/vvodzam1.htm",
+      "content_type": "text/html",
+      "size": 2668,
+      "sha256": "2289b5671e73b451338bced8e2060cd99f60461b3ecc070746fd21ab1363b317"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/vvodzam2.htm",
+      "path": "gram/syntax/vvodzam2.htm",
+      "content_type": "text/html",
+      "size": 2627,
+      "sha256": "f846080a0a72cd012dd9d2fe6b41dabad0a810a145412f163d4d91ef36e1b8f2"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/vvodzam3.htm",
+      "path": "gram/syntax/vvodzam3.htm",
+      "content_type": "text/html",
+      "size": 2433,
+      "sha256": "335c9eb0a140cf232fd95deab1611c7519ba79fab837945624531f0ac0687e32"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/vvodzam4.htm",
+      "path": "gram/syntax/vvodzam4.htm",
+      "content_type": "text/html",
+      "size": 2731,
+      "sha256": "76f35f13d3eea868d32fb159a12540ba1fa27d052e1a83fef8721d25cd466320"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/vvodzam5.htm",
+      "path": "gram/syntax/vvodzam5.htm",
+      "content_type": "text/html",
+      "size": 2799,
+      "sha256": "4f5ca6f4995c74d31f4297279cebc332a5fbe80a9c5fd9ef79aea0d1429d6cb9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/syntax/vvodzam6.htm",
+      "path": "gram/syntax/vvodzam6.htm",
+      "content_type": "text/html",
+      "size": 2717,
+      "sha256": "716ee478465dea849dd992ff062061bd0348938c881767e3f83282b7cde6210d"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/farin.htm",
+      "path": "gram/zvuk/farin.htm",
+      "content_type": "text/html",
+      "size": 13162,
+      "sha256": "2df90ddb94382f54e29e85686abbb21ee314c26d791b0b67e2c194f0059136e0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/farin1.htm",
+      "path": "gram/zvuk/farin1.htm",
+      "content_type": "text/html",
+      "size": 3246,
+      "sha256": "2cff37a339107bbe156a9c0b990be6ae453a7cbfb5302ba5c5b315b0fa349928"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/glpr.htm",
+      "path": "gram/zvuk/glpr.htm",
+      "content_type": "text/html",
+      "size": 39410,
+      "sha256": "47336dc09b95db59d3cecd999eb0d312c15ceb99ef069eefd76086dde8d78257"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/glpr1.htm",
+      "path": "gram/zvuk/glpr1.htm",
+      "content_type": "text/html",
+      "size": 2974,
+      "sha256": "238ef3484e0ff41fa416f0e47a50e009173a907f9b8e3c275a33a8b270e95318"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/glpr2.htm",
+      "path": "gram/zvuk/glpr2.htm",
+      "content_type": "text/html",
+      "size": 3327,
+      "sha256": "8b277a331fdb0e1e91aea9bfa3537a7045dbdd6e072b681b099359d7929b6473"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/glpr3.htm",
+      "path": "gram/zvuk/glpr3.htm",
+      "content_type": "text/html",
+      "size": 3501,
+      "sha256": "86454fa078313dba484209b532b1b564838840b9cd23cf6f42cc7267716d4101"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/glzr.htm",
+      "path": "gram/zvuk/glzr.htm",
+      "content_type": "text/html",
+      "size": 26415,
+      "sha256": "47ce30fbac867f3b5d4627cf18147f46c22bcc764a90befa2cc4b9c7f574cc83"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/glzr1.htm",
+      "path": "gram/zvuk/glzr1.htm",
+      "content_type": "text/html",
+      "size": 2725,
+      "sha256": "a1508b8bb1c4e4a734272083ff9772d22a67160f90aa822432f32c3847fc7896"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/glzr2.htm",
+      "path": "gram/zvuk/glzr2.htm",
+      "content_type": "text/html",
+      "size": 2873,
+      "sha256": "a0e95757ae2b5ffbfb3d50eb2b302ce1485eb16747f1efbc97c0b3d4460f8f79"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/glzr3.htm",
+      "path": "gram/zvuk/glzr3.htm",
+      "content_type": "text/html",
+      "size": 3260,
+      "sha256": "150f0b667b6a5211b147b2f2d65f2812d462bf5dd1e87be8ca20fc97184f4c00"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/gubn.htm",
+      "path": "gram/zvuk/gubn.htm",
+      "content_type": "text/html",
+      "size": 37096,
+      "sha256": "52a03ab6abc8592ebddda1ebc05b5e457ff01ee7a8e418126fbeae060612d391"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/gubn1.htm",
+      "path": "gram/zvuk/gubn1.htm",
+      "content_type": "text/html",
+      "size": 2974,
+      "sha256": "e796ec7a2dfea97a47d38badc628d58b03cd16e9a4eac6a902fc3ccf8e548e7e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/gubn2.htm",
+      "path": "gram/zvuk/gubn2.htm",
+      "content_type": "text/html",
+      "size": 2991,
+      "sha256": "fe173a18db17973a92bd1fceecb163654211bf83897d1f6d3068c54ebb94f190"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/izmen.htm",
+      "path": "gram/zvuk/izmen.htm",
+      "content_type": "text/html",
+      "size": 44723,
+      "sha256": "7b765ae69ef935467a6cb83f3098b60e0054a03eb94bf7885de2b302ffd97c60"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/per.htm",
+      "path": "gram/zvuk/per.htm",
+      "content_type": "text/html",
+      "size": 41838,
+      "sha256": "57366b44d76871b418f06f919cb1f5361e5901b253728c8c9bdadb653d104c9c"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/per1.htm",
+      "path": "gram/zvuk/per1.htm",
+      "content_type": "text/html",
+      "size": 2877,
+      "sha256": "4c91178c806959ac803d4ec5362392725f0e7a8326bffae046c383c3fa8e7cd0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/slog.htm",
+      "path": "gram/zvuk/slog.htm",
+      "content_type": "text/html",
+      "size": 44112,
+      "sha256": "2d114667617bb8f3166cfd5af00b2ffa53e8f39b014b4a4d5ed7b28b67e36552"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/sog.htm",
+      "path": "gram/zvuk/sog.htm",
+      "content_type": "text/html",
+      "size": 37642,
+      "sha256": "06fbb42d5431a5766357400d5228ea1a1845308c3adbe83c812a17e041ad84e1"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/sog1.htm",
+      "path": "gram/zvuk/sog1.htm",
+      "content_type": "text/html",
+      "size": 3331,
+      "sha256": "3073aa00283f0fd75175a83bc0e71cffcc518eed5f667d387bc5f87a1f6bb696"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/sog2.htm",
+      "path": "gram/zvuk/sog2.htm",
+      "content_type": "text/html",
+      "size": 4225,
+      "sha256": "727c9ed6c03eee50cd2eb17aa8b4bdf9c88f2bf1b626d38682632167ca23aee4"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/sog3.htm",
+      "path": "gram/zvuk/sog3.htm",
+      "content_type": "text/html",
+      "size": 3060,
+      "sha256": "f0181531b0957c301739048af5eacabc30fcb1883d832530d69019e0d9b6f6ab"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/sredneyaz.htm",
+      "path": "gram/zvuk/sredneyaz.htm",
+      "content_type": "text/html",
+      "size": 11515,
+      "sha256": "7e7dbe0101e47c5ccc2ae63a12692cbb3f6c51468f781e250501424e9432afbf"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/udar.htm",
+      "path": "gram/zvuk/udar.htm",
+      "content_type": "text/html",
+      "size": 52937,
+      "sha256": "81b3804592eb1334521d79c065f7b91fc493496d1866a74e73d922b354cc6024"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/udar1.htm",
+      "path": "gram/zvuk/udar1.htm",
+      "content_type": "text/html",
+      "size": 2732,
+      "sha256": "35fbbe37df9ca41f75f43dcf0d3efbf15eeb3b926ccbb36fa00aa4d593c7c5a4"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/udar2.htm",
+      "path": "gram/zvuk/udar2.htm",
+      "content_type": "text/html",
+      "size": 2948,
+      "sha256": "ec333b9693eda984b177ab0496a32bbd70ffeed963875076d98dc1382015cdd8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/udar3.htm",
+      "path": "gram/zvuk/udar3.htm",
+      "content_type": "text/html",
+      "size": 2587,
+      "sha256": "c561b5bc0ea05292ed6338313e0f58bcf6bc1bced28efb50f4b18b593d8ba63e"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/zadneyaz.htm",
+      "path": "gram/zvuk/zadneyaz.htm",
+      "content_type": "text/html",
+      "size": 22243,
+      "sha256": "408e4298089e2099f7f95a1464f34a80637d3fac9d7a528a3580cdee4c30a627"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/zv1.html",
+      "path": "gram/zvuk/zv1.html",
+      "content_type": "text/html",
+      "size": 57561,
+      "sha256": "9196edc0f667d9923d2980d3875c1509a91e25b4fd0439bbcde02f46612124bc"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/zv11.html",
+      "path": "gram/zvuk/zv11.html",
+      "content_type": "text/html",
+      "size": 3186,
+      "sha256": "cbb06e476b3723db795376e2ce1ab95155772a0025b23225b913f30d917c2537"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/zv2.htm",
+      "path": "gram/zvuk/zv2.htm",
+      "content_type": "text/html",
+      "size": 2729,
+      "sha256": "cf1000a4a57c9616e6e11115d3793fb2b3073dd31b7083e009d758fe28e11e17"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/zv3.htm",
+      "path": "gram/zvuk/zv3.htm",
+      "content_type": "text/html",
+      "size": 2801,
+      "sha256": "a9064ac14d37c711a0e22994890d6ded17f4e406b024d6cb961c4c9421d087c0"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/zv4.htm",
+      "path": "gram/zvuk/zv4.htm",
+      "content_type": "text/html",
+      "size": 3268,
+      "sha256": "ab115ca0641a20fb9a60414b1a63938856173f81ef3b56019149a119c4be45b9"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/zv5.htm",
+      "path": "gram/zvuk/zv5.htm",
+      "content_type": "text/html",
+      "size": 3088,
+      "sha256": "17e4d105e9c3ff7e698e54f5065b9659f5e7d341f9f4d873a2b906dcade2b0a8"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/zvuk/zvuk.html",
+      "path": "gram/zvuk/zvuk.html",
+      "content_type": "text/html",
+      "size": 6492,
+      "sha256": "9b99eea277d9c4b2524396e98093dc198e73cc5aa1c5f26321a9a116f92e250d"
+    }
+  ],
+  "unavailable": [
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/affi.htm",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "http://212.193.134.139/mfbl/res/bashdb/gram/morphol/prilag/adektiv.htm",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "failures": []
+}
