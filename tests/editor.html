@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Editor regression tests</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<pre id="test_results">Running…</pre>
+<div id="box">
+  <div id="head_container"><div id="dbl_btn"><button id="error_btn">Previous</button><button id="error_btn2">Next</button></div><button id="copy_text_btn">Copy</button><button id="clean_text">Clear</button></div>
+  <div id="text_content" contenteditable="plaintext-only" role="textbox" onpaste="stripStyles(event)"></div>
+  <div id="placeholder">Text</div>
+  <div id="inform"><span id="count_symbol"></span><span id="count_word"></span><span id="count_error"></span></div>
+  <div id="check_feedback"><span id="check_status"></span><button id="retry_check" hidden>Retry</button></div>
+</div>
+<script>
+if (location.search.includes('fallback')) window.Highlight = undefined;
+const requests = [];
+let pendingResponse = null, failNext = false, activeRequests = 0, maximumRequests = 0;
+window.fetch = async (url, options) => {
+    const data = JSON.parse(options.body);
+    requests.push({url, data});
+    activeRequests++;
+    maximumRequests = Math.max(maximumRequests, activeRequests);
+    try {
+        if (pendingResponse) { const gate = pendingResponse; pendingResponse = null; await gate; }
+        if (failNext) { failNext = false; return {ok: false, status: 503}; }
+        const item = word => ({word, correct: word === 'башҡорт', variants: word === 'башҡорт' ? [] : ['башҡорт']});
+        return {ok: true, json: async () => url === '/suggestions' ? item(data.word) : {message: data.unverified_words.map(item)}};
+    } finally { activeRequests--; }
+};
+</script>
+<script src="/static/js/index.js"></script>
+<script src="/tests/editor_regressions.js"></script>

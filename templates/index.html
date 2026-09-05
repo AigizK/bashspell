@@ -9,7 +9,7 @@
           crossorigin="anonymous">
     <title>Тикшереү</title>
     <link type="Image/x-icon" href="/static/images/Group 23.ico" rel="icon">
-    <link rel="stylesheet" href="/static/css/style.css?version=5.0">
+    <link rel="stylesheet" href="/static/css/style.css?version=6.0">
 
 </head>
 <body>
@@ -31,21 +31,16 @@
             <button id="clean_text"></button>
         </div>
     </div>
-    <div id="text_content" contenteditable="true" spellcheck="false"
+    <div id="text_content" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-label="Тикшереү өсөн текст" aria-multiline="true"
          onpaste="stripStyles(event)"></div>
     <div id="placeholder">Яҙа башлағыҙ...</div>
     <div id="inform"><span class="inform22" style="display: inline-block; font-family:'Montserrat-Medium';">
         <div id="count_symbol" style="display: inline-block;"></div> символ, <div id="count_word" style="display: inline-block;"></div> һүҙ | &nbsp;</span><div id="count_error" style="display: inline-block;"></div>төҙәтмә
     </div>
+    <div id="check_feedback" role="status"><span id="check_status"></span> <button id="retry_check" hidden>Ҡабатларға</button></div>
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="/static/js/index.js?version=7.2"></script>
+<script src="/static/js/index.js?version=8.0"></script>
 </body>
 </html>

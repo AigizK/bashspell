@@ -1,9 +1,3 @@
-var DICT={};
-var timer, count_symbol=0, count_word=0, count_error=0; // Таймер
-var spans=0;
-let currentIndex = -1; // Индекс текущего выделенного слова
-let atribut = 'onclick';
-let atr = 'click';
 const SPELLCHECK_ABBREVIATIONS = new Set([
     'авг', 'акад', 'басс', 'биол', 'гәз', 'геол', 'гр', 'ғин',
     'губерн', 'диам', 'див', 'дир', 'етәкс', 'иҡт', 'каф', 'кг',
@@ -16,580 +10,374 @@ const SPELLCHECK_ACRONYMS = new Set([
     'КПСС', 'ПОЛИЭФ', 'РСФСР', 'РФ', 'СДПА', 'СССР', 'ФДУП',
     'ЭЭМ', 'ЮНЕСКО', 'ӨДАТУ'
 ]);
-if ('ontouchstart' in window) {
-    atribut = 'ontouchend';
-    atr = 'touchend';
-}
 
-//Сохранение положения курсора
-function saveSelection(containerEl) {
-    var range = window.getSelection().getRangeAt(0);
-    var preSelectionRange = range.cloneRange();
-    preSelectionRange.selectNodeContents(containerEl);
-    preSelectionRange.setEnd(range.startContainer, range.startOffset);
-    var start = preSelectionRange.toString().length;
-
-    return {
-        start: start,
-        end: start + range.toString().length
-    };
-}
-
-//Востановление положения курсора
-function restoreSelection(containerEl, savedSelection) {
-    var charIndex = 0;
-    var range = document.createRange();
-    range.setStart(containerEl, 0);
-    range.collapse(true);
-    var nodeStack = [containerEl], node, foundStart = false, stop = false;
-
-    while (!stop && (node = nodeStack.pop())) {
-        if (node.nodeType == 3) {
-            var nextCharIndex = charIndex + node.length;
-            if (!foundStart && savedSelection.start >= charIndex && savedSelection.start <= nextCharIndex) {
-                range.setStart(node, savedSelection.start - charIndex);
-                foundStart = true;
-            }
-            if (foundStart && savedSelection.end >= charIndex && savedSelection.end <= nextCharIndex) {
-                range.setEnd(node, savedSelection.end - charIndex);
-                stop = true;
-            }
-            charIndex = nextCharIndex;
-        } else {
-            var i = node.childNodes.length;
-            while (i--) {
-                nodeStack.push(node.childNodes[i]);
-            }
-        }
-    }
-
-    var sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-}
-
-
-//Удаление стилей текста перед вставкой и разделение на абзацы
-function stripStyles(e) {
-    e.preventDefault();
-    const clipboardData = e.clipboardData || window.clipboardData;
-    const pastedData = clipboardData.getData('text/plain');
-    const paragraphs = pastedData.split('\n');
-
-    let formattedText = '';
-
-    for (let i = 0; i < paragraphs.length; i++) {
-        formattedText += `${paragraphs[i]}<br> `;
-    }
-    formattedText = formattedText.replace(/[\r\n]/g, '');
-    document.execCommand('insertHTML', false, formattedText);
-}
-
-
-var text_content=document.getElementById('text_content');
-
+const text_content = document.getElementById('text_content');
+const box = document.getElementById('box');
 const placeholder = document.getElementById('placeholder');
 const inform = document.getElementById('inform');
-const btn1=document.getElementById('error_btn');
-const btn2=document.getElementById('error_btn2');
-
-var divCountSymbol=document.getElementById('count_symbol');
-var divCountWord=document.getElementById('count_word');
-var divCountError=document.getElementById('count_error');
-
-divCountSymbol.textContent=count_symbol;
-divCountWord.textContent=count_word;
-divCountError.textContent=count_error;
-
-
-//отслеживание изменений
-text_content.addEventListener('input', function(event) {
-    clearTimeout(timer); // Сбрасываем предыдущий таймер
-
-    count_symbol=text_content.textContent.length;
-    togglePlaceholder();
-
-    let marks =[' ', ',', '.', '?', '!', ':', ';'];
-    if(marks.includes(event.data)){
-        clearTimeout(timer); // Сбрасываем предыдущий таймер
-        timer = setTimeout(add_word, 0);
-    }else{
-        timer = setTimeout(add_word, 3000);
-    }
-});
-
-
-//Добавление новых слов в DICT
-function add_word(){
-    console.log('таймер сработал');
-
-    let containers = document.getElementById('rightWordDiv');
-    if (containers) {
-        text_content.removeChild(containers);
-    }
-    let text=text_content.innerHTML;
-
-    if(text.includes('<div>')){
-        let newText = text.replace(/<div>/g, "<br> ");
-        newText = newText.replace(/<\/div>/g, "");
-        let savedSelection = saveSelection(text_content);
-        text_content.innerHTML=newText;
-        restoreSelection(text_content, savedSelection);
-        text=text_content.innerHTML;
-    }
-
-
-    var regex = /(<span>.*?<\/span>)/g;
-    var words = text.split(regex);
-    words = words.filter(function(word) {
-        return word !== "";
-    });
-
-
-    for(i=0; i < words.length; i++){
-        if (!(words[i].includes('<span>') || words[i].includes('<span class="dropdown-trigger" '+ atribut +'="toggleListDisplayblock(event)">')) && words[i] !== '<br>') {
-            words[i] = '<span>' + words[i] + '</span>';
-        }
-    }
-
-    words = WordToSpan(words);
-
-    var savedSelection = saveSelection(text_content);
-    text_content.innerHTML=words.join('');
-    restoreSelection(text_content, savedSelection);
-
-    var array_word=splitTextIntoWords(text_content.innerText);
-
-    count_word=array_word.length;
-    divCountWord.textContent=count_word;
-
-    for (let i = 0; i < array_word.length; i++) {
-        // Проверяем, есть ли слово уже в объекте
-        if (!DICT.hasOwnProperty(array_word[i])) {
-            // Если слова нет, то добавляем его в объект
-            DICT[array_word[i]] = null;
-        }
-    }
-    console.log('DICT'+DICT);
-    sendOnBackend();
-}
-
-
-function WordToSpan(words){
-    for (let i=0; i < words.length; i++){
-        let word = words[i].replace(/<\/?span[^>]*>/g, '');
-        if (word.trim()!=="" && word.split(/(&nbsp;|\s)/).filter(Boolean).length > 1){
-            word = word.split(/(&nbsp;|\s)/).filter(Boolean);
-            word = word.filter(function(word1) {
-                return word1 !== "";
-            });
-
-            for(let j=0; j < word.length; j++){
-                if (!word[j].includes('<span>') && word[j] !== '<br>') {
-                    if (word[j].includes("<br>")){
-                        word[j] = word[j].replace(/<\/?[^>]+(>|$)/g, "");
-                        word[j] = '<span>' + word[j] + '</span><br>';
-                    }else{
-                        word[j] = '<span>' + word[j] + '</span>';
-                    }
-                }
-            }
-            words.splice(i, 1, ...word);
-        }
-
-        if (i < words.length-1 && words[i] !== '<br>' && words[i+1] !== '<br>' && words[i].replace(/<\/?span[^>]*>/g, '') !== ' ' && words[i+1].replace(/<\/?span[^>]*>/g, '') !== ' ' && words[i].replace(/<\/?span[^>]*>/g, '') !== '&nbsp;' && words[i+1].replace(/<\/?span[^>]*>/g, '') !== '&nbsp;'){
-            let new_span='<span>' + words[i].replace(/<\/?span[^>]*>/g, '') + words[i+1].replace(/<\/?span[^>]*>/g, '') + '</span>';
-            words.splice(i, 2, new_span);
-            i--;
-        }
-    }
-    return words;
-}
-
-
-//разделение текста на слова
-function splitTextIntoWords(text) {
-    let normalized = text.normalize('NFC');
-
-    // Case suffixes outside quotation marks belong to the quoted word:
-    // «Даная»ның -> Данаяның.  Numeric forms are not spelling candidates,
-    // so 1941-ҙән and 1018кДж-ға must not manufacture standalone endings.
-    normalized = normalized.replace(
-        /[«“„"](\p{L}+(?:[-'’]\p{L}+)*)[»”"](\p{L}+)/gu,
-        '$1$2'
-    );
-    normalized = normalized.replace(
-        /(^|[^\p{L}])\p{L}\.(?=$|[^\p{L}])/gu,
-        '$1 '
-    );
-    normalized = normalized.replace(/\S*\d\S*/gu, ' ');
-
-    const words = normalized.match(/\p{L}+(?:[-'’]\p{L}+)*/gu) || [];
-    return words.filter(word => !shouldIgnoreFrontendWord(word));
-}
-
+const statusText = document.getElementById('check_status');
+const retryButton = document.getElementById('retry_check');
+const results = new Map();
+const suggestionCache = new Map();
+const ignored = new Set();
+const TYPING_DELAY = 3000;
+const BATCH_SIZE = 100;
+const hasHighlights = typeof CSS !== 'undefined' && CSS.highlights && typeof Highlight !== 'undefined';
+if (!text_content.isContentEditable) text_content.contentEditable = 'true';
+let timer, revision = 0, parsedRevision = -1, session = 0;
+let tokens = [], errors = [], checking = false, composing = false;
+let activeError = null, menuVersion = 0, currentIndex = -1;
 
 function shouldIgnoreFrontendWord(word) {
-    if (/\d/u.test(word)) {
-        return true;
-    }
-    if (SPELLCHECK_ABBREVIATIONS.has(word.toLowerCase())) {
-        return true;
-    }
-    if (SPELLCHECK_ACRONYMS.has(word)) {
-        return true;
-    }
-    return false;
+    return /\d/u.test(word) || SPELLCHECK_ABBREVIATIONS.has(word.toLowerCase()) || SPELLCHECK_ACRONYMS.has(word);
 }
 
+// Keep source offsets: normalization must never rewrite the user's text.
+function tokenize(text) {
+    const letter = String.raw`\p{L}[\p{L}\p{M}]*`;
+    const word = `${letter}(?:[-'’]${letter})*`;
+    const pattern = new RegExp(`[«“„"](${word})[»”"](${letter})|(${word})`, 'gu');
+    const found = [];
+    for (const match of text.matchAll(pattern)) {
+        const value = (match[1] ? match[1] + match[2] : match[3]).normalize('NFC');
+        let start = match.index, end = start + match[0].length;
+        let left = start, right = end;
+        while (left && /[\p{L}\p{M}\p{N}_'’‐‑‒–—―-]/u.test(text[left - 1])) left--;
+        while (right < text.length && /[\p{L}\p{M}\p{N}_'’‐‑‒–—―-]/u.test(text[right])) right++;
+        if (/\d/u.test(text.slice(left, right)) || (value.length === 1 && text[end] === '.') || shouldIgnoreFrontendWord(value)) continue;
+        found.push({word: value, start, end, quoted: Boolean(match[1]), source: match[0]});
+    }
+    return found;
+}
 
-//отправка на сервер не проверенных слов
-function sendOnBackend(){
-    if(Object.keys(DICT).length===0){
-        console.log('DICT пуст')
-    }else {
-        console.log('DICT:',DICT);
-        var null_array=[];
-        var k=0;
-        for (const key in DICT) {
-            if (DICT.hasOwnProperty(key) && DICT[key] === null) {
-                k++;
-                null_array.push(key);
-                if(null_array.length===100){
-                    request_server(null_array);
-                    null_array=[];
-                }
-            }
-        }
-        if(null_array.length !== 0){
-            request_server(null_array);
-            null_array=[];
-        }
-        if(k===0){
-            correctDivContentText();
+function splitTextIntoWords(text) {
+    return tokenize(text).map(token => token.word);
+}
 
-            count_error=countTags();
-            divCountError.textContent=count_error;
-            if(count_error>1){
-                btn1.style.display='inline-block';
-                btn2.style.display='inline-block';
-
-            }else{
-                btn1.style.display='none';
-                btn2.style.display='none';
+// Read text nodes and block boundaries without touching <div>, <br>, whitespace,
+// selection or the browser's undo history. Ranges point into the original DOM.
+function editorSnapshot() {
+    const chunks = [], nodes = [];
+    let length = 0;
+    function append(value) { chunks.push(value); length += value.length; }
+    const isBlock = node => node && /^(DIV|P|LI|BLOCKQUOTE|PRE|H[1-6])$/.test(node.nodeName);
+    function walk(parent) {
+        for (const node of parent.childNodes) {
+            const previous = node.previousSibling;
+            if (previous && previous.nodeName !== 'BR' && (isBlock(node) || isBlock(previous))) append('\n');
+            if (node.nodeType === Node.TEXT_NODE) {
+                nodes.push({node, start: length, end: length + node.length});
+                append(node.data);
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                // The final <br> is the browser's caret placeholder. Counting
+                // it as text would add blank lines whenever the user copies.
+                if (node.tagName === 'BR') { if (node.nextSibling) append('\n'); }
+                else walk(node);
             }
         }
     }
+    walk(text_content);
+    return {text: chunks.join(''), nodes};
 }
 
-
-
-
-function request_server(check_candidates){
-    const dataToSend = {unverified_words:check_candidates};
-    const requestOptions = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(dataToSend),
-    };
-
-    fetch('/data_processing', requestOptions)
-    .then(response => response.json())
-    .then(data => {
-        // Обрабатываем ответ от сервера
-        updateDICT(data.message);
-    })
-    .catch(error => {
-        // Обрабатываем ошибку
-        console.error('Ошибка:', error);
+function readEditor(snapshot = editorSnapshot()) {
+    const {text, nodes} = snapshot;
+    let index = 0;
+    return tokenize(text).map(token => {
+        while (index < nodes.length && nodes[index].end <= token.start) index++;
+        const first = nodes[index];
+        let endIndex = index;
+        while (endIndex < nodes.length && nodes[endIndex].end < token.end) endIndex++;
+        const last = nodes[endIndex];
+        const range = document.createRange();
+        range.setStart(first.node, token.start - first.start);
+        range.setEnd(last.node, token.end - last.start);
+        return {...token, range};
     });
 }
 
+const fallbackMarks = document.createElement('div');
+fallbackMarks.id = 'spellcheck_marks';
+fallbackMarks.setAttribute('aria-hidden', 'true');
+box.appendChild(fallbackMarks);
 
-//Обнавление DICT
-function updateDICT(new_array){
-    for(var i=0; i < new_array.length; i++){
-        DICT[new_array[i].word]=new_array[i].variants;
+function paintErrors() {
+    errors = tokens.filter(token => results.get(token.word) === false && !ignored.has(token.word));
+    if (hasHighlights) {
+        const highlight = new Highlight();
+        for (const token of errors) highlight.add(token.range);
+        CSS.highlights.set('spelling', highlight);
+    } else {
+        // Older browsers get a separate underline layer, never extra editor HTML.
+        paintFallback();
     }
-    correctDivContentText();
-
-    count_error=countTags();
-    divCountError.textContent=count_error;
-    if(count_error>1){
-        btn1.style.display='inline-block';
-        btn2.style.display='inline-block';
-    }else{
-        btn1.style.display='none';
-        btn2.style.display='none';
+    document.getElementById('count_error').textContent = errors.length;
+    for (const id of ['error_btn', 'error_btn2']) {
+        document.getElementById(id).style.display = errors.length > 1 ? 'inline-block' : 'none';
     }
+    currentIndex = Math.min(currentIndex, errors.length - 1);
 }
 
-
-//Подчеркивание слов
-function correctDivContentText(){
-    var spanElements = text_content.getElementsByTagName("span");
-    var word_span;
-    for (var i = 0; i < spanElements.length; ++i) {
-        word_span=spanElements[i].textContent;
-        const cleanWord = word_span.replace(/[.,!?;:()"“”'–−«»]/g, "");
-        if (!(spanElements[i].classList.contains("dropdown-trigger")) && spanElements[i].textContent != ' ') {
-
-            if (DICT.hasOwnProperty(cleanWord) && DICT[cleanWord] !== null && DICT[cleanWord].length > 0) {
-                spanElements[i].classList.add("dropdown-trigger");
-                spanElements[i].setAttribute(atribut, "toggleListDisplayblock(event)");
-            }
-        }else if(spanElements[i].classList.contains("dropdown-trigger") && DICT[cleanWord].length === 0){
-            spanElements[i].removeAttribute("class");
-            spanElements[i].removeAttribute(atribut);
+function paintFallback() {
+    const editorRect = text_content.getBoundingClientRect();
+    const boxRect = box.getBoundingClientRect();
+    fallbackMarks.style.left = `${editorRect.left - boxRect.left - box.clientLeft}px`;
+    fallbackMarks.style.top = `${editorRect.top - boxRect.top - box.clientTop}px`;
+    fallbackMarks.style.width = `${text_content.clientWidth}px`;
+    fallbackMarks.style.height = `${text_content.clientHeight}px`;
+    const fragment = document.createDocumentFragment();
+    for (const token of errors) {
+        for (const rect of token.range.getClientRects()) {
+            const line = document.createElement('span');
+            line.style.cssText = `left:${rect.left - editorRect.left}px;top:${rect.bottom - editorRect.top - 2}px;width:${rect.width}px`;
+            fragment.appendChild(line);
         }
     }
- }
+    fallbackMarks.replaceChildren(fragment);
+}
 
+function updateCounters(text = editorSnapshot().text) {
+    placeholder.style.display = text.trim() ? 'none' : 'block';
+    inform.style.display = text.length ? 'block' : 'none';
+    document.getElementById('count_symbol').textContent = text.length;
+    document.getElementById('count_word').textContent = tokens.length;
+}
 
-DivCorrect=document.createElement("div");
-DivCorrect.id = "rightWordDiv";
-DivCorrect.setAttribute('contenteditable', 'false');
+function setStatus(state) {
+    statusText.textContent = state === 'checking' ? 'Тикшерелә…' : state === 'error' ? 'Тикшереп булманы.' : '';
+    retryButton.hidden = state !== 'error';
+    text_content.setAttribute('aria-busy', String(state === 'checking'));
+}
 
-DivCorrect.innerHTML=`<div id="lineOne"><img src="/static/images/!.png" alt="">    Ихтимал булған төҙәтмә</div>`;
-
-const list_v = document.createElement("ul");
-list_v.id="dropdownlist";
-list_v.setAttribute(atribut, "handleOptionClick(event)");
-DivCorrect.appendChild(list_v);
-
-var ignorButton = document.createElement('button');
-ignorButton.id = 'ignor';
-ignorButton.setAttribute(atribut, 'ignorError(event)');
-
-var img = document.createElement('img');
-img.id = 'ignor_img';
-img.src = '/static/images/new_ignor.png';
-img.alt = '';
-
-var leave= document.createElement('span');
-leave.id = 't_ig';
-leave.className = 't_id'
-leave.innerText = 'Ҡалдырырға';
-
-ignorButton.appendChild(img);
-ignorButton.appendChild(leave);
-
-DivCorrect.appendChild(ignorButton);
-DivCorrect.style.display='block';
-
-
-
-function toggleListDisplayblock(event) {
-    var cleanWord = event.target.textContent.replace(/[.,!?;:()"“”'–−«»]/g, "");
-
-    list_v.innerHTML = "";
-    for (let i = 0; i < DICT[cleanWord].length; i++) {
-        const option = document.createElement("li");
-        option.innerHTML = `${DICT[cleanWord][i]}`;
-        list_v.appendChild(option);
-    }
-
-    event.target.insertAdjacentElement('afterend', DivCorrect);
-
-    let rect1 = text_content.getBoundingClientRect();
-    var spanRect = event.target.getBoundingClientRect();
-    // Позиционируем rightWordDiv под span
-    DivCorrect.style.left = spanRect.left - rect1.left + 'px';
-
-    let rect2 = DivCorrect.getBoundingClientRect();
-    let overlapRight = rect2.right - rect1.right;
-
-    if (overlapRight > 0) {
-        DivCorrect.style.right='0px';
-        DivCorrect.style.left='auto';
+async function postJSON(url, data) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+        const response = await fetch(url, {
+            method: 'POST', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data), signal: controller.signal
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return await response.json();
+    } finally {
+        clearTimeout(timeout);
     }
 }
 
-
-function handleOptionClick(event) {
-    if(currentIndex>-1){
-        currentIndex--;
-    }
-    let span_teg=event.currentTarget.parentElement.previousElementSibling;
-    if (event.target.tagName === "LI") {
-        const selectedOption = event.target.textContent;
-
-        let old_text=span_teg.textContent.replace(/[.,!?;:()"“”'–−«»]/g, "");
-        span_teg.textContent = span_teg.textContent.replace(new RegExp(old_text, 'g'), selectedOption);
-
-        span_teg.removeAttribute("class");
-        span_teg.removeAttribute(atribut);
-        let cleanWord = selectedOption.replace(/[.,!?;:()"“”'–−«»]/g, "");
-        DICT[cleanWord]=[];
-        add_word();
-    }
-    count_error=countTags();
-    divCountError.textContent=count_error;
-    if(count_error>1){
-        btn1.style.display='inline-block';
-        btn2.style.display='inline-block';
-
-    }else{
-        btn1.style.display='none';
-        btn2.style.display='none';
-    }
-}
-
-
-function ignorError(event){
-    if(currentIndex>-1){
-        currentIndex--;
-    }
-    let span_teg=event.currentTarget.parentElement.previousElementSibling;
-    let ignorWord=event.currentTarget.parentElement.previousElementSibling.textContent;
-    let cleanWord = ignorWord.replace(/[.,!?;:()"“”'–−«»]/g, "");
-    span_teg.textContent=`${ignorWord}`;
-    span_teg.removeAttribute("class");
-    span_teg.removeAttribute(atribut);
-    DICT[cleanWord]=[];
-
-    count_error=countTags();
-    divCountError.textContent=count_error;
-    if(count_error>1){
-        btn1.style.display='inline-block';
-        btn2.style.display='inline-block';
-
-    }else{
-        btn1.style.display='none';
-        btn2.style.display='none';
+// Only one batch at a time. Further edits reuse the pending word results and
+// each next batch is taken from the current text, not an obsolete pasted text.
+async function processQueue() {
+    if (checking) return;
+    checking = true;
+    let requestSession = session;
+    try {
+        while (parsedRevision === revision) {
+            const words = [...new Set(tokens.map(token => token.word))]
+                .filter(word => !results.has(word) && !ignored.has(word)).slice(0, BATCH_SIZE);
+            if (!words.length) { setStatus(''); break; }
+            setStatus('checking');
+            requestSession = session;
+            const data = await postJSON('/data_processing', {unverified_words: words, include_suggestions: false});
+            if (requestSession !== session) continue;
+            if (!Array.isArray(data.message) || data.message.length !== words.length ||
+                data.message.some((item, index) => item.word !== words[index] || typeof item.correct !== 'boolean')) {
+                throw new Error('Invalid spellcheck response');
+            }
+            for (const item of data.message) results.set(item.word, item.correct);
+            if (parsedRevision === revision) paintErrors();
+        }
+    } catch (error) {
+        if (requestSession === session && parsedRevision === revision) {
+            setStatus('error');
+            console.error('Spellcheck failed:', error);
+        }
+    } finally {
+        checking = false;
+        // Clearing or replacing text while an old request fails must not stop
+        // a new document's queue or resurrect an error for the cleared text.
+        if (requestSession !== session && parsedRevision === revision) processQueue();
     }
 }
 
+function checkText() {
+    clearTimeout(timer);
+    if (composing) return;
+    const snapshot = editorSnapshot();
+    tokens = readEditor(snapshot);
+    parsedRevision = revision;
+    updateCounters(snapshot.text);
+    paintErrors();
+    processQueue();
+}
 
-var dbl_btn=document.getElementById('dbl_btn');
+function onInput(event) {
+    clearTimeout(timer);
+    revision++;
+    closeMenu();
+    tokens = [];
+    paintErrors();
+    updateCounters();
+    setStatus('');
+    if (event.isComposing || composing) return;
+    const finished = /^(insertFromPaste|insertFromDrop|insertParagraph|insertLineBreak)$/.test(event.inputType) ||
+        /[\s,.?!:;]$/u.test(event.data || '');
+    timer = setTimeout(checkText, finished ? 0 : TYPING_DELAY);
+}
+text_content.addEventListener('input', onInput);
+text_content.addEventListener('compositionstart', () => { composing = true; clearTimeout(timer); });
+text_content.addEventListener('compositionend', () => { composing = false; onInput({}); });
 
-document.addEventListener(atr, function (event) {
-    var containers = document.getElementById('rightWordDiv');
+function stripStyles(event) {
+    event.preventDefault();
+    const text = event.clipboardData.getData('text/plain').replace(/\r\n?/g, '\n');
+    // insertText preserves native undo and treats angle brackets as literal text.
+    document.execCommand('insertText', false, text);
+    clearTimeout(timer);
+    timer = setTimeout(checkText, 0);
+}
 
-    if (containers && containers !== event.target && event.target !== containers.previousElementSibling && dbl_btn!==event.target && !dbl_btn.contains(event.target)) {
-        text_content.removeChild(containers);
+const menu = document.createElement('div');
+menu.id = 'rightWordDiv';
+menu.setAttribute('role', 'dialog');
+menu.setAttribute('aria-label', 'Ихтимал булған төҙәтмә');
+const menuTitle = document.createElement('div');
+menuTitle.id = 'lineOne';
+menuTitle.textContent = 'Ихтимал булған төҙәтмә';
+const optionsList = document.createElement('ul');
+optionsList.id = 'dropdownlist';
+const ignoreButton = document.createElement('button');
+ignoreButton.id = 'ignor';
+ignoreButton.textContent = 'Ҡалдырырға';
+menu.append(menuTitle, optionsList, ignoreButton);
+box.appendChild(menu);
+
+function closeMenu() {
+    menu.style.display = 'none';
+    activeError = null;
+    menuVersion++;
+}
+
+function positionMenu(token) {
+    const rect = token.range.getBoundingClientRect();
+    const parent = box.getBoundingClientRect();
+    menu.style.display = 'block';
+    menu.style.left = `${Math.max(0, Math.min(rect.left - parent.left - box.clientLeft, box.clientWidth - menu.offsetWidth))}px`;
+    menu.style.top = `${rect.bottom - parent.top - box.clientTop + 5}px`;
+}
+
+async function openMenu(token) {
+    closeMenu();
+    activeError = token;
+    currentIndex = errors.indexOf(token);
+    const version = menuVersion;
+    optionsList.textContent = 'Төҙәтмәләр эҙләнә…';
+    positionMenu(token);
+    try {
+        if (!suggestionCache.has(token.word)) {
+            const data = await postJSON('/suggestions', {word: token.word});
+            if (!Array.isArray(data.variants)) throw new Error('Invalid suggestions');
+            if (version !== menuVersion) return;
+            suggestionCache.set(token.word, data.variants);
+        }
+        if (version !== menuVersion) return;
+        optionsList.replaceChildren();
+        for (const value of suggestionCache.get(token.word)) {
+            const item = document.createElement('li');
+            const button = document.createElement('button');
+            button.textContent = value;
+            button.addEventListener('click', () => replaceWord(token, value));
+            item.appendChild(button);
+            optionsList.appendChild(item);
+        }
+        if (!optionsList.childNodes.length) optionsList.textContent = 'Төҙәтмәләр табылманы.';
+    } catch (error) {
+        if (version !== menuVersion) return;
+        optionsList.replaceChildren();
+        const retry = document.createElement('button');
+        retry.textContent = 'Ҡабатларға';
+        retry.addEventListener('click', () => openMenu(token));
+        optionsList.appendChild(retry);
     }
+}
+
+function replaceWord(token, value) {
+    if (activeError !== token) return;
+    const selection = window.getSelection();
+    text_content.focus();
+    selection.removeAllRanges();
+    selection.addRange(token.range);
+    // Retain quotes around a quoted name and its case suffix when possible.
+    if (token.quoted) {
+        const parts = token.source.match(/^([«“„"])(.*)([»”"])([\p{L}\p{M}]+)$/u);
+        const suffix = parts[4];
+        value = value.endsWith(suffix) ? parts[1] + value.slice(0, -suffix.length) + parts[3] + suffix : parts[1] + value + parts[3];
+    }
+    document.execCommand('insertText', false, value);
+    closeMenu();
+    checkText();
+}
+
+ignoreButton.addEventListener('click', () => {
+    if (!activeError) return;
+    ignored.add(activeError.word);
+    closeMenu();
+    paintErrors();
 });
 
+text_content.addEventListener('click', event => {
+    if (parsedRevision !== revision || !window.getSelection().isCollapsed) return;
+    const token = errors.find(item => [...item.range.getClientRects()].some(rect =>
+        event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom + 3));
+    if (token) openMenu(token);
+    else closeMenu();
+});
+document.addEventListener('click', event => {
+    if (!box.contains(event.target) || event.target.closest('#head_container') && !event.target.closest('#dbl_btn')) closeMenu();
+});
+document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+text_content.addEventListener('scroll', () => { closeMenu(); if (!hasHighlights) paintFallback(); });
+window.addEventListener('resize', () => { closeMenu(); if (!hasHighlights) paintFallback(); });
 
-// Функция для отображения/скрытия начальной подсказки и информации
-function togglePlaceholder() {
-    const placeholder = document.getElementById('placeholder');
-    const inform = document.getElementById('inform');
-    if (text_content.textContent === '') {
-        placeholder.style.display = 'block';
-        inform.style.display='none';
+function navigateError(direction) {
+    if (!errors.length) return;
+    currentIndex = (currentIndex + direction + errors.length) % errors.length;
+    const token = errors[currentIndex];
+    const rect = token.range.getBoundingClientRect();
+    const editorRect = text_content.getBoundingClientRect();
+    if (rect.top < editorRect.top || rect.bottom > editorRect.bottom) {
+        text_content.scrollTop += rect.top - editorRect.top - 20;
+        requestAnimationFrame(() => {
+            if (errors.includes(token)) openMenu(token);
+        });
     } else {
-        placeholder.style.display = 'none';
-        inform.style.display='block';
-        divCountSymbol.textContent=count_symbol;
-
-        //count_error=3;
-        if(count_error>1){
-            btn1.style.display='inline-block';
-            btn2.style.display='inline-block';
-
-        }else{
-            btn1.style.display='none';
-            btn2.style.display='none';
-        }
+        openMenu(token);
     }
 }
-
-
-//количество ошибок в тексте
-function countTags() {
-    spans = text_content.querySelectorAll('.dropdown-trigger');
-    return spans.length;
-}
-
-
-let back_btn=document.getElementById('error_btn');
-let next_btn=document.getElementById('error_btn2');
-let copy_btn=document.getElementById('copy_text_btn');
-let clean_btn=document.getElementById('clean_text');
-next_btn.setAttribute(atribut, "nextWord()");
-back_btn.setAttribute(atribut, "backWord()");
-copy_btn.setAttribute(atribut, "CopyText()");
-clean_btn.setAttribute(atribut, "cleanTextContainer()");
-
-
-function cleanTextContainer(){
-    text_content.innerHTML='';
-    DICT={};
-    placeholder.style.display = 'block';
-    inform.style.display='none';
-    divCountSymbol.textContent='0';
-    divCountWord.textContent='0';
-    divCountError.textContent='0';
-    btn1.style.display='none';
-    btn2.style.display='none';
-    currentIndex = -1;
-}
-
-
-function CopyText(){
-    text_content.focus();
-    document.execCommand('selectAll'); // Выделить весь текст
-    document.execCommand('copy'); // Скопировать выделенный текст
-    window.getSelection().removeAllRanges();
-}
-
-
-function next_back(event) {
-    var cleanWord = event.textContent.replace(/[.,!?;:()"“”'–−«»]/g, "");
-
-    list_v.innerHTML = "";
-    for (let i = 0; i < DICT[cleanWord].length; i++) {
-        const option = document.createElement("li");
-        option.innerHTML = `${DICT[cleanWord][i]}`;
-        list_v.appendChild(option);
+document.getElementById('error_btn').addEventListener('click', () => navigateError(-1));
+document.getElementById('error_btn2').addEventListener('click', () => navigateError(1));
+document.getElementById('clean_text').addEventListener('click', () => {
+    clearTimeout(timer);
+    session++;
+    revision++;
+    results.clear(); suggestionCache.clear(); ignored.clear();
+    text_content.replaceChildren();
+    closeMenu(); currentIndex = -1;
+    checkText();
+});
+document.getElementById('copy_text_btn').addEventListener('click', async () => {
+    closeMenu();
+    try {
+        await navigator.clipboard.writeText(editorSnapshot().text);
+    } catch (error) {
+        const selection = window.getSelection();
+        const saved = selection.rangeCount ? selection.getRangeAt(0).cloneRange() : null;
+        const range = document.createRange();
+        range.selectNodeContents(text_content);
+        selection.removeAllRanges(); selection.addRange(range);
+        document.execCommand('copy');
+        selection.removeAllRanges();
+        if (saved) selection.addRange(saved);
     }
-
-    event.insertAdjacentElement('afterend', DivCorrect);
-
-    let rect1 = text_content.getBoundingClientRect();
-    var spanRect = event.getBoundingClientRect();
-    // Позиционируем rightWordDiv под span
-    DivCorrect.style.left = spanRect.left - rect1.left + 'px';
-
-    let rect2 = DivCorrect.getBoundingClientRect();
-    let overlapRight = rect2.right - rect1.right;
-
-    if (overlapRight > 0) {
-        DivCorrect.style.right='0px';
-        DivCorrect.style.left='auto';
-    }
-}
-
-
-// Функция для выделения следующего слова
-function nextWord() {
-    if (currentIndex < spans.length - 1) {
-        if(currentIndex === -1){
-            currentIndex++;
-            next_back(spans[currentIndex]);
-        }else{
-            let list=spans[currentIndex].nextElementSibling;
-            if (list.tagName === 'DIV'){
-                text_content.removeChild(list);
-            }
-            currentIndex++;
-            next_back(spans[currentIndex]);
-        }
-    }
-}
-
-  // Функция для выделения предыдущего слова
-function backWord() {
-    if (currentIndex > 0) {
-        let list=spans[currentIndex].nextElementSibling;
-        if (list.tagName === 'DIV'){
-            text_content.removeChild(list);
-        }
-        currentIndex--;
-        next_back(spans[currentIndex]);
-    }
-}
+});
+retryButton.addEventListener('click', checkText);
+updateCounters();

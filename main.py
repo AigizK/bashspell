@@ -1,12 +1,13 @@
 import sqlite3
+from functools import lru_cache
+from threading import RLock
 from typing import List
 
-from fastapi import FastAPI
+from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from starlette.requests import Request
-from starlette.responses import FileResponse
 
 from bashspell_text import should_ignore_word
 
@@ -29,6 +30,32 @@ except ImportError:
 
 class CandidatesBatch(BaseModel):
     unverified_words: List[str]
+    include_suggestions: bool = True
+
+
+class SuggestionRequest(BaseModel):
+    word: str
+
+
+# The dictionary is shared by worker threads; pyhunspell does not promise that
+# concurrent calls on one instance are safe. Cache lookups take the same lock
+# so simultaneous requests for a word do not repeat an expensive suggestion.
+hunspell_lock = RLock()
+
+
+@lru_cache(maxsize=20000)
+def is_correct(word):
+    return should_ignore_word(word) or hobj.spell(word)
+
+
+@lru_cache(maxsize=2000)
+def suggestions(word):
+    return tuple(hobj.suggest(word)) if not is_correct(word) else ()
+
+
+def require_hunspell():
+    if hobj is None:
+        raise HTTPException(status_code=503, detail="Spellchecker is unavailable")
 
 
 @app.get("/")
@@ -40,32 +67,15 @@ def cleanup(item:str):
     item=item.lstrip("—")
     return item
 
-def spellChecker(unverified_words):
+def spellChecker(unverified_words, include_suggestions=True):
+    require_hunspell()
     correct = []
-    for i in range(len(unverified_words)):
-        word = unverified_words[i]
-        word = cleanup(word)
-        if should_ignore_word(word):
-            correct.append({'word': unverified_words[i], 'variants': []})
-        elif not hobj.spell(word):
-            correct.append({'word': unverified_words[i],
-                            'variants': hobj.suggest(word)})
-        else:
-            correct.append({'word': unverified_words[i], 'variants': []})
-    return correct
-
-
-def spellChecker_notHunspell(unverified_words):
-    correct = []
-    for i in range(len(unverified_words)):
-        if should_ignore_word(cleanup(unverified_words[i])):
-            correct.append({'word': unverified_words[i], 'variants': []})
-        elif len(unverified_words[i]) <= 3:
-            correct.append({'word': unverified_words[i],
-                            'variants': [unverified_words[i], 'вариант1',
-                                         'вариант2', 'вариант3']})
-        else:
-            correct.append({'word': unverified_words[i], 'variants': []})
+    for original in unverified_words:
+        word = cleanup(original)
+        with hunspell_lock:
+            valid = is_correct(word)
+            variants = list(suggestions(word)) if include_suggestions and not valid else []
+        correct.append({'word': original, 'correct': valid, 'variants': variants})
     return correct
 
 
@@ -98,11 +108,17 @@ def save_to_sqlite_db(data, version):
 
 
 @app.post("/data_processing")
-async def data_processing(data: CandidatesBatch):
-    try:
-        correct = spellChecker(data.unverified_words)
-    except:
-        correct = spellChecker_notHunspell(data.unverified_words)
-
-    save_to_sqlite_db(correct, ACTUAL_BASH_HUNSPELL_VERSION)
+def data_processing(data: CandidatesBatch, background_tasks: BackgroundTasks):
+    correct = spellChecker(data.unverified_words, data.include_suggestions)
+    # Keep the legacy API and its statistics. The fast path does not calculate
+    # variant counts, and must not overwrite those counts with invented zeros.
+    if data.include_suggestions:
+        background_tasks.add_task(save_to_sqlite_db, correct, ACTUAL_BASH_HUNSPELL_VERSION)
     return {'message': correct}
+
+
+@app.post("/suggestions")
+def word_suggestions(data: SuggestionRequest, background_tasks: BackgroundTasks):
+    correct = spellChecker([data.word])
+    background_tasks.add_task(save_to_sqlite_db, correct, ACTUAL_BASH_HUNSPELL_VERSION)
+    return correct[0]
