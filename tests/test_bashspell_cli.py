@@ -16,6 +16,9 @@ GRAMMAR_REGRESSIONS = (
 APERTIUM_REGRESSIONS = (
     PROJECT_ROOT / "tests" / "data" / "apertium-pr-4-5-regressions.txt"
 )
+GRAMMAR_AUDIT_REGRESSIONS = (
+    PROJECT_ROOT / "tests" / "data" / "grammar-audit-2026-09-05.txt"
+)
 HAS_HUNSPELL = shutil.which("hunspell") is not None
 
 
@@ -92,7 +95,7 @@ class BashspellCliTests(unittest.TestCase):
         rule = run_cli("rule", "N15")
         self.assertEqual(rule.returncode, 0)
         self.assertIn("[N15 → 109]", rule.stdout)
-        self.assertIn("SFX 109 Y 31", rule.stdout)
+        self.assertRegex(rule.stdout, r"SFX 109 Y \d+")
         self.assertIn("+Pl", rule.stdout)
 
     def test_validate_detects_a_missing_case_ending(self) -> None:
@@ -150,6 +153,7 @@ class BashspellCliTests(unittest.TestCase):
         for wrong_plural, correct_plural, noun, verb in (
             ("заказлар", "заказдар", "заказ", "заказла"),
             ("йыһазлар", "йыһаздар", "йыһаз", "йыһазла"),
+            ("ауазлар", "ауаздар", "ауаз", "ауазлау"),
         ):
             with self.subTest(word=wrong_plural):
                 wrong = run_cli("analyze", wrong_plural)
@@ -160,6 +164,53 @@ class BashspellCliTests(unittest.TestCase):
                 correct = run_cli("analyze", correct_plural)
                 self.assertEqual(correct.returncode, 0, correct.stderr)
                 self.assertIn(f"st:{noun} [Noun] +Pl", correct.stdout)
+
+    def test_complete_grammar_paradigms(self) -> None:
+        completed = run_cli("test", "--file", str(GRAMMAR_AUDIT_REGRESSIONS))
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+
+    def test_grammar_forms_have_productive_analyses(self) -> None:
+        for form, expected in (
+            ("китапханаламын", "st:китапхана [Noun] +Loc +Pred1Sg"),
+            ("ағайыңмын", "st:ағай [Noun] fl:99 +PxSg2+Pred1Sg"),
+            ("һүнмәҫлек", "st:һүн [Verb] +Neg+Prc+Der/лыҡ"),
+            ("яуа", "st:яу [Verb] +Pres+PxSg3"),
+        ):
+            with self.subTest(form=form):
+                completed = run_cli("analyze", form)
+                self.assertEqual(completed.returncode, 0, completed.stderr)
+                self.assertIn(expected, completed.stdout)
+
+    def test_grammar_without_memorized_word_forms(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            dictionary = Path(directory)
+            shutil.copyfile(PROJECT_ROOT / "static/hunspell/28.01.2024/bash.aff",
+                            dictionary / "bash.aff")
+            (dictionary / "bash.dic").write_text(
+                "5\nкитапхана/103 [Noun]\nағай/99 [Noun]\nһүн/216 [Verb]\n"
+                "уйнау/231,99 [Verb]\nябыу/235,99 [Verb]\n", encoding="utf-8",
+            )
+            completed = run_cli(
+                "--dict", directory, "test", "--valid",
+                "китапханаламын", "китапханаламынмы", "ағайыңмын", "ағайыңмынмы",
+                "һүнмәҫлек", "һүнмәҫлеге", "уйна", "уйнаған", "уйнаны",
+                "яп", "япҡан", "яба", "--invalid", "уйнған", "ябған", "ағайыңмен",
+            )
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+
+    def test_cluster_verb_homographs_keep_their_own_analyses(self) -> None:
+        for form, forbidden_stem in (("тапа", "тап"), ("ҡурға", "ҡурҡ"), ("һарға", "һарҡ")):
+            with self.subTest(form=form):
+                completed = run_cli("analyze", form)
+                self.assertEqual(completed.returncode, 0, completed.stderr)
+                self.assertNotIn(f"st:{forbidden_stem} [Verb]", completed.stdout)
+
+    def test_generated_grammar_is_current(self) -> None:
+        completed = subprocess.run(
+            ["python3", str(PROJECT_ROOT / "tools" / "complete_hunspell_paradigms.py"), "--check"],
+            capture_output=True, text=True, cwd=PROJECT_ROOT,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
 
     def test_latest_dictionary_morphology_regressions(self) -> None:
         for form, stem, nominal_flag in (

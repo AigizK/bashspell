@@ -114,3 +114,26 @@ sudo apt-get install python3.10-dev libhunspell-dev hunspell
 452 доступные HTML-страницы, а `manifest.json` фиксирует исходные URL, размеры и
 SHA-256 файлов. Для повторной загрузки используется
 `python3 tools/download_grammar_reference.py`.
+
+Аудит от 05.09.2026 выявил и исправил 13 групп пропусков и ошибок в правилах
+версии `28.01.2024`. Примеры, ссылки на грамматику, ограничения проверки и
+результаты обхода всех 452 страниц собраны в
+[`reports/grammar-audit-2026-09-05.md`](reports/grammar-audit-2026-09-05.md).
+Новый набор содержит 482 положительные и отрицательные проверки:
+
+```bash
+./bashspell --dict 28.01.2024 test --file tests/data/grammar-audit-2026-09-05.txt
+python3 -m unittest discover -s tests -v
+```
+
+Часть парадигм в `bash.aff` генерируется из прямых правил, чтобы сочетания
+окончаний укладывались в ограничения Hunspell. После изменения исходных строк
+нужно пересобрать производные правила и проверить словарь:
+
+```bash
+python3 tools/complete_hunspell_paradigms.py --write
+./bashspell --dict 28.01.2024 validate
+```
+
+Команда `python3 tools/complete_hunspell_paradigms.py --check` проверяет
+актуальность сгенерированных строк без изменения файлов.

@@ -1,0 +1,27 @@
+{
+  "baseline_commit": "8c7ee06",
+  "reference_pages": 452,
+  "unique_italic_examples": 14239,
+  "raw_rejected_before": 1461,
+  "raw_rejected_after": 1391,
+  "became_accepted": 82,
+  "became_rejected": 12,
+  "dictionary_sha256": {
+    ".aff": "3a76a885e1bb37738e551a72052cf5ccb54cda5a0b94c6775d3692405ddb3e7a",
+    ".dic": "5a90578b75fa91ed74146ebd4c9d77bf5d070f293bfe9bbecaea06efb25a95fe"
+  },
+  "regression_cases": {
+    "existing_grammar": 426,
+    "apertium": 42,
+    "new_grammar_audit": 482
+  },
+  "structural_validation": {
+    "valid": true,
+    "issues": []
+  },
+  "unit_tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "run": 15,
+    "passed": 15
+  }
+}
