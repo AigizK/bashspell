@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Morphology browser regressions</title>
+<pre id="test_results">Loading the actual page template…</pre>
+<iframe id="test_app" style="width:100%;height:800px;border:0" title="Morphology test app"></iframe>
+<script>
+fetch('/templates/index.html').then(response => response.text()).then(html => {
+    html = html.replace('<script src="/static/js/index.js', '<script src="/tests/morphology_mock.js"><' + '/script><script src="/static/js/index.js');
+    html = html.replace('</body>', '<script src="/tests/morphology_regressions.js"><' + '/script></body>');
+    document.getElementById('test_app').srcdoc = html;
+});
+</script>

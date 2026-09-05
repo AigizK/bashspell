@@ -1,15 +1,20 @@
 import sqlite3
+import re
+import unicodedata
 from functools import lru_cache
+from pathlib import Path
 from threading import RLock
 from typing import List
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from starlette.requests import Request
 
 from bashspell_text import should_ignore_word
+from bashspell_morphology import AnalysisLimitError, Morphology
+from bashspell_morphology_labels import legend_for
 
 ACTUAL_BASH_HUNSPELL_VERSION = "28.01.2024"
 
@@ -35,6 +40,18 @@ class CandidatesBatch(BaseModel):
 
 class SuggestionRequest(BaseModel):
     word: str
+
+
+class MorphologyRequest(BaseModel):
+    word: str = Field(min_length=1, max_length=256)
+
+
+morphology_lock = RLock()
+
+
+@lru_cache(maxsize=1)
+def get_morphology():
+    return Morphology(Path(__file__).resolve().parent / 'static' / 'hunspell' / ACTUAL_BASH_HUNSPELL_VERSION)
 
 
 # The dictionary is shared by worker threads; pyhunspell does not promise that
@@ -122,3 +139,17 @@ def word_suggestions(data: SuggestionRequest, background_tasks: BackgroundTasks)
     correct = spellChecker([data.word])
     background_tasks.add_task(save_to_sqlite_db, correct, ACTUAL_BASH_HUNSPELL_VERSION)
     return correct[0]
+
+
+@app.post("/analyze")
+def analyze_word(data: MorphologyRequest):
+    word = unicodedata.normalize('NFC', data.word.strip())
+    if not re.fullmatch(r"[^\W\d_]+(?:[-'’][^\W\d_]+)*", word):
+        raise HTTPException(status_code=422, detail="Enter one word")
+    with morphology_lock:
+        analyzer = get_morphology()
+    try:
+        result = analyzer.analyze(word)
+    except AnalysisLimitError:
+        raise HTTPException(status_code=503, detail="Complete analysis could not be finished")
+    return {**result, 'legend': legend_for(result['analyses'])}

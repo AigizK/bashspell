@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ba">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +9,18 @@
           crossorigin="anonymous">
     <title>Тикшереү</title>
     <link type="Image/x-icon" href="/static/images/Group 23.ico" rel="icon">
-    <link rel="stylesheet" href="/static/css/style.css?version=6.0">
+    <link rel="stylesheet" href="/static/css/style.css?version=7.0">
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="navbar-brand"><img class="new_logo" src="/static/images/new_logo.svg" alt="Тикшереү"><h1 class="name">Тикшереү</h1></div>
 </nav>
-<div id="box">
+<nav class="tool-tabs" role="tablist" aria-label="Ҡоралдар">
+    <button id="spelling_tab" role="tab" aria-selected="true" aria-controls="box">Тексты тикшереү</button>
+    <button id="morphology_tab" role="tab" aria-selected="false" aria-controls="morphology_panel" tabindex="-1">Һүҙ составы</button>
+</nav>
+<div id="box" role="tabpanel" aria-labelledby="spelling_tab">
     <div id="head_container">
         <div class="dbl_btn" id="dbl_btn">
             <button id="error_btn"><img src="/static/images/previous.png"
@@ -40,7 +44,35 @@
     <div id="check_feedback" role="status"><span id="check_status"></span> <button id="retry_check" hidden>Ҡабатларға</button></div>
 </div>
 
+<section id="morphology_panel" class="morphology-panel" role="tabpanel" aria-labelledby="morphology_tab" hidden>
+    <div class="morphology-intro">
+        <h2>Һүҙҙең составын ҡарағыҙ</h2>
+        <p>Нигеҙе, ҡушымталары һәм грамматик мәғәнәләре.</p>
+    </div>
+    <form id="morphology_form">
+        <label for="morphology_word">Һүҙ</label>
+        <div class="morphology-input-row">
+            <input id="morphology_word" name="word" type="text" maxlength="256" placeholder="Мәҫәлән, халыҡтарҙыңмы" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+            <button type="submit" id="analyze_button">Тикшерергә <span aria-hidden="true">→</span></button>
+        </div>
+    </form>
+    <div class="morphology-examples"><span>Миҫалдар:</span>
+        <button type="button" data-analyze-word="халыҡтарҙыңмы">халыҡтарҙыңмы</button>
+        <button type="button" data-analyze-word="халыҡтарҙыңдыр">халыҡтарҙыңдыр</button>
+        <button type="button" data-analyze-word="һүнмәҫлеге">һүнмәҫлеге</button>
+    </div>
+    <p id="morphology_status" role="status" aria-live="polite"></p>
+    <div id="morphology_results" hidden>
+        <div class="morphology-result-heading"><h3 id="analyzed_word"></h3><p id="analysis_count"></p></div>
+        <div id="analysis_list"></div>
+        <section class="morphology-legend" aria-labelledby="legend_heading">
+            <h3 id="legend_heading">Тамғалар нимә аңлата?</h3>
+            <dl id="morphology_legend"></dl>
+        </section>
+    </div>
+</section>
 
 <script src="/static/js/index.js?version=8.0"></script>
+<script src="/static/js/morphology.js?version=1.0"></script>
 </body>
 </html>
