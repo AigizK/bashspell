@@ -19,6 +19,9 @@ APERTIUM_REGRESSIONS = (
 GRAMMAR_AUDIT_REGRESSIONS = (
     PROJECT_ROOT / "tests" / "data" / "grammar-audit-2026-09-05.txt"
 )
+CORPUS_HARMONY_REGRESSIONS = (
+    PROJECT_ROOT / "tests" / "data" / "corpus-harmony-2026-09-05.txt"
+)
 HAS_HUNSPELL = shutil.which("hunspell") is not None
 
 
@@ -143,6 +146,11 @@ class BashspellCliTests(unittest.TestCase):
         completed = run_cli("test", "--file", str(GRAMMAR_REGRESSIONS))
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
         self.assertIn("Итого: 426; провалено: 0", completed.stdout)
+
+    def test_latest_dictionary_matches_corpus_harmony_regressions(self) -> None:
+        completed = run_cli("test", "--file", str(CORPUS_HARMONY_REGRESSIONS))
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+        self.assertIn("Итого: 48; провалено: 0", completed.stdout)
 
     def test_latest_dictionary_matches_apertium_regressions(self) -> None:
         completed = run_cli("test", "--file", str(APERTIUM_REGRESSIONS))
