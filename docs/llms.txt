@@ -1,0 +1,46 @@
+# Tiksher: Bashkir spellchecking API
+
+Information for LLMs, coding agents and other API clients.
+Для LLM и программных агентов: проверка орфографии башкирского текста.
+
+Base URL: https://tiksher.eu
+Endpoint: POST https://tiksher.eu/api/v1/spellcheck
+Content-Type: application/json
+Authentication: not required.
+
+Request body: {"text":"Мин башҡортса яҙам."}
+Send the full text in the text field; do not split it into words yourself.
+The text must be a non-blank string of at most 5000 Unicode code points.
+Spaces, punctuation and newlines count towards this limit. The limit applies
+before trimming or Unicode normalization; it counts characters, not UTF-8 bytes.
+Split longer texts into chunks of at most 5000 characters at word boundaries.
+
+HTTP 200 response when no spelling errors are found:
+{"errors":[],"message":"Ошибок нет"}
+
+HTTP 200 response when spelling errors are found (illustrative suggestions):
+{"errors":[{"word":"башкорд","suggestions":["башҡорт"]}],"message":"Найдены ошибки"}
+
+Only words flagged by the Bashkir dictionary appear in errors. Correct words
+and the original text are not returned. Each distinct word appears once,
+in first-occurrence order, with its case preserved. Repeated words are checked
+once. Actual suggestions depend on the dictionary; choose a suitable correction
+using the sentence context. An empty suggestions array is still a spelling error,
+not a successful check. The service does not automatically rewrite the text.
+
+Tokenization: Unicode is normalized to NFC; punctuation, numeric components
+such as 1941-ҙән, initials and known abbreviations are ignored. Quoted names
+with a suffix are checked together, e.g. «Даная»ның becomes Данаяның.
+This is dictionary-based spelling checking, not grammar or style checking.
+Names and words missing from the dictionary can also be flagged.
+If the input has no checkable words, errors is empty.
+The submitted text is not written to the statistics database.
+
+HTTP 422: invalid JSON data, missing/non-string/blank text or text over the limit.
+HTTP 503: spellchecker unavailable. Other non-200 responses are failures too;
+do not interpret them as "no errors". Error details are in the detail field.
+
+OpenAPI schema: https://tiksher.eu/openapi.json
+Interactive API documentation: https://tiksher.eu/docs
+Human interface: https://tiksher.eu/
+Single-word morphology interface: https://tiksher.eu/#morphology

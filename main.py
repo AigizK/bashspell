@@ -4,19 +4,21 @@ import unicodedata
 from functools import lru_cache
 from pathlib import Path
 from threading import RLock
-from typing import List
+from typing import List, Literal
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel, Field
+from fastapi.responses import PlainTextResponse
+from pydantic import BaseModel, Field, StrictStr
 from starlette.requests import Request
 
-from bashspell_text import should_ignore_word
+from bashspell_text import extract_words, should_ignore_word
 from bashspell_morphology import AnalysisLimitError, Morphology
 from bashspell_morphology_labels import legend_for
 
 ACTUAL_BASH_HUNSPELL_VERSION = "28.01.2024"
+AGENT_API_INSTRUCTIONS = (Path(__file__).resolve().parent / 'docs' / 'llms.txt').read_text(encoding='utf-8')
 
 app = FastAPI()
 
@@ -44,6 +46,23 @@ class SuggestionRequest(BaseModel):
 
 class MorphologyRequest(BaseModel):
     word: str = Field(min_length=1, max_length=256)
+
+
+class TextCheckRequest(BaseModel):
+    text: StrictStr = Field(
+        min_length=1, max_length=5000,
+        description="Full Bashkir text, at most 5000 Unicode code points including whitespace, before normalization. Must not be blank.",
+    )
+
+
+class SpellingError(BaseModel):
+    word: str = Field(description="Unrecognized word in NFC, preserving case. Each distinct word appears once, in first-occurrence order.")
+    suggestions: List[str] = Field(description="Suggested replacements. An empty list still means the word was flagged.")
+
+
+class TextCheckResponse(BaseModel):
+    errors: List[SpellingError] = Field(description="Only words flagged by the Bashkir dictionary. Empty means no spelling errors were found.")
+    message: Literal['Ошибок нет', 'Найдены ошибки']
 
 
 morphology_lock = RLock()
@@ -77,7 +96,15 @@ def require_hunspell():
 
 @app.get("/")
 async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request, name="index.html",
+        context={"agent_api_instructions": AGENT_API_INSTRUCTIONS},
+    )
+
+
+@app.get('/llms.txt', response_class=PlainTextResponse, include_in_schema=False)
+def agent_api_instructions():
+    return AGENT_API_INSTRUCTIONS
 
 
 def cleanup(item:str):
@@ -139,6 +166,32 @@ def word_suggestions(data: SuggestionRequest, background_tasks: BackgroundTasks)
     correct = spellChecker([data.word])
     background_tasks.add_task(save_to_sqlite_db, correct, ACTUAL_BASH_HUNSPELL_VERSION)
     return correct[0]
+
+
+@app.post(
+    '/api/v1/spellcheck', response_model=TextCheckResponse, tags=['Agents'],
+    summary='Check a full Bashkir text for spelling errors',
+    description=(
+        'Send a JSON object with text (1–5000 Unicode code points; not blank). '
+        'Returns only distinct unrecognized words with suggestions, in first-occurrence order. '
+        'Punctuation, numeric components, initials and known abbreviations are ignored. '
+        'Unicode is normalized to NFC and quoted names are joined to their suffixes. '
+        'No authentication required. No grammatical or stylistic checking. '
+        'The submitted text is not written to the statistics database. See /llms.txt.'
+    ),
+    responses={
+        422: {'description': 'Invalid input, blank text or more than 5000 Unicode code points.'},
+        503: {'description': 'Spellchecker unavailable; this does not mean the text is correct.'},
+    },
+)
+def check_full_text(data: TextCheckRequest):
+    if not data.text.strip():
+        raise HTTPException(status_code=422, detail='Text must not be blank')
+    words = list(dict.fromkeys(extract_words(data.text)))
+    checked = spellChecker(words)
+    errors = [SpellingError(word=item['word'], suggestions=item['variants'])
+              for item in checked if not item['correct']]
+    return TextCheckResponse(errors=errors, message='Найдены ошибки' if errors else 'Ошибок нет')
 
 
 @app.post("/analyze")
